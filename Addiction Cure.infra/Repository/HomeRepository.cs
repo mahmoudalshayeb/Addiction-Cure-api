@@ -42,7 +42,6 @@ namespace Addiction_Cure.infra.Repository
         }
         public void updatehome(Homepageac homepageac)
         {
-
             var p = new DynamicParameters();
             p.Add("HOMEIDS", homepageac.Homeid, dbType: DbType.Int32, ParameterDirection.Input);
             p.Add("IMAGE1S", homepageac.Image1, dbType: DbType.String, ParameterDirection.Input);
