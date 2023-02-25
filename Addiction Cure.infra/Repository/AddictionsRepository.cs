@@ -2,6 +2,7 @@
 using Addiction_Cure.core.Data;
 using Addiction_Cure.core.Repository;
 using Dapper;
+using LMS.Core.Common;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -13,12 +14,12 @@ namespace Addiction_Cure.infra.Repository
     public class AddictionsRepository : IAddictionsRepository
     {
 
-        private readonly IDbContext _DbContext;
+        private readonly IDBContext _DbContext;
 
 
 
         // constructor with dependency injection from domain entity layer
-        public AddictionsRepository(IDbContext DbContext)
+        public AddictionsRepository(IDBContext DbContext)
         {
             _DbContext = DbContext;
         }
@@ -32,7 +33,7 @@ namespace Addiction_Cure.infra.Repository
 
         public List<Addictionsac> GetAllAddictionsAC()
         {
-            IEnumerable<Addictionsac> result = _DbContext.connection.Query<Addictionsac>("ADDICTIONS_PACKAGE.GetAllAddictionsAC",
+            IEnumerable<Addictionsac> result = _DbContext.Connection.Query<Addictionsac>("ADDICTIONS_PACKAGE.GetAllAddictionsAC",
                            commandType: CommandType.StoredProcedure);
 
             return result.ToList();
