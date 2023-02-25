@@ -20,6 +20,8 @@ namespace Addiction_Cure.Controllers
         [Route("getallAboutUs")]
         public List<Aboutusac> GetAllAboutUs()
         {
+            // dhddhhdhd
+            // jjjjjjjjjjjjjjjjjjj
             return aboutUsService.GetAllAboutUs();
         }
 
