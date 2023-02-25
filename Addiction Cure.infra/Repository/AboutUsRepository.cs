@@ -55,6 +55,7 @@ namespace Addiction_Cure.infra.Repository
             p.Add("AboutUsID", aboutusid, dbType: DbType.Int32, ParameterDirection.Input);
             var result = dBContext.Connection.Execute("ABOUTUSAC_PACKAGE.DELETEABOUTUSAC", 
                 p, commandType: CommandType.StoredProcedure);
+            //hh
         }
 
     }
