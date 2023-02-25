@@ -49,6 +49,13 @@ namespace Addiction_Cure
             services.AddScoped<IBankService, BankService>();
             services.AddScoped<IHomeService, HomeService>();
 
+            services.AddScoped<ICategoryRepository,CategoryRepository>();
+            services.AddScoped<ICategoryService, CategoryService>();
+            services.AddScoped<IAddictionsRepository, AddictionsRepository>();
+            services.AddScoped<IAddictionService, AddictionService>();
+            services.AddScoped<ITestimonialsRepository,TestimonialsRepository>();
+            services.AddScoped<ITestimonialsService, TestimonialsService>();
+
 
             services.AddControllers();
         }
