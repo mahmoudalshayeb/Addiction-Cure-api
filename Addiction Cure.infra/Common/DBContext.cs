@@ -5,9 +5,8 @@ using System.Collections.Generic;
 using System.Data.Common;
 using System.Data;
 using System.Text;
-using LMS.Core.Common;
 
-namespace LMS.Infra.Common
+namespace Addiction_Cure.core.Common
 {
     public class DBContext : IDBContext
     {

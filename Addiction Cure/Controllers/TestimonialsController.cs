@@ -114,7 +114,7 @@ namespace Addiction_Cure.Controllers
             // its like insert TEMPORARY record from category all ATTRIBUTS  are null except the image 
 
             Testemonialac item = new Testemonialac();
-            item.Image_Path = fileName;
+            item.ImagePath = fileName;
             return item;
         }
 

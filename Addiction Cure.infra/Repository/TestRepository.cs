@@ -13,8 +13,8 @@ namespace Addiction_Cure.infra.Repository
 {
     public class TestRepository : ITestRepository
     {
-        private readonly IDbContext dbContext;
-        public TestRepository(IDbContext dbContext)
+        private readonly IDBContext dbContext;
+        public TestRepository(IDBContext dbContext)
         {
             this.dbContext = dbContext;
         }

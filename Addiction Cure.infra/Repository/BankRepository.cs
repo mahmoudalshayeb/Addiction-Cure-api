@@ -1,7 +1,7 @@
 ﻿using Addiction_Cure.core.Data;
 using Addiction_Cure.core.Repository;
 using Dapper;
-using LMS.Core.Common;
+using Addiction_Cure.core.Common;
 using System;
 using System.Collections.Generic;
 using System.Data;

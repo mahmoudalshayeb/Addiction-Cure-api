@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Data.Common;
 using System.Text;
 
-namespace LMS.Core.Common
+namespace Addiction_Cure.core.Common
 {
     public interface IDBContext
     {

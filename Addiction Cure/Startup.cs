@@ -1,9 +1,8 @@
 using Addiction_Cure.core.Repository;
 using Addiction_Cure.core.Service;
+using Addiction_Cure.core.Common;
 using Addiction_Cure.infra.Repository;
 using Addiction_Cure.infra.Service;
-using LMS.Core.Common;
-using LMS.Infra.Common;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;

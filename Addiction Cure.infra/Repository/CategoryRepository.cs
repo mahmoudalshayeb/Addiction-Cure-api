@@ -1,7 +1,6 @@
 ﻿using Addiction_Cure.core.Common;
 using Addiction_Cure.core.Data;
 using Addiction_Cure.core.Repository;
-using Addiction_Cure.infra.Common;
 using Dapper;
 using System;
 using System.Collections.Generic;
@@ -15,12 +14,12 @@ namespace Addiction_Cure.infra.Repository
     {
 
 
-        private readonly IDbContext _DbContext;
+        private readonly IDBContext _DbContext;
 
 
 
         // constructor with dependency injection from domain entity layer
-        public CategoryRepository(IDbContext DbContext)
+        public CategoryRepository(IDBContext DbContext)
         {
             _DbContext = DbContext;
         }
@@ -32,7 +31,7 @@ namespace Addiction_Cure.infra.Repository
 
         public List<Categoryac> GetAllCategoryAC()
         {
-            IEnumerable<Categoryac> result = _DbContext.connection.Query<Categoryac>("CATEGORYAC_PACKAGE.GetAllCategoryAC",
+            IEnumerable<Categoryac> result = _DbContext.Connection.Query<Categoryac>("CATEGORYAC_PACKAGE.GetAllCategoryAC",
                 commandType:CommandType.StoredProcedure);
 
             return result.ToList();
@@ -49,7 +48,7 @@ namespace Addiction_Cure.infra.Repository
 
             p.Add("ID",id,dbType:DbType.Int32,direction:ParameterDirection.Input);
 
-            IEnumerable<Categoryac> result = _DbContext.connection.Query<Categoryac>("CATEGORYAC_PACKAGE.GetCategoryByIdAC",p,
+            IEnumerable<Categoryac> result = _DbContext.Connection.Query<Categoryac>("CATEGORYAC_PACKAGE.GetCategoryByIdAC",p,
                             commandType: CommandType.StoredProcedure);
 
             return result.FirstOrDefault();
@@ -70,7 +69,7 @@ namespace Addiction_Cure.infra.Repository
             p.Add("ABOUTTEXTAC", categoryac.Abouttext,dbType:DbType.String,direction:ParameterDirection.Input);
 
             // you can remove the var result its ok if you dont want to know number of rows affected 
-            var result = _DbContext.connection.Execute("CATEGORYAC_PACKAGE.CreateCategoryAC", p,
+            var result = _DbContext.Connection.Execute("CATEGORYAC_PACKAGE.CreateCategoryAC", p,
                             commandType: CommandType.StoredProcedure);
 
         }
@@ -89,7 +88,7 @@ namespace Addiction_Cure.infra.Repository
             p.Add("ABOUTTEXTAC", categoryac.Abouttext, dbType: DbType.String, direction: ParameterDirection.Input);
 
             // you can remove the var result its ok if you dont want to know number of rows affected 
-            var result = _DbContext.connection.Execute("CATEGORYAC_PACKAGE.UpdateCategoryAC", p,
+            var result = _DbContext.Connection.Execute("CATEGORYAC_PACKAGE.UpdateCategoryAC", p,
                             commandType: CommandType.StoredProcedure);
         }
 
@@ -105,7 +104,7 @@ namespace Addiction_Cure.infra.Repository
             var p = new DynamicParameters();
             p.Add("ID",id, dbType: DbType.Int32, direction: ParameterDirection.Input);
 
-            _DbContext.connection.Execute("CATEGORYAC_PACKAGE.DeleteCategoryAC", p,
+            _DbContext.Connection.Execute("CATEGORYAC_PACKAGE.DeleteCategoryAC", p,
                 commandType: CommandType.StoredProcedure);
 
 

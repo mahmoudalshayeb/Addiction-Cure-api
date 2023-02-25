@@ -12,8 +12,8 @@ namespace Addiction_Cure.infra.Repository
 {
     public class PaymentRepository : IPaymentRepository
     {
-        private readonly IDbContext dbContext;
-        public PaymentRepository(IDbContext dbContext)
+        private readonly IDBContext dbContext;
+        public PaymentRepository(IDBContext dbContext)
         {
             this.dbContext = dbContext;
         }

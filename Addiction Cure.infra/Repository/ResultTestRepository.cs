@@ -12,8 +12,8 @@ namespace Addiction_Cure.infra.Repository
 {
     public class ResultTestRepository :IResultTestRepository
     {
-        private readonly IDbContext dbContext;
-        public ResultTestRepository(IDbContext dbContext)
+        private readonly IDBContext dbContext;
+        public ResultTestRepository(IDBContext dbContext)
         {
             this.dbContext = dbContext;
         }

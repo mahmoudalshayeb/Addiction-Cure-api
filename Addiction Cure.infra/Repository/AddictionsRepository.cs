@@ -2,7 +2,6 @@
 using Addiction_Cure.core.Data;
 using Addiction_Cure.core.Repository;
 using Dapper;
-using LMS.Core.Common;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -52,7 +51,7 @@ namespace Addiction_Cure.infra.Repository
 
             p.Add("ID", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
 
-            IEnumerable<Addictionsac> result = _DbContext.connection.Query<Addictionsac>("ADDICTIONS_PACKAGE.GetAddictionByIdAC", p,
+            IEnumerable<Addictionsac> result = _DbContext.Connection.Query<Addictionsac>("ADDICTIONS_PACKAGE.GetAddictionByIdAC", p,
                             commandType: CommandType.StoredProcedure);
 
             return result.FirstOrDefault();
@@ -77,7 +76,7 @@ namespace Addiction_Cure.infra.Repository
             p.Add("CATEGORYIDAC", addictionsac.Categoryid, dbType: DbType.Int32, direction: ParameterDirection.Input);
 
             // you can remove the var result its ok if you dont want to know number of rows affected 
-            var result = _DbContext.connection.Execute("ADDICTIONS_PACKAGE.CreateAddictionAC", p,
+            var result = _DbContext.Connection.Execute("ADDICTIONS_PACKAGE.CreateAddictionAC", p,
                             commandType: CommandType.StoredProcedure);
         }
 
@@ -99,7 +98,7 @@ namespace Addiction_Cure.infra.Repository
             p.Add("CATEGORYIDAC", addictionsac.Categoryid, dbType: DbType.Int32, direction: ParameterDirection.Input);
 
             // you can remove the var result its ok if you dont want to know number of rows affected 
-            var result = _DbContext.connection.Execute("ADDICTIONS_PACKAGE.UpdateAddictionAC", p,
+            var result = _DbContext.Connection.Execute("ADDICTIONS_PACKAGE.UpdateAddictionAC", p,
                             commandType: CommandType.StoredProcedure);
         }
 
@@ -116,7 +115,7 @@ namespace Addiction_Cure.infra.Repository
             var p = new DynamicParameters();
             p.Add("ID",id, dbType: DbType.Int32, direction: ParameterDirection.Input);
 
-            _DbContext.connection.Execute("ADDICTIONS_PACKAGE.DeleteAddictionAC", p,
+            _DbContext.Connection.Execute("ADDICTIONS_PACKAGE.DeleteAddictionAC", p,
                 commandType: CommandType.StoredProcedure);
         }
     }
