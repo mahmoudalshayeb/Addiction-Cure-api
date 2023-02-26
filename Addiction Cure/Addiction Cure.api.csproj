@@ -25,5 +25,9 @@
     <ProjectReference Include="..\Addiction Cure.infra\Addiction Cure.infra.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Images\" />
+  </ItemGroup>
+
 
 </Project>
