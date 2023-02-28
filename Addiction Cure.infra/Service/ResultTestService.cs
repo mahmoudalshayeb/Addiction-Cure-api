@@ -32,5 +32,10 @@ namespace Addiction_Cure.infra.Service
             resultTestRepository.DeleteResult(id);
         }
 
+       public List<Resulttsetac> GetResultBetween(DateTime datefrom, DateTime dateto)
+        {
+            return resultTestRepository.GetResultBetween(datefrom, dateto);
+        }
+
     }
 }

@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
+using Addiction_Cure.core.DTO;
 
 namespace Addiction_Cure.infra.Repository
 {
@@ -67,6 +68,14 @@ namespace Addiction_Cure.infra.Repository
             var p = new DynamicParameters();
             p.Add("Id", doctorid, dbType: DbType.Int32, ParameterDirection.Input);
             var result = dBContext.Connection.Execute("Doctor_package.DeleteDoctor", p, commandType: CommandType.StoredProcedure);
+        }
+
+        public List<SearchByName> GetDocByName(string thename)
+        {
+            var p = new DynamicParameters();
+            p.Add("nameac", thename, dbType: DbType.String, ParameterDirection.Input);
+            IEnumerable<SearchByName> result = dBContext.Connection.Query<SearchByName>("Doctor_package.SearchDoctorByName",p,commandType: CommandType.StoredProcedure);
+            return result.ToList();
         }
     }
 }

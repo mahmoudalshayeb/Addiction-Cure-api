@@ -57,5 +57,13 @@ namespace Addiction_Cure.infra.Repository
             dbContext.Connection.Execute("ResultTest_pack.DeleteResultac", p, commandType: CommandType.StoredProcedure);
 
         }
+        public List<Resulttsetac> GetResultBetween(DateTime datefrom, DateTime dateto)
+        {
+            var p = new DynamicParameters();
+            p.Add("datetestac1", datefrom, dbType: DbType.Date, ParameterDirection.Input);
+            p.Add("datetestAc2", dateto, dbType: DbType.Date, ParameterDirection.Input);
+            IEnumerable<Resulttsetac> result = dbContext.Connection.Query<Resulttsetac>("ResultTest_pack.testbydate", p,commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
     }
 }

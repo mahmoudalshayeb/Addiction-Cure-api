@@ -1,4 +1,5 @@
 ﻿using Addiction_Cure.core.Data;
+using Addiction_Cure.core.DTO;
 using Addiction_Cure.core.Service;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -42,6 +43,12 @@ namespace Addiction_Cure.Controllers
         public void Deletedoctor(int doctorid)
         {
             idoctorService.Deletedoctor(doctorid);
+        }
+        [HttpPost]
+        [Route("SearchByName/{thename}")]
+        public List<SearchByName> GetDocByName(string thename)
+        {
+         return  idoctorService.GetDocByName(thename);
         }
     }
 }

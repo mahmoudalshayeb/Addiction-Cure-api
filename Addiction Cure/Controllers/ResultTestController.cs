@@ -2,6 +2,7 @@
 using Addiction_Cure.core.Service;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 
 namespace Addiction_Cure.Controllers
@@ -40,6 +41,13 @@ namespace Addiction_Cure.Controllers
         [Route("delete/{id}")]
         public void DeleteResult(int id ) {
         resultTestService.DeleteResult(id);
+        }
+
+        [HttpPost]
+        [Route("TestBydate")]
+        public List<Resulttsetac> GetResultBetween(DateTime datefrom, DateTime dateto)
+        {
+            return resultTestService.GetResultBetween(datefrom, dateto);
         }
     }
 }

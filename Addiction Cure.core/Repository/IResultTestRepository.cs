@@ -11,6 +11,8 @@ namespace Addiction_Cure.core.Repository
         void CreateResult(Resulttsetac resulttsetac);
         void UpdateResult(Resulttsetac resulttsetac);
         void DeleteResult(int id);
+        List<Resulttsetac> GetResultBetween(DateTime datefrom, DateTime dateto);
+
 
     }
 }
