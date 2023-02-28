@@ -1,4 +1,5 @@
 ﻿using Addiction_Cure.core.Data;
+using Addiction_Cure.core.DTO;
 using Addiction_Cure.core.Repository;
 using Addiction_Cure.core.Service;
 using Microsoft.IdentityModel.Tokens;
@@ -44,9 +45,9 @@ namespace Addiction_Cure.infra.Service
                 var tokenString = new JwtSecurityTokenHandler().WriteToken(tokenOptions); return tokenString;
             }
         }
-        public Loginac register(Loginac login)
+        public Register register(Register patient)
         {
-            return loginRepository.register(login);
+            return loginRepository.register(patient);
         }
 
 

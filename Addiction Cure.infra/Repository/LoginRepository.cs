@@ -8,6 +8,7 @@ using System.Data;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
+using Addiction_Cure.core.DTO;
 
 namespace Addiction_Cure.infra.Repository
 {
@@ -32,14 +33,19 @@ namespace Addiction_Cure.infra.Repository
         }
 
         //register
-        public Loginac register(Loginac login)
+        public Register register(Register patient)
         {
             var p = new DynamicParameters();
-            p.Add("usernameac", login.Username, dbType: DbType.String, ParameterDirection.Input);
-            p.Add("passwordac", login.Password, dbType: DbType.String, ParameterDirection.Input);
-            p.Add("emailac", login.Password, dbType: DbType.String, ParameterDirection.Input);
-            p.Add("roleidac", login.Password, dbType: DbType.Int32, ParameterDirection.Input);
-            IEnumerable<Loginac> result = dBContext.Connection.Query<Loginac>("LOGINAC_PACKAGE.createLogincreateLogin", p, commandType: CommandType.StoredProcedure);
+            p.Add("USERNAMEAC", patient.Username, dbType: DbType.String, ParameterDirection.Input);
+            p.Add("PASSWORDAC", patient.Password, dbType: DbType.String, ParameterDirection.Input);
+            p.Add("EMAILAC", patient.Email, dbType: DbType.String, ParameterDirection.Input);
+            p.Add("roleidac", patient.Roleid, dbType: DbType.Int32, ParameterDirection.Input);
+            p.Add("firstnameAc", patient.Firstname, dbType: DbType.String, ParameterDirection.Input);
+            p.Add("lastnameAc", patient.Lastname, dbType: DbType.String, ParameterDirection.Input);
+            p.Add("imagenameAc", patient.Imagename, dbType: DbType.String, ParameterDirection.Input);
+            p.Add("levelAc", patient.Level1, dbType: DbType.String, ParameterDirection.Input);
+            p.Add("doctodIdAc", patient.Doctodid, dbType: DbType.String, ParameterDirection.Input);
+            IEnumerable<Register> result = dBContext.Connection.Query<Register>("LOGINAC_PACKAGE.Registers", p, commandType: CommandType.StoredProcedure);
             return result.SingleOrDefault();
         }
     }

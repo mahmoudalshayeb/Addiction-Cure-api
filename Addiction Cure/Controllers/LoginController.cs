@@ -1,4 +1,5 @@
 ﻿using Addiction_Cure.core.Data;
+using Addiction_Cure.core.DTO;
 using Addiction_Cure.core.Service;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -23,6 +24,13 @@ namespace Addiction_Cure.Controllers
                 return Unauthorized();
             else
                 return Ok(token);
+        }
+
+        [HttpPost]
+        [Route("register")]
+        public Register register(Register patient)
+        {
+            return loginService.register(patient);
         }
     }
 }
