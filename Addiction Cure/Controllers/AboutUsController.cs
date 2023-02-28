@@ -31,7 +31,7 @@ namespace Addiction_Cure.Controllers
             aboutUsService.createAboutUs(aboutusac);
         }
 
-        [HttpPut]
+        [HttpPatch]
         [Route("updateAboutUs")]
         public void updateAboutUs(Aboutusac aboutusac)
         {
