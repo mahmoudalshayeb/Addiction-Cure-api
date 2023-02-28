@@ -55,7 +55,12 @@ namespace Addiction_Cure
             services.AddScoped<ITestimonialsRepository,TestimonialsRepository>();
             services.AddScoped<ITestimonialsService, TestimonialsService>();
 
-
+            services.AddScoped<IPaymentRepository,PaymentRepository>();
+            services.AddScoped<IPaymentService, PaymentService>();
+            services.AddScoped<ITestRepository, TestRepository>();
+            services.AddScoped<ITestService, TestService>();
+            services.AddScoped<IResultTestRepository, ResultTestRepository>();
+            services.AddScoped<IResultTestService, ResultTestService>();
             services.AddControllers();
         }
 

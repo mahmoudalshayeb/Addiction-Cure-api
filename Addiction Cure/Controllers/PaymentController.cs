@@ -10,9 +10,9 @@ namespace Addiction_Cure.Controllers
     [ApiController]
     public class PaymentController : ControllerBase
     {
-        private readonly IPaymentService paymentService;
+     private readonly IPaymentService paymentService;
 
-            public PaymentController(IPaymentService paymentService)
+       public PaymentController(IPaymentService paymentService)
         {
             this.paymentService = paymentService;
         }
