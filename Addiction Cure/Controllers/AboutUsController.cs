@@ -4,7 +4,12 @@ using Addiction_Cure.infra.Service;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+<<<<<<< HEAD
 
+=======
+//AHMAD AKRAM
+//yaman awawdeh//yaman//yaman
+>>>>>>> 0860acfba6b4a07f27c015b67fc3bfebe08e32d5
 namespace Addiction_Cure.Controllers
 {
     [Route("api/[controller]")]
