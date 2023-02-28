@@ -43,8 +43,8 @@ namespace Addiction_Cure.Controllers
         resultTestService.DeleteResult(id);
         }
 
-        [HttpPost]
-        [Route("TestBydate")]
+        [HttpGet]
+        [Route("{datefrom}/{dateto}")]
         public List<Resulttsetac> GetResultBetween(DateTime datefrom, DateTime dateto)
         {
             return resultTestService.GetResultBetween(datefrom, dateto);

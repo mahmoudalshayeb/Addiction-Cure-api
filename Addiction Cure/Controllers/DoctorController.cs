@@ -44,7 +44,7 @@ namespace Addiction_Cure.Controllers
         {
             idoctorService.Deletedoctor(doctorid);
         }
-        [HttpPost]
+        [HttpGet]
         [Route("SearchByName/{thename}")]
         public List<SearchByName> GetDocByName(string thename)
         {
