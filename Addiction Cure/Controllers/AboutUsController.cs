@@ -4,7 +4,7 @@ using Addiction_Cure.infra.Service;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-//aaaaaaaaaa
+
 namespace Addiction_Cure.Controllers
 {
     [Route("api/[controller]")]
@@ -20,8 +20,7 @@ namespace Addiction_Cure.Controllers
         [Route("getallAboutUs")]
         public List<Aboutusac> GetAllAboutUs()
         {
-            // dhddhhdhd
-            // jjjjjjjjjjjjjjjjjjj
+           
             return aboutUsService.GetAllAboutUs();
         }
 
