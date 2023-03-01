@@ -14,6 +14,6 @@ namespace Addiction_Cure.core.Repository
         void Deletedoctor(int doctorid);
 
         List<SearchByName> GetDocByName(string thename);
-        
+        List<Register> getbyid(int id);
     }
 }

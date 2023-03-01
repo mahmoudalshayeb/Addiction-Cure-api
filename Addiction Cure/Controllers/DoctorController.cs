@@ -50,5 +50,12 @@ namespace Addiction_Cure.Controllers
         {
          return  idoctorService.GetDocByName(thename);
         }
+
+        [HttpGet]
+        [Route("getbyid/{id}")]
+        public List<Register> getbyid(int id)
+        {
+            return idoctorService.getbyid(id);
+        }
     }
 }
