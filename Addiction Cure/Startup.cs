@@ -16,6 +16,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Stripe;
 
 namespace Addiction_Cure
 {
@@ -31,6 +32,8 @@ namespace Addiction_Cure
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            StripeConfiguration.ApiKey = Configuration.GetSection("Stripe")["sk_test_51MbSgMC5iNj1HcZ7EGz8Kgk3N4aATKeR0W3eOgmGXkWq1hIm0O4HgEgSoscVJcYIo7IukRXMsnHSPxoHisNffuRc00khS1hFeS"];
+
             services.AddScoped<IDBContext, DBContext>();
             services.AddScoped<ILoginRepository, LoginRepository>();
             services.AddScoped<ILoginService, LoginService>();
