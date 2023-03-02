@@ -18,7 +18,7 @@ namespace Addiction_Cure.Controllers
             var options = new PaymentIntentCreateOptions
             {
                 Amount = paymentRequest.Amount,
-                Currency = paymentRequest.Currency,
+                Currency = paymentRequest.Currency,                
                 PaymentMethodTypes = new List<string>
                 {
                     "card",
