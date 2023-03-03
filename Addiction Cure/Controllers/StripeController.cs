@@ -18,7 +18,8 @@ namespace Addiction_Cure.Controllers
             var options = new PaymentIntentCreateOptions
             {
                 Amount = paymentRequest.Amount,
-                Currency = paymentRequest.Currency,                
+                Currency = paymentRequest.Currency,  
+                ReceiptEmail=paymentRequest.email,
                 PaymentMethodTypes = new List<string>
                 {
                     "card",
@@ -26,7 +27,6 @@ namespace Addiction_Cure.Controllers
             };
             var service = new PaymentIntentService();
             var paymentIntent = await service.CreateAsync(options);
-
             return Ok(paymentIntent);
         }
     }
@@ -35,6 +35,7 @@ namespace Addiction_Cure.Controllers
     {
         public int Amount { get; set; }
         public string Currency { get; set; }
+        public string email { get; set;}
     }
 
 }
