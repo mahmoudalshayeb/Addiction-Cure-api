@@ -13,18 +13,20 @@ namespace Addiction_Cure.Controllers
         [HttpPost]
         public async Task<IActionResult> CreatePayment([FromBody] PaymentRequest paymentRequest)
         {
-            StripeConfiguration.ApiKey = "sk_test_51MbSgMC5iNj1HcZ7EGz8Kgk3N4aATKeR0W3eOgmGXkWq1hIm0O4HgEgSoscVJcYIo7IukRXMsnHSPxoHisNffuRc00khS1hFeS";
+            StripeConfiguration.ApiKey = "sk_test_51MbSgMC5iNj1HcZ7PEe0f9vFQm8brueKmrQDi8YCjiz2tU5agoOvsmk3Nu6lo4TdpKFUX2WVylZxgCV84ON1i9oD00sIPAT6xG";
 
             var options = new PaymentIntentCreateOptions
             {
                 Amount = paymentRequest.Amount,
-                Currency = paymentRequest.Currency,  
-                ReceiptEmail=paymentRequest.email,
+                Currency = paymentRequest.Currency,
+                Customer = paymentRequest.Customer,
                 PaymentMethodTypes = new List<string>
                 {
                     "card",
                 },
             };
+
+            
             var service = new PaymentIntentService();
             var paymentIntent = await service.CreateAsync(options);
             return Ok(paymentIntent);
@@ -35,7 +37,7 @@ namespace Addiction_Cure.Controllers
     {
         public int Amount { get; set; }
         public string Currency { get; set; }
-        public string email { get; set;}
+        public string Customer { get; set;}
     }
 
 }

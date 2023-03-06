@@ -32,7 +32,7 @@ namespace Addiction_Cure
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            StripeConfiguration.ApiKey = Configuration.GetSection("Stripe")["sk_test_51MbSgMC5iNj1HcZ7EGz8Kgk3N4aATKeR0W3eOgmGXkWq1hIm0O4HgEgSoscVJcYIo7IukRXMsnHSPxoHisNffuRc00khS1hFeS"];
+            StripeConfiguration.ApiKey = Configuration.GetSection("Stripe")["sk_test_51MbSgMC5iNj1HcZ7PEe0f9vFQm8brueKmrQDi8YCjiz2tU5agoOvsmk3Nu6lo4TdpKFUX2WVylZxgCV84ON1i9oD00sIPAT6xG"];
 
             services.AddScoped<IDBContext, DBContext>();
             services.AddScoped<ILoginRepository, LoginRepository>();
