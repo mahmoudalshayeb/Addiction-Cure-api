@@ -31,6 +31,7 @@ namespace Addiction_Cure.Controllers
             return Ok(paymentIntent);
         }
     }
+    
 
     public class PaymentRequest
     {
