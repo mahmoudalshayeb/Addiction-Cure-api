@@ -5,6 +5,10 @@ using System.Net.Mail;
 using System.Threading.Tasks;
 using System;
 using System.Collections.Generic;
+using MimeKit;
+using IronPdf;
+using MailKit.Net.Smtp;
+using SmtpClient = MailKit.Net.Smtp.SmtpClient;
 
 namespace Addiction_Cure.Controllers
 {
@@ -68,6 +72,46 @@ namespace Addiction_Cure.Controllers
             };
             var service = new InvoiceService();
             service.Create(options);
+
+            var Renderer = new ChromePdfRenderer();
+            var pdf = Renderer.RenderHtmlAsPdf($" <h1> Thank you for your purchase from our store. </h1> \n\r <h1> The Total Price for your purchase is : $  " +
+                $" </h1> \n\r <h1> <p> Number of Product is : </p> Product names :   </h1> <p>Order date From </p>" +
+                $"<p> Customer name is: {paymentRequest.Name} </p>" +
+                $"<p> Welcome To Awesome Magazine Store. </p>");
+            pdf.SaveAs("Invoice.pdf");
+
+            string x = "Thank you for purchasing from our website. We hope you like our service";
+
+            MimeMessage message = new MimeMessage();
+            message.From.Add(new MailboxAddress("Store", "webmvc.2@gmail.com"));
+            message.To.Add(MailboxAddress.Parse(paymentRequest.Email));
+            message.Subject = "Invoice";
+            var builder = new BodyBuilder();
+            builder.TextBody = x;
+            builder.HtmlBody = "<p> Thank you for purchasing from our website. We hope you like our service </p>";
+            builder.Attachments.Add(@"C:\Users\User\Desktop\ABOOD\store\store\Invoice.pdf");
+
+            message.Body = builder.ToMessageBody();
+
+            SmtpClient client = new SmtpClient();
+            try
+            {
+                client.Connect("smtp.gmail.com", 587, MailKit.Security.SecureSocketOptions.StartTls);
+                client.Authenticate("webmvc.2@gmail.com", "qvotnxyuirbeckfz");
+                client.Send(message);
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                client.Disconnect(true);
+                client.Dispose();
+            }
+
 
             return Ok(customerOptions);
         }
