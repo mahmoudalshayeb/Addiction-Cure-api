@@ -16,9 +16,8 @@ namespace Addiction_Cure.Controllers
         public IActionResult CreatePayment([FromBody] PaymentRequest2 paymentRequest)
         {
             StripeConfiguration.ApiKey = "sk_test_51MbSgMC5iNj1HcZ7Tv1VlJBnKVvaKYT9c8g6j4AKZJivLI5FyXwmXKULrx9zd460qJzGo81leKa9JiJWP5VjBrq000sp9VMgWX";
-           
-          
-            //create card
+
+            // Create PaymentMethod
             var cardoptions = new PaymentMethodCreateOptions
             {
                 Type = "card",
@@ -33,139 +32,45 @@ namespace Addiction_Cure.Controllers
             var paymentMethodService = new PaymentMethodService();
             PaymentMethod paymentMethod = paymentMethodService.Create(cardoptions);
 
-           
-            //create cutomer
-            var customeroptions = new CustomerCreateOptions
+            // Create Customer
+            var customerOptions = new CustomerCreateOptions
             {
-                PaymentMethod = cardoptions.PaymentMethod,
-                Description = "My First Test Customer",
                 Email = paymentRequest.Email,
-                Name = paymentRequest.Name
+                Name = paymentRequest.Name,
+                Description = "My First Test Customer (created for API docs at https://www.stripe.com/docs/api)",
             };
-
-            var customerservice = new CustomerService();
-            Customer customer = customerservice.Create(customeroptions);
-
             var customerService = new CustomerService();
-            var customers = customerService.Get(customer.Id); // Replace with the actual customer ID
+            Customer customer = customerService.Create(customerOptions);
 
-            //var paymentMethodAttachOptions = new PaymentMethodAttachOptions
-            //{
-            //    Customer = customers.Id, // Replace with the ID of the Customer you want to attach the PaymentMethod to
-            //};
-            //paymentMethodService.Attach(paymentMethod.Id, paymentMethodAttachOptions);
-
-
-            //var sourceptions = new CardCreateOptions
-            //{
-            //    Source = paymentMethod.Id,
-            //};
-            //var sourceservice = new CardService();
-            //sourceservice.Create(customer.Id, sourceptions);
-
-            //create product
-            var Productoptions = new ProductCreateOptions
+            // Attach PaymentMethod to Customer
+            var paymentMethodAttachOptions = new PaymentMethodAttachOptions
             {
-                Name = paymentRequest.ProName,
+                Customer = customer.Id,
             };
-            var Productservice = new ProductService();
-            Product product = Productservice.Create(Productoptions);
+            paymentMethodService.Attach(paymentMethod.Id, paymentMethodAttachOptions);
 
-            //create plan
-            var planoptions = new PlanCreateOptions
+            // Create Payment
+            var paymentOptions = new PaymentIntentCreateOptions
             {
-                Currency=paymentRequest.Currency,
-                Amount = paymentRequest.Amount,
-                Interval = "month",
-                Product = product.Id,
+                Amount = paymentRequest.Amount * 100,
+                Currency = "usd",
+                PaymentMethod = paymentMethod.Id,
+                Customer = customer.Id,
+                Confirm = true,
+                OffSession = true,
             };
-            var planservice = new PlanService();
-            planservice.Create(planoptions);
+            var paymentService = new PaymentIntentService();
+            PaymentIntent paymentIntent = paymentService.Create(paymentOptions);
 
-            //var Chargeoptions = new ChargeCreateOptions
-            //{
-            //    Customer = customer.Id,
-            //    Amount = paymentRequest.Amount,
-            //    Currency = "USD",
-            //    Source = paymentMethod.Id
-            //    //Description = "My First Test Charge (created for API docs at https://www.stripe.com/docs/api)",
-            //};
-            //var Chargeservice = new ChargeService();
-            //Chargeservice.Create(Chargeoptions);
+            var options = new InvoiceCreateOptions
+            {
+                Customer = customer.Id,
+            };
+            var service = new InvoiceService();
+            service.Create(options);
 
-
-           
-
-            return Ok(customeroptions);
+            return Ok(customerOptions);
         }
-
-
-
-
-        //[HttpPost]
-        //[Route("pay")]
-        //public async Task<string> CreateInvoiceAndSendEmail([FromForm] string customerEmail, decimal amount, string description)
-        //{
-        //    // Set up Stripe API key
-        //    //StripeConfiguration.ApiKey = "sk_test_51MbSgMC5iNj1HcZ7EGz8Kgk3N4aATKeR0W3eOgmGXkWq1hIm0O4HgEgSoscVJcYIo7IukRXMsnHSPxoHisNffuRc00khS1hFeS";
-
-        //    StripeConfiguration.ApiKey = "sk_test_51MbSgMC5iNj1HcZ7PEe0f9vFQm8brueKmrQDi8YCjiz2tU5agoOvsmk3Nu6lo4TdpKFUX2WVylZxgCV84ON1i9oD00sIPAT6xG";
-
-        //    // Create customer
-        //    var options = new CustomerCreateOptions
-        //    {
-        //        Email = customerEmail
-        //    };
-        //    var service = new CustomerService();
-        //    var customer = await service.CreateAsync(options);
-
-        //    // Create invoice
-        //    var invoiceOptions = new InvoiceCreateOptions
-        //    {
-        //        Customer = customer.Id,
-        //        ApplicationFeeAmount = Convert.ToInt64(amount * 100),
-        //        Currency = "usd",
-        //        Description = description
-        //    };
-        //    var invoiceService = new InvoiceService();
-        //    var invoice = await invoiceService.CreateAsync(invoiceOptions);
-
-        //    // Send email with invoice link
-        //    MimeMessage message = new MimeMessage();
-        //    message.From.Add(new MailboxAddress("abood", "abedabood009@gmail.com"));
-        //    message.To.Add(MailboxAddress.Parse(customerEmail));
-        //    message.Subject = "Invoice from MyCompany";
-        //    var builder = new BodyBuilder();
-
-        //    builder.TextBody = $"Please click on the following link to pay your invoice: {invoice.HostedInvoiceUrl}";
-        //    message.Body = builder.ToMessageBody();
-
-        //    using (var smtpClient = new SmtpClient())
-        //    {
-        //        SmtpClient client = new SmtpClient();
-        //        try
-        //        {
-        //            client.Connect("smtp.gmail.com", 587, MailKit.Security.SecureSocketOptions.StartTls);
-        //            client.Authenticate("webmvc.2@gmail.com", "ksthywyzlbvibhbk");
-        //            client.Send(message);
-
-        //        }
-        //        catch (Exception)
-        //        {
-
-        //            throw;
-        //        }
-        //        finally
-        //        {
-        //            client.Disconnect(true);
-        //            client.Dispose();
-        //        }
-        //        await smtpClient.SendAsync(message);
-        //    }
-
-        //    return invoice.Id;
-        //}
-
     }
 
     public class PaymentRequest2
