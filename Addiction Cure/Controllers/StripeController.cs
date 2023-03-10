@@ -10,26 +10,26 @@ namespace Addiction_Cure.Controllers
     [ApiController]
     public class StripeController : ControllerBase
     {
-        [HttpPost("pay")]
-        public async Task<IActionResult> CreatePayment([FromBody] PaymentRequest paymentRequest)
-        {
-            StripeConfiguration.ApiKey = "sk_test_51MbSgMC5iNj1HcZ7PEe0f9vFQm8brueKmrQDi8YCjiz2tU5agoOvsmk3Nu6lo4TdpKFUX2WVylZxgCV84ON1i9oD00sIPAT6xG";
-            var options = new PaymentIntentCreateOptions
-            {                
-                Currency=paymentRequest.Currency,
-                ReceiptEmail =paymentRequest.ReceiptEmail,
-                Amount = paymentRequest.Amount,
-                PaymentMethodTypes = new List<string>
-                {
-                    "card",
-                },
-            };
+        //    [HttpPost("pay")]
+        //    public async Task<IActionResult> CreatePayment([FromBody] PaymentRequest paymentRequest)
+        //    {
+        //        StripeConfiguration.ApiKey = "sk_test_51MbSgMC5iNj1HcZ7Tv1VlJBnKVvaKYT9c8g6j4AKZJivLI5FyXwmXKULrx9zd460qJzGo81leKa9JiJWP5VjBrq000sp9VMgWX";
+        //        var options = new PaymentIntentCreateOptions
+        //        {                
+        //            Currency=paymentRequest.Currency,
+        //            ReceiptEmail =paymentRequest.ReceiptEmail,
+        //            Amount = paymentRequest.Amount,
+        //            PaymentMethodTypes = new List<string>
+        //            {
+        //                "card",
+        //            },
+        //        };
 
-            
-            var service = new PaymentIntentService();
-            var paymentIntent = await service.CreateAsync(options);
-            return Ok(paymentIntent);
-        }
+
+        //        var service = new PaymentIntentService();
+        //        var paymentIntent = await service.CreateAsync(options);
+        //        return Ok(paymentIntent);
+        //    }
     }
     
 
