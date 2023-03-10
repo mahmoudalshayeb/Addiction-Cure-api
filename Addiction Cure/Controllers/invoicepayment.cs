@@ -123,12 +123,10 @@ namespace Addiction_Cure.Controllers
         public string cvc { get; set; }
         public int ExpMonth { get; set; }
         public int ExpYear { get; set; }
-        public string customerid { get; set; }
         public string Name { get; set; }
         public int Amount { get; set; }
         public string Email { get; set; }
         public string ProName { get; set; }
-        public string date { get; set; }
         public string Currency { get; set; }
     }
 
