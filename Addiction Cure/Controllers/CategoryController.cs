@@ -29,6 +29,7 @@ namespace Addiction_Cure.Controllers
 
 
         [HttpGet]
+        [Route("GetCategory")]
         public List<Categoryac> GetAllCategoryAC()
         {
             return _categoryService.GetAllCategoryAC();
