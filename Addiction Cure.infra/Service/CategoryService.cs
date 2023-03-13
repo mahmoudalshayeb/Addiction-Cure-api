@@ -60,7 +60,7 @@ namespace Addiction_Cure.infra.Service
 
         public void UpdateCategoryAC(Categoryac categoryac)
         {
-          _categoryRepository.UpdateCategoryAC(categoryac);
+            _categoryRepository.UpdateCategoryAC(categoryac);
         }
 
 

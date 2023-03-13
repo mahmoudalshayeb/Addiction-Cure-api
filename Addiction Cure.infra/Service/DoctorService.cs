@@ -45,5 +45,11 @@ namespace Addiction_Cure.infra.Service
         {
             return IdoctorRepository.GetDocByName(thename);
         }
+
+        //get by id
+        public List<Register> getbyid(int id)
+        {
+            return IdoctorRepository.getbyid(id);
+        }
     }
 }
