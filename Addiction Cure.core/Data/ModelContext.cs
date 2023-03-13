@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 #nullable disable
 
-namespace Addiction_Cure.core.Data
+namespace Addiction_Cure.core.data
 {
     public partial class ModelContext : DbContext
     {
@@ -18,7 +18,6 @@ namespace Addiction_Cure.core.Data
         }
 
         public virtual DbSet<Aboutusac> Aboutusacs { get; set; }
-        public virtual DbSet<Addictionsac> Addictionsacs { get; set; }
         public virtual DbSet<Bankac> Bankacs { get; set; }
         public virtual DbSet<Categoryac> Categoryacs { get; set; }
         public virtual DbSet<Contactusac> Contactusacs { get; set; }
@@ -27,6 +26,7 @@ namespace Addiction_Cure.core.Data
         public virtual DbSet<Loginac> Loginacs { get; set; }
         public virtual DbSet<Patientac> Patientacs { get; set; }
         public virtual DbSet<Paymentac> Paymentacs { get; set; }
+        public virtual DbSet<Quastionsac> Quastionsacs { get; set; }
         public virtual DbSet<Resulttsetac> Resulttsetacs { get; set; }
         public virtual DbSet<Roleac> Roleacs { get; set; }
         public virtual DbSet<Testac> Testacs { get; set; }
@@ -74,39 +74,6 @@ namespace Addiction_Cure.core.Data
                     .HasMaxLength(2000)
                     .IsUnicode(false)
                     .HasColumnName("PARAGRAPH3");
-            });
-
-            modelBuilder.Entity<Addictionsac>(entity =>
-            {
-                entity.HasKey(e => e.Addictionid)
-                    .HasName("SYS_C00325188");
-
-                entity.ToTable("ADDICTIONSAC");
-
-                entity.Property(e => e.Addictionid)
-                    .HasColumnType("NUMBER(38)")
-                    .ValueGeneratedOnAdd()
-                    .HasColumnName("ADDICTIONID");
-
-                entity.Property(e => e.Addictionname)
-                    .HasMaxLength(30)
-                    .IsUnicode(false)
-                    .HasColumnName("ADDICTIONNAME");
-
-                entity.Property(e => e.Categoryid)
-                    .HasColumnType("NUMBER(38)")
-                    .HasColumnName("CATEGORYID");
-
-                entity.Property(e => e.Image)
-                    .HasMaxLength(200)
-                    .IsUnicode(false)
-                    .HasColumnName("IMAGE");
-
-                entity.HasOne(d => d.Category)
-                    .WithMany(p => p.Addictionsacs)
-                    .HasForeignKey(d => d.Categoryid)
-                    .OnDelete(DeleteBehavior.SetNull)
-                    .HasConstraintName("CA_FK");
             });
 
             modelBuilder.Entity<Bankac>(entity =>
@@ -213,7 +180,7 @@ namespace Addiction_Cure.core.Data
             modelBuilder.Entity<Dictorac>(entity =>
             {
                 entity.HasKey(e => e.Doctodid)
-                    .HasName("SYS_C00325179");
+                    .HasName("SYS_C00326668");
 
                 entity.ToTable("DICTORAC");
 
@@ -221,6 +188,10 @@ namespace Addiction_Cure.core.Data
                     .HasColumnType("NUMBER(38)")
                     .ValueGeneratedOnAdd()
                     .HasColumnName("DOCTODID");
+
+                entity.Property(e => e.Categoryid)
+                    .HasColumnType("NUMBER(38)")
+                    .HasColumnName("CATEGORYID");
 
                 entity.Property(e => e.Firstname)
                     .IsRequired()
@@ -248,11 +219,17 @@ namespace Addiction_Cure.core.Data
                     .HasColumnType("NUMBER(38)")
                     .HasColumnName("LOGINID");
 
+                entity.HasOne(d => d.Category)
+                    .WithMany(p => p.Dictoracs)
+                    .HasForeignKey(d => d.Categoryid)
+                    .OnDelete(DeleteBehavior.SetNull)
+                    .HasConstraintName("CAT_FK");
+
                 entity.HasOne(d => d.Login)
                     .WithMany(p => p.Dictoracs)
                     .HasForeignKey(d => d.Loginid)
                     .OnDelete(DeleteBehavior.SetNull)
-                    .HasConstraintName("LD_FK");
+                    .HasConstraintName("LG_FK");
             });
 
             modelBuilder.Entity<Homepageac>(entity =>
@@ -357,7 +334,7 @@ namespace Addiction_Cure.core.Data
             modelBuilder.Entity<Patientac>(entity =>
             {
                 entity.HasKey(e => e.Patientid)
-                    .HasName("SYS_C00325184");
+                    .HasName("SYS_C00326680");
 
                 entity.ToTable("PATIENTAC");
 
@@ -365,6 +342,10 @@ namespace Addiction_Cure.core.Data
                     .HasColumnType("NUMBER(38)")
                     .ValueGeneratedOnAdd()
                     .HasColumnName("PATIENTID");
+
+                entity.Property(e => e.Categoryid)
+                    .HasColumnType("NUMBER(38)")
+                    .HasColumnName("CATEGORYID");
 
                 entity.Property(e => e.Doctodid)
                     .HasColumnType("NUMBER(38)")
@@ -396,6 +377,12 @@ namespace Addiction_Cure.core.Data
                     .HasColumnType("NUMBER(38)")
                     .HasColumnName("LOGINID");
 
+                entity.HasOne(d => d.Category)
+                    .WithMany(p => p.Patientacs)
+                    .HasForeignKey(d => d.Categoryid)
+                    .OnDelete(DeleteBehavior.SetNull)
+                    .HasConstraintName("CAT1_FK");
+
                 entity.HasOne(d => d.Doctod)
                     .WithMany(p => p.Patientacs)
                     .HasForeignKey(d => d.Doctodid)
@@ -406,7 +393,7 @@ namespace Addiction_Cure.core.Data
                     .WithMany(p => p.Patientacs)
                     .HasForeignKey(d => d.Loginid)
                     .OnDelete(DeleteBehavior.SetNull)
-                    .HasConstraintName("LP_FK");
+                    .HasConstraintName("LP1_FK");
             });
 
             modelBuilder.Entity<Paymentac>(entity =>
@@ -432,12 +419,34 @@ namespace Addiction_Cure.core.Data
                 entity.Property(e => e.Paydate)
                     .HasColumnType("DATE")
                     .HasColumnName("PAYDATE");
+            });
 
-                entity.HasOne(d => d.Patient)
-                    .WithMany(p => p.Paymentacs)
-                    .HasForeignKey(d => d.Patientid)
+            modelBuilder.Entity<Quastionsac>(entity =>
+            {
+                entity.HasKey(e => e.Quastionid)
+                    .HasName("SYS_C00326685");
+
+                entity.ToTable("QUASTIONSAC");
+
+                entity.Property(e => e.Quastionid)
+                    .HasColumnType("NUMBER(38)")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnName("QUASTIONID");
+
+                entity.Property(e => e.Categoryid)
+                    .HasColumnType("NUMBER(38)")
+                    .HasColumnName("CATEGORYID");
+
+                entity.Property(e => e.Quastion)
+                    .HasMaxLength(100)
+                    .IsUnicode(false)
+                    .HasColumnName("QUASTION");
+
+                entity.HasOne(d => d.Category)
+                    .WithMany(p => p.Quastionsacs)
+                    .HasForeignKey(d => d.Categoryid)
                     .OnDelete(DeleteBehavior.SetNull)
-                    .HasConstraintName("PP_FK");
+                    .HasConstraintName("CAT2_FK");
             });
 
             modelBuilder.Entity<Resulttsetac>(entity =>
@@ -481,18 +490,6 @@ namespace Addiction_Cure.core.Data
                 entity.Property(e => e.Testid)
                     .HasColumnType("NUMBER(38)")
                     .HasColumnName("TESTID");
-
-                entity.HasOne(d => d.Doctod)
-                    .WithMany(p => p.Resulttsetacs)
-                    .HasForeignKey(d => d.Doctodid)
-                    .OnDelete(DeleteBehavior.SetNull)
-                    .HasConstraintName("DP_FK");
-
-                entity.HasOne(d => d.Test)
-                    .WithMany(p => p.Resulttsetacs)
-                    .HasForeignKey(d => d.Testid)
-                    .OnDelete(DeleteBehavior.SetNull)
-                    .HasConstraintName("TR_FK");
             });
 
             modelBuilder.Entity<Roleac>(entity =>
@@ -517,7 +514,7 @@ namespace Addiction_Cure.core.Data
             modelBuilder.Entity<Testac>(entity =>
             {
                 entity.HasKey(e => e.Testid)
-                    .HasName("SYS_C00325204");
+                    .HasName("SYS_C00326688");
 
                 entity.ToTable("TESTAC");
 
@@ -530,21 +527,25 @@ namespace Addiction_Cure.core.Data
                     .HasColumnType("NUMBER(38)")
                     .HasColumnName("PATIENTID");
 
-                entity.Property(e => e.Quastion)
-                    .HasMaxLength(100)
-                    .IsUnicode(false)
-                    .HasColumnName("QUASTION");
+                entity.Property(e => e.Quastionid)
+                    .HasColumnType("NUMBER(38)")
+                    .HasColumnName("QUASTIONID");
 
                 entity.Property(e => e.Status)
-                    .HasMaxLength(20)
-                    .IsUnicode(false)
+                    .HasColumnType("NUMBER(38)")
                     .HasColumnName("STATUS");
 
                 entity.HasOne(d => d.Patient)
                     .WithMany(p => p.Testacs)
                     .HasForeignKey(d => d.Patientid)
                     .OnDelete(DeleteBehavior.SetNull)
-                    .HasConstraintName("QP_FK");
+                    .HasConstraintName("PAT_FK");
+
+                entity.HasOne(d => d.Quastion)
+                    .WithMany(p => p.Testacs)
+                    .HasForeignKey(d => d.Quastionid)
+                    .OnDelete(DeleteBehavior.SetNull)
+                    .HasConstraintName("QUA_FK");
             });
 
             modelBuilder.Entity<Testemonialac>(entity =>
@@ -582,12 +583,6 @@ namespace Addiction_Cure.core.Data
                     .HasMaxLength(50)
                     .IsUnicode(false)
                     .HasColumnName("STATUS");
-
-                entity.HasOne(d => d.Patient)
-                    .WithMany(p => p.Testemonialacs)
-                    .HasForeignKey(d => d.Patientid)
-                    .OnDelete(DeleteBehavior.SetNull)
-                    .HasConstraintName("TP_FK");
             });
 
             OnModelCreatingPartial(modelBuilder);

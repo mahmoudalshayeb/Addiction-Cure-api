@@ -1,4 +1,4 @@
-﻿using Addiction_Cure.core.Data;
+﻿using Addiction_Cure.core.data;
 using Addiction_Cure.core.Repository;
 using Dapper;
 using Addiction_Cure.core.Common;
@@ -35,9 +35,9 @@ namespace Addiction_Cure.infra.Repository
             p.Add("lastnameAc", doctor.Lastname, dbType: DbType.String, ParameterDirection.Input);
             p.Add("imagenameAc", doctor.Imagename, dbType: DbType.String, ParameterDirection.Input);
             p.Add("levelAc", doctor.Level1, dbType: DbType.Int32, ParameterDirection.Input);
-
             p.Add("doctodIdAc", doctor.Doctodid, dbType: DbType.Int32, ParameterDirection.Input);
             p.Add("loginIdac", doctor.Loginid, dbType: DbType.Int32, ParameterDirection.Input);
+            p.Add("CATEGORYIDAC", doctor.Categoryid, dbType: DbType.Int32, ParameterDirection.Input);
             var result = dBContext.Connection.Execute("Doctor_package.CreateDoctor", p, commandType: CommandType.StoredProcedure);
         }
 
@@ -51,10 +51,7 @@ namespace Addiction_Cure.infra.Repository
             p.Add("levelAc", doctor.Level1, dbType: DbType.Int32, ParameterDirection.Input);
             p.Add("doctodIdAc", doctor.Doctodid, dbType: DbType.Int32, ParameterDirection.Input);
             p.Add("loginIdac", doctor.Loginid, dbType: DbType.Int32, ParameterDirection.Input);
-
-            p.Add("usernameac", doctor.Login.Username, dbType: DbType.String, ParameterDirection.Input);
-            p.Add("passwordac", doctor.Login.Password, dbType: DbType.String, ParameterDirection.Input);
-
+            p.Add("CATEGORYIDAC", doctor.Categoryid, dbType: DbType.Int32, ParameterDirection.Input);
             p.Add("USERNAMEAC", doctor.Login.Username, dbType: DbType.String, ParameterDirection.Input);
             p.Add("PASSWORDAC", doctor.Login.Password, dbType: DbType.String, ParameterDirection.Input);
             p.Add("EMAILAC", doctor.Login.Email, dbType: DbType.String, ParameterDirection.Input);

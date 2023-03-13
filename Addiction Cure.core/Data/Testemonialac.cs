@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace Addiction_Cure.core.Data
+namespace Addiction_Cure.core.data
 {
     public partial class Testemonialac
     {
@@ -13,7 +13,5 @@ namespace Addiction_Cure.core.Data
         public string Status { get; set; }
         public string Messageuser { get; set; }
         public decimal? Patientid { get; set; }
-
-        public virtual Patientac Patient { get; set; }
     }
 }

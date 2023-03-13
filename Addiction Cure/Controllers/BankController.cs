@@ -1,4 +1,4 @@
-﻿using Addiction_Cure.core.Data;
+﻿using Addiction_Cure.core.data;
 using Addiction_Cure.core.Service;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;

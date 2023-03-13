@@ -60,8 +60,8 @@ namespace Addiction_Cure
 
             services.AddScoped<ICategoryRepository,CategoryRepository>();
             services.AddScoped<ICategoryService, CategoryService>();
-            services.AddScoped<IAddictionsRepository, AddictionsRepository>();
-            services.AddScoped<IAddictionService, AddictionService>();
+            services.AddScoped<IQuastionRepository, QuastionRepository>();
+            services.AddScoped<IQuastionService, QuastionService>();
             services.AddScoped<ITestimonialsRepository,TestimonialsRepository>();
             services.AddScoped<ITestimonialsService, TestimonialsService>();
 

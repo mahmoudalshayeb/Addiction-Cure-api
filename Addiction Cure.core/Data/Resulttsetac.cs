@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace Addiction_Cure.core.Data
+namespace Addiction_Cure.core.data
 {
     public partial class Resulttsetac
     {
@@ -15,8 +15,5 @@ namespace Addiction_Cure.core.Data
         public DateTime? Datetest { get; set; }
         public decimal? Doctodid { get; set; }
         public decimal? Testid { get; set; }
-
-        public virtual Dictorac Doctod { get; set; }
-        public virtual Testac Test { get; set; }
     }
 }

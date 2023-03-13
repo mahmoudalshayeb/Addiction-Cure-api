@@ -1,4 +1,4 @@
-﻿using Addiction_Cure.core.Data;
+﻿using Addiction_Cure.core.data;
 using Addiction_Cure.core.DTO;
 using Addiction_Cure.core.Repository;
 using Addiction_Cure.core.Service;

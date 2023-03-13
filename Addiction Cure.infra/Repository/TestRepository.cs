@@ -1,5 +1,5 @@
 ﻿using Addiction_Cure.core.Common;
-using Addiction_Cure.core.Data;
+using Addiction_Cure.core.data;
 using Addiction_Cure.core.Repository;
 using Dapper;
 using System.Data;
@@ -27,7 +27,7 @@ namespace Addiction_Cure.infra.Repository
       public  void CreateTest(Testac test)
         {
             var p = new DynamicParameters();
-            p.Add("quationac", test.Quastion, dbType: DbType.String, ParameterDirection.Input);
+            p.Add("quationIDac", test.Quastionid, dbType: DbType.String, ParameterDirection.Input);
             p.Add("statusac", test.Status, dbType: DbType.Int32, ParameterDirection.Input);
             p.Add("paitenidac", test.Patientid, dbType: DbType.Int32, ParameterDirection.Input);
             dbContext.Connection.Execute("Testac_pack.CreateTestac",p,commandType:CommandType.StoredProcedure);
@@ -37,7 +37,7 @@ namespace Addiction_Cure.infra.Repository
         {
             var p = new DynamicParameters();
             p.Add("testIdac", test.Testid, dbType: DbType.Int32, ParameterDirection.Input);
-            p.Add("quationac", test.Quastion, dbType: DbType.String, ParameterDirection.Input);
+            p.Add("quationIDac", test.Quastionid, dbType: DbType.String, ParameterDirection.Input);
             p.Add("statusac", test.Status, dbType: DbType.Int32, ParameterDirection.Input);
             p.Add("paitenidac", test.Patientid, dbType: DbType.Int32, ParameterDirection.Input);
             dbContext.Connection.Execute("Testac_pack.UpdateTestac", p, commandType: CommandType.StoredProcedure);

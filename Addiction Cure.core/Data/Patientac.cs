@@ -3,15 +3,13 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace Addiction_Cure.core.Data
+namespace Addiction_Cure.core.data
 {
     public partial class Patientac
     {
         public Patientac()
         {
-            Paymentacs = new HashSet<Paymentac>();
             Testacs = new HashSet<Testac>();
-            Testemonialacs = new HashSet<Testemonialac>();
         }
 
         public decimal Patientid { get; set; }
@@ -21,11 +19,11 @@ namespace Addiction_Cure.core.Data
         public string Level1 { get; set; }
         public decimal? Doctodid { get; set; }
         public decimal? Loginid { get; set; }
+        public decimal? Categoryid { get; set; }
 
+        public virtual Categoryac Category { get; set; }
         public virtual Dictorac Doctod { get; set; }
         public virtual Loginac Login { get; set; }
-        public virtual ICollection<Paymentac> Paymentacs { get; set; }
         public virtual ICollection<Testac> Testacs { get; set; }
-        public virtual ICollection<Testemonialac> Testemonialacs { get; set; }
     }
 }

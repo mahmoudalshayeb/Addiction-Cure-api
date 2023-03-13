@@ -1,4 +1,4 @@
-﻿using Addiction_Cure.core.Data;
+﻿using Addiction_Cure.core.data;
 using Addiction_Cure.core.Repository;
 using Dapper;
 using Addiction_Cure.core.Common;
@@ -9,6 +9,7 @@ using System.Linq;
 using System.Reflection.Metadata;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Numerics;
 
 namespace Addiction_Cure.infra.Repository
 {
@@ -38,6 +39,7 @@ namespace Addiction_Cure.infra.Repository
             p.Add("levelAc", patient.Level1, dbType: DbType.Int32, ParameterDirection.Input);
             p.Add("doctodIdAc", patient.Doctodid, dbType: DbType.Int32, ParameterDirection.Input);
             p.Add("loginIdac", patient.Loginid, dbType: DbType.Int32, ParameterDirection.Input);
+            p.Add("CATEGORYIDAC", patient.Categoryid, dbType: DbType.Int32, ParameterDirection.Input);
             var result = dBContext.Connection.Execute("patientac_package.CreatePatient", p, commandType: CommandType.StoredProcedure);
         }
 
@@ -51,6 +53,7 @@ namespace Addiction_Cure.infra.Repository
             p.Add("levelAc", patient.Level1, dbType: DbType.Int32, ParameterDirection.Input);
             p.Add("doctodIdAc", patient.Doctodid, dbType: DbType.Int32, ParameterDirection.Input);
             p.Add("loginIdac", patient.Loginid, dbType: DbType.Int32, ParameterDirection.Input);
+            p.Add("CATEGORYIDAC", patient.Categoryid, dbType: DbType.Int32, ParameterDirection.Input);
             p.Add("USERNAMEAC", patient.Login.Username, dbType: DbType.String, ParameterDirection.Input);
             p.Add("PASSWORDAC", patient.Login.Password, dbType: DbType.String, ParameterDirection.Input);
             p.Add("EMAILAC", patient.Login.Email, dbType: DbType.String, ParameterDirection.Input);
