@@ -45,7 +45,7 @@ namespace Addiction_Cure.Controllers
         }
 
         [HttpGet]
-        [Route("GetQUASTIONBYID")]
+        [Route("GetQUASTIONBYID/{id}")]
        public List<Quastionsac> GetQuastionsById(int id)
         {
             return quastionService.GetQuastionsById(id);
