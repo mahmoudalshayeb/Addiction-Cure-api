@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 #nullable disable
 
-namespace Addiction_Cure.core.data
+namespace Addiction_Cure.core.Data
 {
     public partial class ModelContext : DbContext
     {
@@ -399,7 +399,7 @@ namespace Addiction_Cure.core.data
             modelBuilder.Entity<Paymentac>(entity =>
             {
                 entity.HasKey(e => e.Paymentid)
-                    .HasName("SYS_C00325201");
+                    .HasName("SYS_C00326747");
 
                 entity.ToTable("PAYMENTAC");
 
@@ -419,6 +419,12 @@ namespace Addiction_Cure.core.data
                 entity.Property(e => e.Paydate)
                     .HasColumnType("DATE")
                     .HasColumnName("PAYDATE");
+
+                entity.HasOne(d => d.Patient)
+                    .WithMany(p => p.Paymentacs)
+                    .HasForeignKey(d => d.Patientid)
+                    .OnDelete(DeleteBehavior.SetNull)
+                    .HasConstraintName("PPAY_FK");
             });
 
             modelBuilder.Entity<Quastionsac>(entity =>
@@ -452,7 +458,7 @@ namespace Addiction_Cure.core.data
             modelBuilder.Entity<Resulttsetac>(entity =>
             {
                 entity.HasKey(e => e.Resulttestid)
-                    .HasName("SYS_C00325207");
+                    .HasName("SYS_C00326743");
 
                 entity.ToTable("RESULTTSETAC");
 
@@ -466,7 +472,7 @@ namespace Addiction_Cure.core.data
                     .HasColumnName("DATETEST");
 
                 entity.Property(e => e.Description)
-                    .HasMaxLength(100)
+                    .HasMaxLength(700)
                     .IsUnicode(false)
                     .HasColumnName("DESCRIPTION");
 
@@ -475,11 +481,12 @@ namespace Addiction_Cure.core.data
                     .HasColumnName("DOCTODID");
 
                 entity.Property(e => e.Numberoftest)
-                    .HasColumnType("NUMBER")
+                    .HasColumnType("NUMBER(38)")
                     .HasColumnName("NUMBEROFTEST");
 
                 entity.Property(e => e.Perioddate)
-                    .HasColumnType("DATE")
+                    .HasMaxLength(50)
+                    .IsUnicode(false)
                     .HasColumnName("PERIODDATE");
 
                 entity.Property(e => e.Resulttest)
@@ -490,6 +497,18 @@ namespace Addiction_Cure.core.data
                 entity.Property(e => e.Testid)
                     .HasColumnType("NUMBER(38)")
                     .HasColumnName("TESTID");
+
+                entity.HasOne(d => d.Doctod)
+                    .WithMany(p => p.Resulttsetacs)
+                    .HasForeignKey(d => d.Doctodid)
+                    .OnDelete(DeleteBehavior.SetNull)
+                    .HasConstraintName("DT_FK");
+
+                entity.HasOne(d => d.Test)
+                    .WithMany(p => p.Resulttsetacs)
+                    .HasForeignKey(d => d.Testid)
+                    .OnDelete(DeleteBehavior.SetNull)
+                    .HasConstraintName("TRT_FK");
             });
 
             modelBuilder.Entity<Roleac>(entity =>
@@ -551,7 +570,7 @@ namespace Addiction_Cure.core.data
             modelBuilder.Entity<Testemonialac>(entity =>
             {
                 entity.HasKey(e => e.Tesemonialid)
-                    .HasName("SYS_C00325191");
+                    .HasName("SYS_C00326735");
 
                 entity.ToTable("TESTEMONIALAC");
 
@@ -560,20 +579,10 @@ namespace Addiction_Cure.core.data
                     .ValueGeneratedOnAdd()
                     .HasColumnName("TESEMONIALID");
 
-                entity.Property(e => e.ImagePath)
-                    .HasMaxLength(200)
-                    .IsUnicode(false)
-                    .HasColumnName("IMAGE_PATH");
-
                 entity.Property(e => e.Messageuser)
                     .HasMaxLength(500)
                     .IsUnicode(false)
                     .HasColumnName("MESSAGEUSER");
-
-                entity.Property(e => e.Name)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("NAME");
 
                 entity.Property(e => e.Patientid)
                     .HasColumnType("NUMBER(38)")
@@ -583,6 +592,12 @@ namespace Addiction_Cure.core.data
                     .HasMaxLength(50)
                     .IsUnicode(false)
                     .HasColumnName("STATUS");
+
+                entity.HasOne(d => d.Patient)
+                    .WithMany(p => p.Testemonialacs)
+                    .HasForeignKey(d => d.Patientid)
+                    .OnDelete(DeleteBehavior.SetNull)
+                    .HasConstraintName("PP_FK");
             });
 
             OnModelCreatingPartial(modelBuilder);

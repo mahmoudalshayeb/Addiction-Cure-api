@@ -1,4 +1,4 @@
-﻿using Addiction_Cure.core.data;
+﻿using Addiction_Cure.core.Data;
 using Addiction_Cure.core.Service;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -30,6 +30,7 @@ namespace Addiction_Cure.Controllers
 
 
         [HttpGet]
+        [Route("GetAllTestemonial")]
         public List<Testemonialac> GetAllTestimonialAC()
         {
             return _testimonialsService.GetAllTestimonialAC();
@@ -92,33 +93,5 @@ namespace Addiction_Cure.Controllers
         {
             _testimonialsService.DeleteTestimonialAC(id);
         }
-
-
-
-        /// UPLOAD IMAGE
-
-        [HttpPost]
-        [Route("uploadImage")]
-        public Testemonialac UploadIMage()
-        {
-            var file = Request.Form.Files[0];
-            var fileName = Guid.NewGuid().ToString() + "_" + file.FileName;
-            var fullPath = Path.Combine("Images", fileName);
-
-
-            using (var stream = new FileStream(fullPath, FileMode.Create))
-            {
-                file.CopyTo(stream);
-            }
-
-            // its like insert TEMPORARY record from category all ATTRIBUTS  are null except the image 
-
-            Testemonialac item = new Testemonialac();
-            item.ImagePath = fileName;
-            return item;
-        }
-
-
-
     }
 }

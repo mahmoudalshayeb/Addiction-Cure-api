@@ -1,5 +1,5 @@
 ﻿using Addiction_Cure.core.Common;
-using Addiction_Cure.core.data;
+using Addiction_Cure.core.Data;
 using Addiction_Cure.core.Repository;
 using Dapper;
 using System;
@@ -82,14 +82,10 @@ namespace Addiction_Cure.infra.Repository
         public void CreateTestimonialAC(Testemonialac testemonialac)
         {
             var p = new DynamicParameters();
-
-            p.Add("NAMEAC", testemonialac.Name, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("IMAGEPATHAC", testemonialac.ImagePath, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("STATUSAC", testemonialac.Status, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("MESSAGEUSERAC", testemonialac.Messageuser, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("PATIENTIDAC", testemonialac.Patientid, dbType: DbType.Int32, direction: ParameterDirection.Input);
           
-
             // you can remove the var result its ok if you dont want to know number of rows affected 
             var result = _DbContext.Connection.Execute("TESTIMONIALAC_PACKAGE.CreateTestimonialAC", p,
                             commandType: CommandType.StoredProcedure);
@@ -111,8 +107,6 @@ namespace Addiction_Cure.infra.Repository
             var p = new DynamicParameters();
 
             p.Add("ID",testemonialac.Tesemonialid,dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("NAMEAC", testemonialac.Name, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("IMAGEPATHAC", testemonialac.ImagePath, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("STATUSAC", testemonialac.Status, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("MESSAGEUSERAC", testemonialac.Messageuser, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("PATIENTIDAC", testemonialac.Patientid, dbType: DbType.Int32, direction: ParameterDirection.Input);

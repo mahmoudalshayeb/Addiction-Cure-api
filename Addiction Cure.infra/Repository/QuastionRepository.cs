@@ -1,5 +1,5 @@
 ﻿using Addiction_Cure.core.Common;
-using Addiction_Cure.core.data;
+using Addiction_Cure.core.Data;
 using Addiction_Cure.core.Repository;
 using Dapper;
 using System;

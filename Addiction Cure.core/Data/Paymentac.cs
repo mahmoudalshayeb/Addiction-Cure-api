@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace Addiction_Cure.core.data
+namespace Addiction_Cure.core.Data
 {
     public partial class Paymentac
     {
@@ -11,5 +11,7 @@ namespace Addiction_Cure.core.data
         public decimal? Amount { get; set; }
         public DateTime? Paydate { get; set; }
         public decimal? Patientid { get; set; }
+
+        public virtual Patientac Patient { get; set; }
     }
 }

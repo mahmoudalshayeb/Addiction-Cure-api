@@ -1,4 +1,4 @@
-﻿using Addiction_Cure.core.data;
+﻿using Addiction_Cure.core.Data;
 using Addiction_Cure.core.Service;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -36,7 +36,7 @@ namespace Addiction_Cure.Controllers
             contactUsService.updateContactus(contactusac);
         }
 
-        [HttpPost]
+        [HttpDelete]
         [Route("deleteContactUs/{Contactusid}")]
         public void DeleteContactUs(int contactusid)
         {

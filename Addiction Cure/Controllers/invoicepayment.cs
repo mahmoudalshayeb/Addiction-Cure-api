@@ -17,7 +17,7 @@ namespace Addiction_Cure.Controllers
     public class invoicepayment : ControllerBase
     {
         [HttpPost("pay")]
-        public IActionResult CreatePayment([FromBody] PaymentRequest2 paymentRequest)
+        public IActionResult CreatePayment([FromBody] PaymentRequest paymentRequest)
         {
             StripeConfiguration.ApiKey = "sk_test_51MbSgMC5iNj1HcZ7Tv1VlJBnKVvaKYT9c8g6j4AKZJivLI5FyXwmXKULrx9zd460qJzGo81leKa9JiJWP5VjBrq000sp9VMgWX";
 
@@ -117,7 +117,7 @@ namespace Addiction_Cure.Controllers
         }
     }
 
-    public class PaymentRequest2
+    public class PaymentRequest
     {
         public string cardNumber { get; set; }
         public string cvc { get; set; }
@@ -126,7 +126,6 @@ namespace Addiction_Cure.Controllers
         public string Name { get; set; }
         public int Amount { get; set; }
         public string Email { get; set; }
-        public string ProName { get; set; }
         public string Currency { get; set; }
     }
 

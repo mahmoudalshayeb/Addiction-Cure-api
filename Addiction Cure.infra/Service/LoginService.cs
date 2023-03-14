@@ -1,4 +1,4 @@
-﻿using Addiction_Cure.core.data;
+﻿using Addiction_Cure.core.Data;
 using Addiction_Cure.core.DTO;
 using Addiction_Cure.core.Repository;
 using Addiction_Cure.core.Service;
@@ -35,7 +35,8 @@ namespace Addiction_Cure.infra.Service
                 var claims = new List<Claim>
                 {
                 new Claim(ClaimTypes.Name, result.Username),
-                new Claim(ClaimTypes.Role, result.Roleid.ToString()) };
+                new Claim(ClaimTypes.Role, result.Roleid.ToString()),
+                new Claim(ClaimTypes.Email,result.Email)};
                 // token options
                 var tokenOptions = new JwtSecurityToken(
                 claims: claims,

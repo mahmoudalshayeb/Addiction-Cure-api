@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace Addiction_Cure.core.data
+namespace Addiction_Cure.core.Data
 {
     public partial class Homepageac
     {

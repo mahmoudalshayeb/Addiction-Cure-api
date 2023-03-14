@@ -3,10 +3,15 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace Addiction_Cure.core.data
+namespace Addiction_Cure.core.Data
 {
     public partial class Testac
     {
+        public Testac()
+        {
+            Resulttsetacs = new HashSet<Resulttsetac>();
+        }
+
         public decimal Testid { get; set; }
         public decimal? Status { get; set; }
         public decimal? Patientid { get; set; }
@@ -14,5 +19,6 @@ namespace Addiction_Cure.core.data
 
         public virtual Patientac Patient { get; set; }
         public virtual Quastionsac Quastion { get; set; }
+        public virtual ICollection<Resulttsetac> Resulttsetacs { get; set; }
     }
 }
