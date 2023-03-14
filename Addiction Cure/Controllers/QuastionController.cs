@@ -18,6 +18,7 @@ namespace Addiction_Cure.Controllers
         }
 
         [HttpGet]
+        [Route("GetQuastions")]
         public List<Quastionsac> GetAllQuastions()
         {
             return quastionService.GetAllQuastions();
@@ -43,6 +44,11 @@ namespace Addiction_Cure.Controllers
             quastionService.DeleteQuastion(id);
         }
 
-       
+        [HttpGet]
+        [Route("GetQUASTIONBYID")]
+       public List<Quastionsac> GetQuastionsById(int id)
+        {
+            return quastionService.GetQuastionsById(id);
+        }
     }
 }

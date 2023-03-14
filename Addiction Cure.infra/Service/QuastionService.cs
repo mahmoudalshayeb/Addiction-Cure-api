@@ -19,17 +19,21 @@ namespace Addiction_Cure.infra.Service
         {
             return quastionRepository.GetAllQuastions();
         }
-     public void CreateQuastion(Quastionsac quastionsac)
+        public void CreateQuastion(Quastionsac quastionsac)
         {
             quastionRepository.CreateQuastion(quastionsac);
         }
-     public void UpdateQuastion(Quastionsac quastionsac)
+        public void UpdateQuastion(Quastionsac quastionsac)
         {
             quastionRepository.UpdateQuastion(quastionsac);
         }
-     public void DeleteQuastion(int id)
+        public void DeleteQuastion(int id)
         {
             quastionRepository.DeleteQuastion(id);
+        }
+        public List<Quastionsac> GetQuastionsById(int id)
+        {
+            return quastionRepository.GetQuastionsById(id);
         }
     }
 }

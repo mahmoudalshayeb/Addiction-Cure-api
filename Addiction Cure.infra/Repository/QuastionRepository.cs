@@ -23,14 +23,14 @@ namespace Addiction_Cure.infra.Repository
             IEnumerable<Quastionsac> result = dbContext.Connection.Query<Quastionsac>("QUASTION_package.getAllQUASTION", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
-       public void CreateQuastion(Quastionsac quastionsac)
+        public void CreateQuastion(Quastionsac quastionsac)
         {
             var p = new DynamicParameters();
             p.Add("quastionAC", quastionsac.Quastion, dbType: DbType.String, ParameterDirection.Input);
             p.Add("CategoryIDAC", quastionsac.Quastion, dbType: DbType.Int64, ParameterDirection.Input);
             dbContext.Connection.Execute("QUASTION_package.CreateQUASTION", p, commandType: CommandType.StoredProcedure);
         }
-       public void UpdateQuastion(Quastionsac quastionsac)
+        public void UpdateQuastion(Quastionsac quastionsac)
         {
             var p = new DynamicParameters();
             p.Add("quastionIDAC", quastionsac.Quastionid, dbType: DbType.Int64, ParameterDirection.Input);
@@ -38,11 +38,19 @@ namespace Addiction_Cure.infra.Repository
             p.Add("CategoryIDAC", quastionsac.Categoryid, dbType: DbType.Int64, ParameterDirection.Input);
             dbContext.Connection.Execute("QUASTION_package.UpdateQUASTION", p, commandType: CommandType.StoredProcedure);
         }
-       public void DeleteQuastion(int id)
+        public void DeleteQuastion(int id)
         {
             var p = new DynamicParameters();
             p.Add("quastionIDAC", id, dbType: DbType.Int64, ParameterDirection.Input);
             dbContext.Connection.Execute("QUASTION_package.DeleteQUASTION", p, commandType: CommandType.StoredProcedure);
+        }
+
+        public List<Quastionsac> GetQuastionsById(int id)
+        {
+            var p = new DynamicParameters();
+            p.Add("quastionID", id, dbType: DbType.Int64, ParameterDirection.Input);
+            IEnumerable<Quastionsac> result = dbContext.Connection.Query<Quastionsac>("QUASTION_package.GetQUASTIONBYID", commandType: CommandType.StoredProcedure);
+            return result.ToList();
         }
     }
 }

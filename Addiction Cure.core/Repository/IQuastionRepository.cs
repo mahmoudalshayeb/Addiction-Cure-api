@@ -11,5 +11,6 @@ namespace Addiction_Cure.core.Repository
         void CreateQuastion(Quastionsac quastionsac);
         void UpdateQuastion(Quastionsac quastionsac);
         void DeleteQuastion(int id);
+        List<Quastionsac> GetQuastionsById(int id);
     }
 }
