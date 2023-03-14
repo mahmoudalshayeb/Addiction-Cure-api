@@ -1,4 +1,5 @@
 ﻿using System;
+using Addiction_Cure.core.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
