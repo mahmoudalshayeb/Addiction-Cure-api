@@ -85,7 +85,7 @@ namespace Addiction_Cure.infra.Repository
             p.Add("STATUSAC", testemonialac.Status, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("MESSAGEUSERAC", testemonialac.Messageuser, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("PATIENTIDAC", testemonialac.Patientid, dbType: DbType.Int32, direction: ParameterDirection.Input);
-          
+
             // you can remove the var result its ok if you dont want to know number of rows affected 
             var result = _DbContext.Connection.Execute("TESTIMONIALAC_PACKAGE.CreateTestimonialAC", p,
                             commandType: CommandType.StoredProcedure);
@@ -106,7 +106,7 @@ namespace Addiction_Cure.infra.Repository
         {
             var p = new DynamicParameters();
 
-            p.Add("ID",testemonialac.Tesemonialid,dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("ID", testemonialac.Tesemonialid, dbType: DbType.Int64, direction: ParameterDirection.Input);
             p.Add("STATUSAC", testemonialac.Status, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("MESSAGEUSERAC", testemonialac.Messageuser, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("PATIENTIDAC", testemonialac.Patientid, dbType: DbType.Int32, direction: ParameterDirection.Input);
@@ -137,10 +137,10 @@ namespace Addiction_Cure.infra.Repository
                 commandType: CommandType.StoredProcedure);
         }
 
-       
 
-      
 
-       
+
+
+
     }
 }

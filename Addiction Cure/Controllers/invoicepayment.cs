@@ -9,6 +9,7 @@ using MimeKit;
 using IronPdf;
 using MailKit.Net.Smtp;
 using SmtpClient = MailKit.Net.Smtp.SmtpClient;
+using Addiction_Cure.core.DTO;
 
 namespace Addiction_Cure.Controllers
 {
@@ -116,17 +117,4 @@ namespace Addiction_Cure.Controllers
             return Ok(customerOptions);
         }
     }
-
-    public class PaymentRequest
-    {
-        public string cardNumber { get; set; }
-        public string cvc { get; set; }
-        public int ExpMonth { get; set; }
-        public int ExpYear { get; set; }
-        public string Name { get; set; }
-        public int Amount { get; set; }
-        public string Email { get; set; }
-        public string Currency { get; set; }
-    }
-
 }
