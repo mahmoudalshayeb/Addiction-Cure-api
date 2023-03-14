@@ -27,9 +27,9 @@ namespace Addiction_Cure.infra.Service
         {
             homeRepository.updatehome(homepageac);
         }
-        public void Deletehome(int hid)
+        public void Deletehome(int id)
         {
-            homeRepository.Deletehome(hid);
+            homeRepository.Deletehome(id);
         }
     }
 }

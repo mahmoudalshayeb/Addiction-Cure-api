@@ -37,10 +37,10 @@ namespace Addiction_Cure.Controllers
         }
 
         [HttpPost]
-        [Route("deleteHome/{hid}")]
-        public void DeleteHome(int hid)
+        [Route("deleteHome/{id}")]
+        public void DeleteHome(int id)
         {
-            homeService.Deletehome(hid);
+            homeService.Deletehome(id);
         }
     }
 }
