@@ -1,5 +1,7 @@
 ﻿using Addiction_Cure.core.Data;
+using Addiction_Cure.core.DTO;
 using Addiction_Cure.core.Service;
+using Addiction_Cure.infra.Service;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -42,6 +44,13 @@ namespace Addiction_Cure.Controllers
         public void Delete(int patientid)
         {
             ipatientService.Delete(patientid);
+        }
+
+        [HttpGet]
+        [Route("getbyid/{id}")]
+        public List<Register> getbyid(int id)
+        {
+            return ipatientService.getbyid(id);
         }
 
     }

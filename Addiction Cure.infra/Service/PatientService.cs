@@ -1,4 +1,5 @@
 ﻿using Addiction_Cure.core.Data;
+using Addiction_Cure.core.DTO;
 using Addiction_Cure.core.Repository;
 using Addiction_Cure.core.Service;
 using System;
@@ -37,6 +38,11 @@ namespace Addiction_Cure.infra.Service
         public void Delete(int patientid)
         {
             ipatientRepostory.Delete(patientid);
+        }
+
+        public List<Register> getbyid(int id)
+        {
+            return ipatientRepostory.getbyid(id);
         }
     }
 }

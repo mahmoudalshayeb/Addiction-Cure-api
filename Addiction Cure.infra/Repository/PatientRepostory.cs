@@ -10,6 +10,7 @@ using System.Reflection.Metadata;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Numerics;
+using Addiction_Cure.core.DTO;
 
 namespace Addiction_Cure.infra.Repository
 {
@@ -67,6 +68,14 @@ namespace Addiction_Cure.infra.Repository
             var p = new DynamicParameters();
             p.Add("Id", patientid, dbType: DbType.Int32, ParameterDirection.Input);
             var result = dBContext.Connection.Execute("patientac_package.Deletepatient", p, commandType: CommandType.StoredProcedure);
+        }
+
+       public List<Register> getbyid(int id)
+        {
+            var p = new DynamicParameters();
+            p.Add("ID", id, dbType: DbType.Int32, ParameterDirection.Input);
+            IEnumerable<Register> result = dBContext.Connection.Query<Register>("patientac_package.GetPatientId", p, commandType: CommandType.StoredProcedure);
+            return result.ToList();
         }
     }
 }
