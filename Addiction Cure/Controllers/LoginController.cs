@@ -1,6 +1,7 @@
 ﻿using Addiction_Cure.core.Data;
 using Addiction_Cure.core.DTO;
 using Addiction_Cure.core.Service;
+using Addiction_Cure.infra.Repository;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -31,6 +32,16 @@ namespace Addiction_Cure.Controllers
         public Register register(Register patient)
         {
             return loginService.register(patient);
+        }
+
+
+
+        [HttpPost]
+        [Route("DoctorRegister")]
+
+        public DoctorRegister DoctorRegister(DoctorRegister doctorRegister)
+        {
+            return loginService.DoctorRegister(doctorRegister);
         }
     }
 }
