@@ -47,7 +47,7 @@ namespace Addiction_Cure.infra.Service
         }
 
         //get by id
-        public List<Dictorac> getbyid(int id)
+        public List<Register> getbyid(int id)
         {
             return IdoctorRepository.getbyid(id);
         }

@@ -53,7 +53,7 @@ namespace Addiction_Cure.Controllers
 
         [HttpGet]
         [Route("getbyid/{id}")]
-        public List<Dictorac> getbyid(int id)
+        public List<Register> getbyid(int id)
         {
             return idoctorService.getbyid(id);
         }
