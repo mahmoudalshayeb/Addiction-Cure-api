@@ -52,5 +52,10 @@ namespace Addiction_Cure.infra.Service
         }
 
 
+        public DoctorRegister DoctorRegister(DoctorRegister doctorRegister)
+        {
+            return loginRepository.DoctorRegister(doctorRegister);
+        }
+
     }
 }

@@ -10,5 +10,7 @@ namespace Addiction_Cure.core.Repository
     {
         Register register(Register patient);
         Loginac login(Loginac login);
+
+        DoctorRegister DoctorRegister(DoctorRegister doctorRegister);
     }
 }

@@ -10,5 +10,7 @@ namespace Addiction_Cure.core.Service
     {
         String Login(Loginac login);
         Register register(Register patient);
+        DoctorRegister DoctorRegister(DoctorRegister doctorRegister);
+
     }
 }
