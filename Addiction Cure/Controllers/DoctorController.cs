@@ -57,5 +57,6 @@ namespace Addiction_Cure.Controllers
         {
             return idoctorService.getbyid(id);
         }
+
     }
 }
