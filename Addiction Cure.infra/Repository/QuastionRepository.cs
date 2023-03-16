@@ -27,7 +27,7 @@ namespace Addiction_Cure.infra.Repository
         {
             var p = new DynamicParameters();
             p.Add("quastionAC", quastionsac.Quastion, dbType: DbType.String, ParameterDirection.Input);
-            p.Add("CategoryIDAC", quastionsac.Quastion, dbType: DbType.Int64, ParameterDirection.Input);
+            p.Add("CategoryIDAC", quastionsac.Categoryid, dbType: DbType.Int32, ParameterDirection.Input);
             dbContext.Connection.Execute("QUASTION_package.CreateQUASTION", p, commandType: CommandType.StoredProcedure);
         }
         public void UpdateQuastion(Quastionsac quastionsac)

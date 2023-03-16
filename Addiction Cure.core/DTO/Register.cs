@@ -6,6 +6,7 @@ namespace Addiction_Cure.core.DTO
 {
     public class Register
     {
+        public decimal Patientid { get; set; }
         public string Firstname { get; set; }
         public string Lastname { get; set; }
         public string Imagename { get; set; }
