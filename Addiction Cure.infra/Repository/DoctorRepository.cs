@@ -45,6 +45,7 @@ namespace Addiction_Cure.infra.Repository
         public void updatedoctor(Dictorac doctor)
         {
             var p = new DynamicParameters();
+            p.Add("DICTORACID", doctor.Doctodid, dbType: DbType.Int32, ParameterDirection.Input);
             p.Add("firstnameAc", doctor.Firstname, dbType: DbType.String, ParameterDirection.Input);
             p.Add("lastnameAc", doctor.Lastname, dbType: DbType.String, ParameterDirection.Input);
             p.Add("imagenameAc", doctor.Imagename, dbType: DbType.String, ParameterDirection.Input);
