@@ -38,7 +38,7 @@ namespace Addiction_Cure.Controllers
             idoctorService.updatedoctor(doctor);
         }
 
-        [HttpPost]
+        [HttpDelete]
         [Route("deletedoctor/{doctorid}")]
         public void Deletedoctor(int doctorid)
         {
