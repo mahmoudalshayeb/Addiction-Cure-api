@@ -39,7 +39,7 @@ namespace Addiction_Cure.Controllers
             ipatientService.updatepatient(patient);
         }
 
-        [HttpPost]
+        [HttpDelete]
         [Route("deletePatient/{patientid}")]
         public void Delete(int patientid)
         {
