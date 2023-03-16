@@ -24,7 +24,7 @@ namespace Addiction_Cure.infra.Service
         }
 
         //create
-        public void createdoctor(Dictorac doctor)
+        public void createdoctor(DoctorRegister doctor)
         {
             IdoctorRepository.createdoctor(doctor);
         }

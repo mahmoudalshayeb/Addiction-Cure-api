@@ -26,7 +26,7 @@ namespace Addiction_Cure.Controllers
 
         [HttpPost]
         [Route("createdoctor")]
-        public void createdoctor(Dictorac doctor)
+        public void createdoctor(DoctorRegister doctor)
         {
             idoctorService.createdoctor(doctor);
         }
