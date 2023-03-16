@@ -39,9 +39,9 @@ namespace Addiction_Cure.Controllers
         [HttpPost]
         [Route("DoctorRegister")]
 
-        public DoctorRegister DoctorRegister(DoctorRegister doctorRegister)
+        public void DoctorRegister(DoctorRegister doctorRegister)
         {
-            return loginService.DoctorRegister(doctorRegister);
+             loginService.DoctorRegister(doctorRegister);
         }
     }
 }

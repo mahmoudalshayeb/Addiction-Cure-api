@@ -11,6 +11,6 @@ namespace Addiction_Cure.core.Repository
         void register(Register patient);
         Loginac login(Loginac login);
 
-        DoctorRegister DoctorRegister(DoctorRegister doctorRegister);
+        void DoctorRegister(DoctorRegister doctorRegister);
     }
 }
