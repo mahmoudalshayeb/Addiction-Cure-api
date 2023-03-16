@@ -52,9 +52,9 @@ namespace Addiction_Cure.infra.Service
         }
 
 
-        public DoctorRegister DoctorRegister(DoctorRegister doctorRegister)
+        public void DoctorRegister(DoctorRegister doctorRegister)
         {
-            return loginRepository.DoctorRegister(doctorRegister);
+            loginRepository.DoctorRegister(doctorRegister);
         }
 
     }
