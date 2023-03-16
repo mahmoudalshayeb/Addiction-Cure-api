@@ -46,9 +46,9 @@ namespace Addiction_Cure.infra.Service
                 var tokenString = new JwtSecurityTokenHandler().WriteToken(tokenOptions); return tokenString;
             }
         }
-        public Register register(Register patient)
+        public void register(Register patient)
         {
-            return loginRepository.register(patient);
+            loginRepository.register(patient);
         }
 
 

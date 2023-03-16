@@ -9,7 +9,7 @@ namespace Addiction_Cure.core.Service
     public interface ILoginService
     {
         String Login(Loginac login);
-        Register register(Register patient);
+        void register(Register patient);
         DoctorRegister DoctorRegister(DoctorRegister doctorRegister);
 
     }

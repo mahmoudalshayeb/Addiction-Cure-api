@@ -34,7 +34,7 @@ namespace Addiction_Cure.infra.Repository
         }
 
         //register
-        public Register register(Register patient)
+        public void register(Register patient)
         {
             var p = new DynamicParameters();
             p.Add("USERNAMEAC", patient.Username, dbType: DbType.String, ParameterDirection.Input);
@@ -47,7 +47,6 @@ namespace Addiction_Cure.infra.Repository
             p.Add("levelAc", patient.Level1, dbType: DbType.String, ParameterDirection.Input);
             p.Add("doctodIdAc", patient.Doctodid, dbType: DbType.Int32, ParameterDirection.Input);
             IEnumerable<Register> result = dBContext.Connection.Query<Register>("LOGINAC_PACKAGE.Registers", p, commandType: CommandType.StoredProcedure);
-            return result.SingleOrDefault();
         }
 
 
@@ -60,13 +59,14 @@ namespace Addiction_Cure.infra.Repository
         public DoctorRegister DoctorRegister(DoctorRegister doctorRegister)
         {
             var p = new DynamicParameters();
+            p.Add("email", doctorRegister.Email, dbType: DbType.String, ParameterDirection.Input);
+            p.Add("passwordac", doctorRegister.Email, dbType: DbType.String, ParameterDirection.Input);
+            p.Add("username", doctorRegister.Email, dbType: DbType.String, ParameterDirection.Input);
             p.Add("roleidac", doctorRegister.Roleid, dbType: DbType.Int32, ParameterDirection.Input);
             p.Add("firstnameAc", doctorRegister.Firstname, dbType: DbType.String, ParameterDirection.Input);
             p.Add("lastnameAc", doctorRegister.Lastname, dbType: DbType.String, ParameterDirection.Input);
             p.Add("imagenameAc", doctorRegister.Imagename, dbType: DbType.String, ParameterDirection.Input);
             p.Add("levelAc", doctorRegister.Level1, dbType: DbType.String, ParameterDirection.Input);
-            p.Add("doctodIdAc", doctorRegister.Doctodid, dbType: DbType.Int32, ParameterDirection.Input);
-            p.Add("loginIdac", doctorRegister.Loginid, dbType: DbType.Int32, ParameterDirection.Input);
             p.Add("CATEGORYIDAC", doctorRegister.Categoryid, dbType: DbType.Int32, ParameterDirection.Input);
             IEnumerable<DoctorRegister> result = dBContext.Connection.Query<DoctorRegister>("Doctor_package.CreateDoctor", p, commandType: CommandType.StoredProcedure);
             return result.SingleOrDefault();

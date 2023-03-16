@@ -8,7 +8,7 @@ namespace Addiction_Cure.core.Repository
 {
     public interface ILoginRepository
     {
-        Register register(Register patient);
+        void register(Register patient);
         Loginac login(Loginac login);
 
         DoctorRegister DoctorRegister(DoctorRegister doctorRegister);

@@ -29,9 +29,9 @@ namespace Addiction_Cure.Controllers
 
         [HttpPost]
         [Route("register")]
-        public Register register(Register patient)
+        public void register(Register patient)
         {
-            return loginService.register(patient);
+             loginService.register(patient);
         }
 
 
