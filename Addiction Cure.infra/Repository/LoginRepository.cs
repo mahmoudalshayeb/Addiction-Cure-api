@@ -26,7 +26,6 @@ namespace Addiction_Cure.infra.Repository
         public Loginac login(Loginac login)
         {
             var p = new DynamicParameters();
-            p.Add("usernameac", login.Username, dbType: DbType.String, ParameterDirection.Input);
             p.Add("passwordac", login.Password, dbType: DbType.String, ParameterDirection.Input);
             p.Add("EMAILAC", login.Email, dbType: DbType.String, ParameterDirection.Input);
             IEnumerable<Loginac> result = dBContext.Connection.Query<Loginac>("LOGINAC_PACKAGE.LOGIN", p, commandType: CommandType.StoredProcedure);

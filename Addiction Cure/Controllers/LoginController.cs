@@ -21,6 +21,7 @@ namespace Addiction_Cure.Controllers
         }
 
         [HttpPost]
+        [Route("login")]
         public IActionResult Login(Loginac login)
         {
             var token = loginService.Login(login);
