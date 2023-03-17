@@ -54,7 +54,6 @@ namespace Addiction_Cure.infra.Repository
             p.Add("lastnameAc", doctor.Lastname, dbType: DbType.String, ParameterDirection.Input);
             p.Add("imagenameAc", doctor.Imagename, dbType: DbType.String, ParameterDirection.Input);
             p.Add("levelAc", doctor.Level1, dbType: DbType.Int32, ParameterDirection.Input);
-            p.Add("doctodIdAc", doctor.Doctodid, dbType: DbType.Int32, ParameterDirection.Input);
             p.Add("loginIdac", doctor.Loginid, dbType: DbType.Int32, ParameterDirection.Input);
             p.Add("CATEGORYIDAC", doctor.Categoryid, dbType: DbType.Int32, ParameterDirection.Input);
             p.Add("USERNAMEAC", doctor.Login.Username, dbType: DbType.String, ParameterDirection.Input);
