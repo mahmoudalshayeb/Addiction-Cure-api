@@ -1,7 +1,5 @@
 ﻿using System;
-using Addiction_Cure.core.Data;
 using System.Collections.Generic;
-
 
 #nullable disable
 
@@ -12,6 +10,7 @@ namespace Addiction_Cure.core.Data
         public Patientac()
         {
             Paymentacs = new HashSet<Paymentac>();
+            Resulttsetacs = new HashSet<Resulttsetac>();
             Testacs = new HashSet<Testac>();
             Testemonialacs = new HashSet<Testemonialac>();
         }
@@ -29,6 +28,7 @@ namespace Addiction_Cure.core.Data
         public virtual Dictorac Doctod { get; set; }
         public virtual Loginac Login { get; set; }
         public virtual ICollection<Paymentac> Paymentacs { get; set; }
+        public virtual ICollection<Resulttsetac> Resulttsetacs { get; set; }
         public virtual ICollection<Testac> Testacs { get; set; }
         public virtual ICollection<Testemonialac> Testemonialacs { get; set; }
     }

@@ -12,7 +12,7 @@ namespace Addiction_Cure.core.Service
         List<Patientac> GetAllPatient();
         void createpatient(Patientac patient);
         void Delete(int patientid);
-        void updatepatient(Patientac patient);
+        void updatepatient(Register patient);
         Register getbyid(int id);
     }
 }

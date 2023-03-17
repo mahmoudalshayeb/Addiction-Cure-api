@@ -46,7 +46,7 @@ namespace Addiction_Cure.infra.Repository
         }
 
         //Update doctor
-        public void updatedoctor(Dictorac doctor)
+        public void updatedoctor(DoctorRegister doctor)
         {
             var p = new DynamicParameters();
             p.Add("DICTORACID", doctor.Doctodid, dbType: DbType.Int32, ParameterDirection.Input);
@@ -56,11 +56,11 @@ namespace Addiction_Cure.infra.Repository
             p.Add("levelAc", doctor.Level1, dbType: DbType.String, ParameterDirection.Input);
             p.Add("loginIdac", doctor.Loginid, dbType: DbType.Int32, ParameterDirection.Input);
             p.Add("CATEGORYIDAC", doctor.Categoryid, dbType: DbType.Int32, ParameterDirection.Input);
-            p.Add("USERNAMEAC", doctor.Login.Username, dbType: DbType.String, ParameterDirection.Input);
-            p.Add("PASSWORDAC", doctor.Login.Password, dbType: DbType.String, ParameterDirection.Input);
-            p.Add("EMAILAC", doctor.Login.Email, dbType: DbType.String, ParameterDirection.Input);
-            p.Add("roleidac", doctor.Login.Roleid, dbType: DbType.Int32, ParameterDirection.Input);
-            var result = dBContext.Connection.Execute("Doctor_package.UpdateDoctor", p, commandType: CommandType.StoredProcedure);
+            p.Add("USERNAMEAC", doctor.Username, dbType: DbType.String, ParameterDirection.Input);
+            p.Add("PASSWORDAC", doctor.Password, dbType: DbType.String, ParameterDirection.Input);
+            p.Add("EMAILAC", doctor.Email, dbType: DbType.String, ParameterDirection.Input);
+            p.Add("roleidac", doctor.Roleid, dbType: DbType.Int32, ParameterDirection.Input);
+            dBContext.Connection.Execute("Doctor_package.UpdateDoctor", p, commandType: CommandType.StoredProcedure);
         }
 
         //delete

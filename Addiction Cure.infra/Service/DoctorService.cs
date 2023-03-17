@@ -30,7 +30,7 @@ namespace Addiction_Cure.infra.Service
         }
 
         //update
-        public void updatedoctor(Dictorac doctor)
+        public void updatedoctor(DoctorRegister doctor)
         {
             IdoctorRepository.updatedoctor(doctor);
         }

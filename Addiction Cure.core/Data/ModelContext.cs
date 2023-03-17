@@ -1,5 +1,4 @@
 ﻿using System;
-using Addiction_Cure.core.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
@@ -28,6 +27,7 @@ namespace Addiction_Cure.core.Data
         public virtual DbSet<Patientac> Patientacs { get; set; }
         public virtual DbSet<Paymentac> Paymentacs { get; set; }
         public virtual DbSet<Quastionsac> Quastionsacs { get; set; }
+        public virtual DbSet<Req> Reqs { get; set; }
         public virtual DbSet<Resulttsetac> Resulttsetacs { get; set; }
         public virtual DbSet<Roleac> Roleacs { get; set; }
         public virtual DbSet<Testac> Testacs { get; set; }
@@ -456,6 +456,28 @@ namespace Addiction_Cure.core.Data
                     .HasConstraintName("CAT2_FK");
             });
 
+            modelBuilder.Entity<Req>(entity =>
+            {
+                entity.ToTable("REQ");
+
+                entity.Property(e => e.Reqid)
+                    .HasColumnType("NUMBER(38)")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnName("REQID");
+
+                entity.Property(e => e.Doctorid)
+                    .HasColumnType("NUMBER(38)")
+                    .HasColumnName("DOCTORID");
+
+                entity.Property(e => e.Patientid)
+                    .HasColumnType("NUMBER(38)")
+                    .HasColumnName("PATIENTID");
+
+                entity.Property(e => e.Status)
+                    .HasColumnType("NUMBER(38)")
+                    .HasColumnName("STATUS");
+            });
+
             modelBuilder.Entity<Resulttsetac>(entity =>
             {
                 entity.HasKey(e => e.Resulttestid)
@@ -477,13 +499,13 @@ namespace Addiction_Cure.core.Data
                     .IsUnicode(false)
                     .HasColumnName("DESCRIPTION");
 
-                entity.Property(e => e.Doctodid)
-                    .HasColumnType("NUMBER(38)")
-                    .HasColumnName("DOCTODID");
-
                 entity.Property(e => e.Numberoftest)
                     .HasColumnType("NUMBER(38)")
                     .HasColumnName("NUMBEROFTEST");
+
+                entity.Property(e => e.Patientid)
+                    .HasColumnType("NUMBER(38)")
+                    .HasColumnName("PATIENTID");
 
                 entity.Property(e => e.Perioddate)
                     .HasMaxLength(50)
@@ -495,21 +517,10 @@ namespace Addiction_Cure.core.Data
                     .IsUnicode(false)
                     .HasColumnName("RESULTTEST");
 
-                entity.Property(e => e.Testid)
-                    .HasColumnType("NUMBER(38)")
-                    .HasColumnName("TESTID");
-
-                entity.HasOne(d => d.Doctod)
+                entity.HasOne(d => d.Patient)
                     .WithMany(p => p.Resulttsetacs)
-                    .HasForeignKey(d => d.Doctodid)
-                    .OnDelete(DeleteBehavior.SetNull)
-                    .HasConstraintName("DT_FK");
-
-                entity.HasOne(d => d.Test)
-                    .WithMany(p => p.Resulttsetacs)
-                    .HasForeignKey(d => d.Testid)
-                    .OnDelete(DeleteBehavior.SetNull)
-                    .HasConstraintName("TRT_FK");
+                    .HasForeignKey(d => d.Patientid)
+                    .HasConstraintName("PAT2_FK");
             });
 
             modelBuilder.Entity<Roleac>(entity =>
@@ -554,6 +565,10 @@ namespace Addiction_Cure.core.Data
                 entity.Property(e => e.Status)
                     .HasColumnType("NUMBER(38)")
                     .HasColumnName("STATUS");
+
+                entity.Property(e => e.Testdate)
+                    .HasColumnType("DATE")
+                    .HasColumnName("TESTDATE");
 
                 entity.HasOne(d => d.Patient)
                     .WithMany(p => p.Testacs)

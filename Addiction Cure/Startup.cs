@@ -44,6 +44,8 @@ namespace Addiction_Cure
             services.AddScoped<IDBContext, DBContext>();
             services.AddScoped<ILoginRepository, LoginRepository>();
             services.AddScoped<ILoginService, LoginService>();
+            services.AddScoped<IReqRepository, ReqRepository>();
+            services.AddScoped<IReqService, ReqService>();
             services.AddScoped<IPatientRepostory, PatientRepostory>();
             services.AddScoped<IAboutUsRepository, AboutUsRepository>();
             services.AddScoped<IContactUsRepository, ContactUsRepository>();

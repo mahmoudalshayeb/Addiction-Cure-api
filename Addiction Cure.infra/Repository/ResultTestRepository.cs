@@ -31,8 +31,6 @@ namespace Addiction_Cure.infra.Repository
             p.Add("Perioddateac", resulttsetac.Perioddate, dbType: DbType.Date, ParameterDirection.Input);
             p.Add("Numberoftestac", resulttsetac.Numberoftest, dbType: DbType.Int32, ParameterDirection.Input);
             p.Add("Datetestac", resulttsetac.Datetest, dbType: DbType.Date, ParameterDirection.Input);
-            p.Add("Doctodidac", resulttsetac.Doctodid, dbType: DbType.Int32, ParameterDirection.Input);
-            p.Add("Testidac", resulttsetac.Testid, dbType: DbType.Int32, ParameterDirection.Input);
             dbContext.Connection.Execute("ResultTest_pack.CreateResultac",p,commandType:CommandType.StoredProcedure);
         }
      public void UpdateResult(Resulttsetac resulttsetac)
@@ -45,8 +43,6 @@ namespace Addiction_Cure.infra.Repository
             p.Add("Perioddateac", resulttsetac.Perioddate, dbType: DbType.Date, ParameterDirection.Input);
             p.Add("Numberoftestac", resulttsetac.Numberoftest, dbType: DbType.Int32, ParameterDirection.Input);
             p.Add("Datetestac", resulttsetac.Datetest, dbType: DbType.Date, ParameterDirection.Input);
-            p.Add("Doctodidac", resulttsetac.Doctodid, dbType: DbType.Int32, ParameterDirection.Input);
-            p.Add("Testidac", resulttsetac.Testid, dbType: DbType.Int32, ParameterDirection.Input);
             dbContext.Connection.Execute("ResultTest_pack.UpdateResultac", p, commandType: CommandType.StoredProcedure);
 
         }

@@ -34,7 +34,7 @@ namespace Addiction_Cure.Controllers
 
         [HttpPut]
         [Route("updatePatient")]
-        public void updatepatient(Patientac patient)
+        public void updatepatient(Register patient)
         {
             ipatientService.updatepatient(patient);
         }

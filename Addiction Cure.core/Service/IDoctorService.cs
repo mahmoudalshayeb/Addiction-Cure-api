@@ -10,7 +10,7 @@ namespace Addiction_Cure.core.Service
     {
         List<Dictorac> GetAlldoctor();
         void createdoctor(DoctorRegister doctor);
-        void updatedoctor(Dictorac doctor);
+        void updatedoctor(DoctorRegister doctor);
         void Deletedoctor(int doctorid);
         List<SearchByName> GetDocByName(string thename);
         Register getbyid(int id);
