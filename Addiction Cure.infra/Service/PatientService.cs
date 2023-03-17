@@ -29,7 +29,7 @@ namespace Addiction_Cure.infra.Service
         }
 
         //Update Patient
-        public void updatepatient(Patientac patient)
+        public void updatepatient(Register patient)
         {
             ipatientRepostory.updatepatient(patient);
         }

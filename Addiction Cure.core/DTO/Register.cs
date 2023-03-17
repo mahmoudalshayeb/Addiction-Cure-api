@@ -17,5 +17,7 @@ namespace Addiction_Cure.core.DTO
         public string Email { get; set; }
         public decimal? Roleid { get; set; }
         public decimal? Categoryid { get; set; }
+
+        public decimal? Loginid { get; set;}
     }
 }

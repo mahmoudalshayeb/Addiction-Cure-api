@@ -33,7 +33,7 @@ namespace Addiction_Cure.Controllers
 
         [HttpPut]
         [Route("updatedoctor")]
-        public void updatedoctor(Dictorac doctor)
+        public void updatedoctor(DoctorRegister doctor)
         {
             idoctorService.updatedoctor(doctor);
         }

@@ -1,5 +1,4 @@
-﻿using Addiction_Cure.core.Data;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 #nullable disable
@@ -14,10 +13,8 @@ namespace Addiction_Cure.core.Data
         public string Description { get; set; }
         public decimal? Numberoftest { get; set; }
         public DateTime? Datetest { get; set; }
-        public decimal? Testid { get; set; }
-        
+        public decimal? Patientid { get; set; }
 
-       
-        public virtual Testac Test { get; set; }
+        public virtual Patientac Patient { get; set; }
     }
 }
