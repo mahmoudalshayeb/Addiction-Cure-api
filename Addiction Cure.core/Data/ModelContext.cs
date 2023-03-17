@@ -499,11 +499,7 @@ namespace Addiction_Cure.core.Data
                     .HasColumnType("NUMBER(38)")
                     .HasColumnName("TESTID");
 
-                entity.HasOne(d => d.Doctod)
-                    .WithMany(p => p.Resulttsetacs)
-                    .HasForeignKey(d => d.Doctodid)
-                    .OnDelete(DeleteBehavior.SetNull)
-                    .HasConstraintName("DT_FK");
+             
 
                 entity.HasOne(d => d.Test)
                     .WithMany(p => p.Resulttsetacs)

@@ -15,9 +15,9 @@ namespace Addiction_Cure.core.Data
         public decimal? Numberoftest { get; set; }
         public DateTime? Datetest { get; set; }
         public decimal? Testid { get; set; }
-        public decimal? Doctodid { get; set; }
+        
 
-        public virtual Dictorac Doctod { get; set; }
+       
         public virtual Testac Test { get; set; }
     }
 }
