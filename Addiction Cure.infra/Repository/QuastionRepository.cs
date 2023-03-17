@@ -48,8 +48,8 @@ namespace Addiction_Cure.infra.Repository
         public List<Quastionsac> GetQuastionsById(int id)
         {
             var p = new DynamicParameters();
-            p.Add("CategoryID", id, dbType: DbType.Int64, ParameterDirection.Input);
-            IEnumerable<Quastionsac> result = dbContext.Connection.Query<Quastionsac>("QUASTION_package.GetQUASTIONBYID", commandType: CommandType.StoredProcedure);
+            p.Add("Id", id, dbType: DbType.Int64, ParameterDirection.Input);
+            IEnumerable<Quastionsac> result = dbContext.Connection.Query<Quastionsac>("QUASTION_package.GetQUASTIONBYID",p, commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
     }
