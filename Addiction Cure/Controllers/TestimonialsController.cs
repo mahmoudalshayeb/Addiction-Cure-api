@@ -1,4 +1,5 @@
 ﻿using Addiction_Cure.core.Data;
+using Addiction_Cure.core.DTO;
 using Addiction_Cure.core.Service;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -31,7 +32,7 @@ namespace Addiction_Cure.Controllers
 
         [HttpGet]
         [Route("GetAllTestemonial")]
-        public List<Testemonialac> GetAllTestimonialAC()
+        public List<Testimonial> GetAllTestimonialAC()
         {
             return _testimonialsService.GetAllTestimonialAC();
         }

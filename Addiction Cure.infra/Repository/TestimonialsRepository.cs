@@ -1,5 +1,6 @@
 ﻿using Addiction_Cure.core.Common;
 using Addiction_Cure.core.Data;
+using Addiction_Cure.core.DTO;
 using Addiction_Cure.core.Repository;
 using Dapper;
 using System;
@@ -37,9 +38,9 @@ namespace Addiction_Cure.infra.Repository
         // IMPLEMENTAION OF  GetAllTestimonialAC
 
 
-        public List<Testemonialac> GetAllTestimonialAC()
+        public List<Testimonial> GetAllTestimonialAC()
         {
-            IEnumerable<Testemonialac> result = _DbContext.Connection.Query<Testemonialac>("TESTIMONIALAC_PACKAGE.GetAllTestimonialAC",
+            IEnumerable<Testimonial> result = _DbContext.Connection.Query<Testimonial>("TESTIMONIALAC_PACKAGE.GetAllTestimonialAC",
                                        commandType: CommandType.StoredProcedure);
 
             return result.ToList();

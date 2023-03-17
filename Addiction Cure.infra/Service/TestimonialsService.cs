@@ -1,4 +1,5 @@
 ﻿using Addiction_Cure.core.Data;
+using Addiction_Cure.core.DTO;
 using Addiction_Cure.core.Repository;
 using Addiction_Cure.core.Service;
 using System;
@@ -27,7 +28,7 @@ namespace Addiction_Cure.infra.Service
         // IMPLEMENTAION OF  GetAllTestimonialAC
 
 
-        public List<Testemonialac> GetAllTestimonialAC()
+        public List<Testimonial> GetAllTestimonialAC()
         {
             return _testimonialsRepository.GetAllTestimonialAC();
         }
