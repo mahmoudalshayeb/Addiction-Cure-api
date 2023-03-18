@@ -24,6 +24,17 @@ namespace Addiction_Cure.Controllers
             return aboutUsService.GetAllAboutUs();
         }
 
+
+        [HttpGet]
+        [Route("getAboutUsById/{id}")]
+        public  Aboutusac GetAboutusByid(int id)
+        {
+            return aboutUsService.GetAboutusByid(id);
+        }
+
+
+
+
         [HttpPost]
         [Route("createAboutUs")]
         public void createAboutUs(Aboutusac aboutusac)
@@ -31,7 +42,7 @@ namespace Addiction_Cure.Controllers
             aboutUsService.createAboutUs(aboutusac);
         }
 
-        [HttpPatch]
+        [HttpPut]
         [Route("updateAboutUs")]
         public void updateAboutUs(Aboutusac aboutusac)
         {

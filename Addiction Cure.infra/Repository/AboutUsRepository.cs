@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
+using Microsoft.EntityFrameworkCore;
 
 namespace Addiction_Cure.infra.Repository
 {
@@ -25,6 +26,20 @@ namespace Addiction_Cure.infra.Repository
                 commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
+
+        public Aboutusac GetAboutusByid(int id)        
+        {
+            var p = new DynamicParameters();
+            p.Add("aboutid",id,dbType:DbType.Int32,direction:ParameterDirection.Input);
+
+            IEnumerable<Aboutusac> result = dBContext.Connection.Query<Aboutusac>("ABOUTUSAC_PACKAGE.GetAboutById", p,
+                                       commandType: CommandType.StoredProcedure);
+
+            return result.FirstOrDefault();
+        }
+
+
+
         public void createAboutUs(Aboutusac aboutusac)
         {
             var p = new DynamicParameters();

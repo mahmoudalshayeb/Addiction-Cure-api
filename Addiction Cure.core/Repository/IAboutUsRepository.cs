@@ -11,5 +11,7 @@ namespace Addiction_Cure.core.Repository
         void createAboutUs(Aboutusac aboutusac);
         void updateAboutUs(Aboutusac aboutusac);
         void DeleteAboutUs(int aboutusid);
+
+        Aboutusac GetAboutusByid(int id);
     }
 }

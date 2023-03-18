@@ -31,5 +31,10 @@ namespace Addiction_Cure.infra.Service
         {
             aboutUsRepository.DeleteAboutUs(aboutusid);
         }
+
+        public Aboutusac GetAboutusByid(int id)
+        {
+            return aboutUsRepository.GetAboutusByid(id);
+        }
     }
 }
