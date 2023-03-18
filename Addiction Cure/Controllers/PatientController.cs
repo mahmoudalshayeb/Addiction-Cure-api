@@ -48,7 +48,7 @@ namespace Addiction_Cure.Controllers
 
         [HttpGet]
         [Route("getbyid/{id}")]
-        public Register getbyid(int id)
+        public patBy getbyid(int id)
         {
             return ipatientService.getbyid(id);
         }

@@ -40,7 +40,7 @@ namespace Addiction_Cure.infra.Service
             ipatientRepostory.Delete(patientid);
         }
 
-        public Register getbyid(int id)
+        public patBy getbyid(int id)
         {
             return ipatientRepostory.getbyid(id);
         }

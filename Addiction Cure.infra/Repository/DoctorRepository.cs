@@ -79,11 +79,11 @@ namespace Addiction_Cure.infra.Repository
         }
 
 
-        public Register getbyid(int id)
+        public docBy getbyid(int id)
         {
             var p = new DynamicParameters();
             p.Add("id", id, dbType: DbType.Int32, ParameterDirection.Input);
-            var x = dBContext.Connection.Query<Register>("Doctor_package.GetById", p, commandType: CommandType.StoredProcedure);
+            var x = dBContext.Connection.Query<docBy>("Doctor_package.GetById", p, commandType: CommandType.StoredProcedure);
             return x.FirstOrDefault();
         }
     }

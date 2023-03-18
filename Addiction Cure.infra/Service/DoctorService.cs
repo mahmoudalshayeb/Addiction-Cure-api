@@ -21,6 +21,7 @@ namespace Addiction_Cure.infra.Service
         public List<Dictorac> GetAlldoctor()
         {
             return IdoctorRepository.GetAlldoctor();
+
         }
 
         //create
@@ -29,6 +30,7 @@ namespace Addiction_Cure.infra.Service
             IdoctorRepository.createdoctor(doctor);
         }
 
+        
         //update
         public void updatedoctor(DoctorRegister doctor)
         {
@@ -47,7 +49,7 @@ namespace Addiction_Cure.infra.Service
         }
 
         //get by id
-        public Register getbyid(int id)
+        public docBy getbyid(int id)
         {
             return IdoctorRepository.getbyid(id);
         }

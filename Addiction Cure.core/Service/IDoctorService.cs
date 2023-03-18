@@ -13,6 +13,6 @@ namespace Addiction_Cure.core.Service
         void updatedoctor(DoctorRegister doctor);
         void Deletedoctor(int doctorid);
         List<SearchByName> GetDocByName(string thename);
-        Register getbyid(int id);
+        docBy getbyid(int id);
     }
 }

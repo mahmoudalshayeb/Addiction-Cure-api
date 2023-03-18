@@ -53,7 +53,7 @@ namespace Addiction_Cure.Controllers
 
         [HttpGet]
         [Route("getbyid/{id}")]
-        public Register getbyid(int id)
+        public docBy getbyid(int id)
         {
             return idoctorService.getbyid(id);
         }
