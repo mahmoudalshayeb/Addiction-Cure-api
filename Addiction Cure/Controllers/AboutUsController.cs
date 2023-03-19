@@ -49,7 +49,7 @@ namespace Addiction_Cure.Controllers
             aboutUsService.updateAboutUs(aboutusac);
         }
 
-        [HttpPost]
+        [HttpDelete]
         [Route("deleteAboutUs/{Aboutusid}")]
         public void DeleteAboutUs(int aboutusid)
         {
