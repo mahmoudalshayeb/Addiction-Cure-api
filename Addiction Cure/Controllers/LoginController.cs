@@ -67,5 +67,27 @@ namespace Addiction_Cure.Controllers
         {
              loginService.DoctorRegister(doctorRegister);
         }
+
+
+        [HttpPost]
+        [Route("uploadImageDoctor")]
+        public DoctorRegister UploadImages()
+        {
+            var file = Request.Form.Files[0]; // 0 means the first image in postman  FORM DATA
+            var fileName = Guid.NewGuid().ToString() + "_" + file.FileName; // INCYPTION OF THE IMAGE
+            var fullPath = Path.Combine("C:\\Users\\Msi1\\Desktop\\Addiction-Cure-Angular\\src\\assets\\images", fileName); // GET THE IMAGE AND ADD IT TO IMAGES FILE IN OUR PROJECT
+
+
+            using (var stream = new FileStream(fullPath, FileMode.Create))
+            {
+                file.CopyTo(stream);
+            }
+
+            // its like insert TEMPORARY record  from category all OF ITS  ATTRIBUTS  are null except the image //// NOT IN DATABASE ITS JUST TEMPORRARY
+
+            DoctorRegister item = new DoctorRegister();
+            item.Imagename = fileName;
+            return item;
+        }
     }
 }
