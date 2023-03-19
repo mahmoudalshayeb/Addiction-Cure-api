@@ -17,5 +17,8 @@ namespace Addiction_Cure.core.Repository
         void UpdateTestimonialAC(Testemonialac testemonialac);
 
         void DeleteTestimonialAC(int id);
+
+        void publish(int id);
+        void unpublish(int id);
     }
 }

@@ -94,5 +94,22 @@ namespace Addiction_Cure.Controllers
         {
             _testimonialsService.DeleteTestimonialAC(id);
         }
+
+        [HttpGet]
+        [Route("publish/{id}")]
+        public void publish(int id)
+        {
+            _testimonialsService.publish(id);
+        }
+
+
+        [HttpGet]
+        [Route("unpublish/{id}")]
+        public void unpublish(int id)
+        {
+            _testimonialsService.unpublish(id);
+        }
+
+
     }
 }

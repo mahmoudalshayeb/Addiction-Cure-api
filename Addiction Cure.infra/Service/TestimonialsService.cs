@@ -87,5 +87,14 @@ namespace Addiction_Cure.infra.Service
             _testimonialsRepository.DeleteTestimonialAC(id);
         }
 
+        public void publish(int id)
+        {
+            _testimonialsRepository.publish(id);
+        }
+
+        public void unpublish(int id)
+        {
+            _testimonialsRepository.unpublish(id);
+        }
     }
 }

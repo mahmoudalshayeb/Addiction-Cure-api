@@ -133,10 +133,29 @@ namespace Addiction_Cure.infra.Repository
         {
             var p = new DynamicParameters();
             p.Add("ID", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
-
             _DbContext.Connection.Execute("TESTIMONIALAC_PACKAGE.DeleteTestimonialAC", p,
                 commandType: CommandType.StoredProcedure);
         }
+
+        public void publish(int id)
+        {
+            var p = new DynamicParameters();
+            p.Add("Id", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            _DbContext.Connection.Execute("TESTIMONIALAC_PACKAGE.publish", p,
+                commandType: CommandType.StoredProcedure);
+        }
+
+
+        public void unpublish(int id)
+        {
+            var p = new DynamicParameters();
+            p.Add("Id", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            _DbContext.Connection.Execute("TESTIMONIALAC_PACKAGE.unpublish", p,
+                commandType: CommandType.StoredProcedure);
+        }
+
+
+
 
 
 
