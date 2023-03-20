@@ -11,6 +11,7 @@ namespace Addiction_Cure.core.Service
         String Login(Loginac login);
         void register(Register patient);
         void DoctorRegister(DoctorRegister doctorRegister);
-
+        Dictorac DoctorId(string id);
+        public Patientac patientid(string id);
     }
 }

@@ -20,5 +20,7 @@ namespace Addiction_Cure.core.DTO
         public string Categoryname { get; set; }
         public string Image { get; set; }
         public string Abouttext { get; set; }
+
+        public decimal? Loginid { get; set; }
     }
 }

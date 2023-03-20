@@ -70,13 +70,22 @@ namespace Addiction_Cure.infra.Repository
             var result = dBContext.Connection.Execute("patientac_package.Deletepatient", p, commandType: CommandType.StoredProcedure);
         }
 
-      
+        //by pentient id
         public patBy getbyid(int id)
         {
             var p = new DynamicParameters();
             p.Add("ID", id, dbType: DbType.Int32, ParameterDirection.Input);
             var x = dBContext.Connection.Query<patBy>("patientac_package.GetPatientId", p, commandType: CommandType.StoredProcedure);
             return x.FirstOrDefault();
+        }
+
+        //by doctor id
+        public List<patBy> getbydoctorid(int id)
+        {
+            var p = new DynamicParameters();
+            p.Add("ID", id, dbType: DbType.Int32, ParameterDirection.Input);
+            var x = dBContext.Connection.Query<patBy>("patientac_package.GetPatientDoctorId", p, commandType: CommandType.StoredProcedure);
+            return x.ToList();
         }
     }
 }
