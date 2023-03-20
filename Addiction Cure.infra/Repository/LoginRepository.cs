@@ -72,7 +72,24 @@ namespace Addiction_Cure.infra.Repository
            
         }
 
+        //DoctorId
+        public Patientac patientid(int id)
+        {
+            var p = new DynamicParameters();
+            p.Add("id", id, dbType: DbType.String, ParameterDirection.Input);
 
+            IEnumerable<Patientac> result = dBContext.Connection.Query<Patientac>("LOGINAC_PACKAGE.patientid", p, commandType: CommandType.StoredProcedure);
+            return result.SingleOrDefault();
+        }
 
+        //DoctorId
+        public Dictorac DoctorId(int id)
+        {
+            var p = new DynamicParameters();
+            p.Add("id", id, dbType: DbType.String, ParameterDirection.Input);
+
+            IEnumerable<Dictorac> result = dBContext.Connection.Query<Dictorac>("LOGINAC_PACKAGE.DoctorId", p, commandType: CommandType.StoredProcedure);
+            return result.SingleOrDefault();
+        }
     }
 }

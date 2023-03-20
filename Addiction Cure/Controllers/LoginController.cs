@@ -89,5 +89,20 @@ namespace Addiction_Cure.Controllers
             item.Imagename = fileName;
             return item;
         }
+
+        [HttpGet]
+        [Route("doctorid")]
+        public Dictorac DoctorId(int id)
+        {
+            return loginService.DoctorId(id);
+        }
+        
+        [HttpGet]
+        [Route("patientid")]
+        public Patientac patientid(int id)
+        {
+            return loginService.patientid(id);
+        }
+
     }
 }
