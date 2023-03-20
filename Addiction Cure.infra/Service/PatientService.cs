@@ -44,5 +44,10 @@ namespace Addiction_Cure.infra.Service
         {
             return ipatientRepostory.getbyid(id);
         }
+
+        public patBy getbydoctorid(int id)
+        {
+            return ipatientRepostory.getbydoctorid(id);
+        }
     }
 }

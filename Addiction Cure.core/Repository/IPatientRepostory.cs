@@ -16,7 +16,9 @@ namespace Addiction_Cure.core.Repository
         void Delete(int patientid);
         void updatepatient(Register patient);
         patBy getbyid(int id);
-     
+        patBy getbydoctorid(int id);
+
+
 
     }
 }

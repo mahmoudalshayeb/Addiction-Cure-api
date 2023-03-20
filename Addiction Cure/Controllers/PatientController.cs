@@ -53,6 +53,13 @@ namespace Addiction_Cure.Controllers
             return ipatientService.getbyid(id);
         }
 
+        [HttpGet]
+        [Route("getbydoctorid/{id}")]
+        public patBy getbydoctorid(int id)
+        {
+            return ipatientService.getbydoctorid(id);
+        }
+
 
 
     }
