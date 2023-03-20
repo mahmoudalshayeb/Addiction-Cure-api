@@ -55,7 +55,7 @@ namespace Addiction_Cure.Controllers
 
         [HttpGet]
         [Route("getbydoctorid/{id}")]
-        public patBy getbydoctorid(int id)
+        public List<patBy> getbydoctorid(int id)
         {
             return ipatientService.getbydoctorid(id);
         }
