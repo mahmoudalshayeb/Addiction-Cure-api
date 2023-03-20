@@ -19,11 +19,11 @@ namespace Addiction_Cure.infra.Repository
             this.dBContext = dBContext;
         }
 
-        public List<Homepageac> GetAllhome()
+        public Homepageac GetAllhome()
         {
             IEnumerable<Homepageac> result = dBContext.Connection.Query<Homepageac>("HOMEPAGEAC_PACKAGE.GetAllHOMEPAGEAC",
                 commandType: CommandType.StoredProcedure);
-            return result.ToList();
+            return result.FirstOrDefault();
         }
         public void createhome(Homepageac homepageac)
         {

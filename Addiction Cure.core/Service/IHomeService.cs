@@ -7,7 +7,7 @@ namespace Addiction_Cure.core.Service
 {
     public interface IHomeService
     {
-        List<Homepageac> GetAllhome();
+        Homepageac GetAllhome();
         void createhome(Homepageac homepageac);
         void updatehome(Homepageac homepageac);
         void Deletehome(int id);

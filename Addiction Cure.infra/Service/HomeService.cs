@@ -14,7 +14,7 @@ namespace Addiction_Cure.infra.Service
         {
             this.homeRepository = homeRepository;
         }
-        public List<Homepageac> GetAllhome()
+        public Homepageac GetAllhome()
         {
             return homeRepository.GetAllhome();
         }
