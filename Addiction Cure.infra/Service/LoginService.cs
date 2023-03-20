@@ -35,7 +35,8 @@ namespace Addiction_Cure.infra.Service
                 var claims = new List<Claim>
                 {
                 new Claim("Name", result.Username),
-                new Claim("Role", result.Roleid.ToString())};
+                new Claim("Role", result.Roleid.ToString()),
+                new Claim("loginid", result.Loginid.ToString())};
                 // token options
                 var tokenOptions = new JwtSecurityToken(
                 claims: claims,
