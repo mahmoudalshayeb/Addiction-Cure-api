@@ -73,7 +73,7 @@ namespace Addiction_Cure.infra.Repository
         }
 
         //DoctorId
-        public Patientac patientid(int id)
+        public Patientac patientid(string id)
         {
             var p = new DynamicParameters();
             p.Add("id", id, dbType: DbType.String, ParameterDirection.Input);
@@ -83,7 +83,7 @@ namespace Addiction_Cure.infra.Repository
         }
 
         //DoctorId
-        public Dictorac DoctorId(int id)
+        public Dictorac DoctorId(string id)
         {
             var p = new DynamicParameters();
             p.Add("id", id, dbType: DbType.String, ParameterDirection.Input);

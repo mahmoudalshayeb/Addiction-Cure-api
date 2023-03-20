@@ -12,8 +12,8 @@ namespace Addiction_Cure.core.Repository
         Loginac login(Loginac login);
 
         void DoctorRegister(DoctorRegister doctorRegister);
-        Dictorac DoctorId(int id);
-        public Patientac patientid(int id);
+        Dictorac DoctorId(string id);
+        public Patientac patientid(string id);
 
     }
 }

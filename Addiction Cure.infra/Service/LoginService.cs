@@ -56,13 +56,13 @@ namespace Addiction_Cure.infra.Service
             loginRepository.DoctorRegister(doctorRegister);
         }
 
-        public Dictorac DoctorId(int id)
+        public Dictorac DoctorId(string id)
         {
             return loginRepository.DoctorId(id);
         }
 
 
-        public Patientac patientid(int id)
+        public Patientac patientid(string id)
         { 
             return loginRepository.patientid(id);
         }
