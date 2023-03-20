@@ -17,7 +17,7 @@ namespace Addiction_Cure.Controllers
         }
         [HttpGet]
         [Route("getallHome")]
-        public List<Homepageac> GetAllHome()
+        public Homepageac GetAllHome()
         {
             return homeService.GetAllhome();
         }
