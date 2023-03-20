@@ -91,14 +91,14 @@ namespace Addiction_Cure.Controllers
         }
 
         [HttpGet]
-        [Route("doctorid")]
+        [Route("doctorid/{id}")]
         public Dictorac DoctorId(int id)
         {
             return loginService.DoctorId(id);
         }
         
         [HttpGet]
-        [Route("patientid")]
+        [Route("patientid/{id}")]
         public Patientac patientid(int id)
         {
             return loginService.patientid(id);
