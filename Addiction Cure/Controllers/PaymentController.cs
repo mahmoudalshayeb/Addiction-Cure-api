@@ -1,4 +1,5 @@
 ﻿using Addiction_Cure.core.Data;
+using Addiction_Cure.core.DTO;
 using Addiction_Cure.core.Service;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -36,6 +37,14 @@ namespace Addiction_Cure.Controllers
         public void DeletePayment(int id)
         {
             paymentService.DeletePayment(id);
-        } 
+        }
+
+        //report
+        [HttpGet]
+        [Route("Report")]
+        public List<Report> Reports()
+        {
+            return paymentService.Reports();
+        }
     }
 }
