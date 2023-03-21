@@ -35,7 +35,7 @@ namespace Addiction_Cure.infra.Service
         }
         //report
         public List<Report> Reports()
-        {            
+        {
             return paymentRepository.Reports();
         }
     }
