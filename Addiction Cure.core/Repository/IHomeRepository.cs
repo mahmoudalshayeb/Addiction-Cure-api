@@ -11,5 +11,6 @@ namespace Addiction_Cure.core.Repository
         void createhome(Homepageac homepageac);
         void updatehome(Homepageac homepageac);
         void Deletehome(int id);
+        Homepageac GetHomeById(int id);
     }
 }

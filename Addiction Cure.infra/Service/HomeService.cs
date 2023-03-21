@@ -31,5 +31,9 @@ namespace Addiction_Cure.infra.Service
         {
             homeRepository.Deletehome(id);
         }
+        public Homepageac GetHomeById(int id)
+        {
+            return homeRepository.GetHomeById(id);
+        }
     }
 }

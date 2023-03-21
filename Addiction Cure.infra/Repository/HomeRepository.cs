@@ -63,5 +63,13 @@ namespace Addiction_Cure.infra.Repository
             var result = dBContext.Connection.Execute("HOMEPAGEAC_PACKAGE.DELETEHOMEPAGEAC",
                 p, commandType: CommandType.StoredProcedure);
         }
+
+        public Homepageac GetHomeById(int id)
+        {
+            var p = new DynamicParameters();
+            p.Add("HOMEIDS",id,dbType:DbType.Int32, ParameterDirection.Input);
+            IEnumerable<Homepageac> result = dBContext.Connection.Query<Homepageac>("HOMEPAGEAC_PACKAGE.GetByIDHOMEPAGEAC",p, commandType: CommandType.StoredProcedure);
+            return result.FirstOrDefault();
+        }
     }
 }

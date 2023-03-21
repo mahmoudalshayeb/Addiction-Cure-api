@@ -7,6 +7,7 @@ using System.Data;
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
+using Addiction_Cure.core.DTO;
 
 namespace Addiction_Cure.infra.Repository
 {
@@ -53,12 +54,12 @@ namespace Addiction_Cure.infra.Repository
             dbContext.Connection.Execute("ResultTest_pack.DeleteResultac", p, commandType: CommandType.StoredProcedure);
 
         }
-        public List<Resulttsetac> GetResultBetween(DateTime datefrom, DateTime dateto)
+        public List<Report> GetResultBetween(DateTime datefrom, DateTime dateto)
         {
             var p = new DynamicParameters();
             p.Add("datetestac1", datefrom, dbType: DbType.Date, ParameterDirection.Input);
             p.Add("datetestAc2", dateto, dbType: DbType.Date, ParameterDirection.Input);
-            IEnumerable<Resulttsetac> result = dbContext.Connection.Query<Resulttsetac>("ResultTest_pack.testbydate", p,commandType: CommandType.StoredProcedure);
+            IEnumerable<Report> result = dbContext.Connection.Query<Report>("ResultTest_pack.testbydate", p,commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
     }

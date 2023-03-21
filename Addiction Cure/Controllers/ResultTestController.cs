@@ -1,4 +1,5 @@
 ﻿using Addiction_Cure.core.Data;
+using Addiction_Cure.core.DTO;
 using Addiction_Cure.core.Service;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -46,7 +47,7 @@ namespace Addiction_Cure.Controllers
 
         [HttpGet]
         [Route("{datefrom}/{dateto}")]
-        public List<Resulttsetac> GetResultBetween(DateTime datefrom, DateTime dateto)
+        public List<Report> GetResultBetween(DateTime datefrom, DateTime dateto)
         {
             return resultTestService.GetResultBetween(datefrom, dateto);
         }

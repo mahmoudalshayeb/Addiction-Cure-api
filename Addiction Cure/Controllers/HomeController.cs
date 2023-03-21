@@ -65,6 +65,13 @@ namespace Addiction_Cure.Controllers
             item.Image1 = fileName;
             return item;
         }
+
+        [HttpGet]
+        [Route("GetHomeById/{id}")]
+        public Homepageac GetHomeById(int id)
+        {
+            return homeService.GetHomeById(id);
+        }
     }
 }
 

@@ -1,4 +1,5 @@
 ﻿using Addiction_Cure.core.Data;
+using Addiction_Cure.core.DTO;
 using Addiction_Cure.core.Repository;
 using Addiction_Cure.core.Service;
 using System;
@@ -32,7 +33,7 @@ namespace Addiction_Cure.infra.Service
             resultTestRepository.DeleteResult(id);
         }
 
-       public List<Resulttsetac> GetResultBetween(DateTime datefrom, DateTime dateto)
+       public List<Report> GetResultBetween(DateTime datefrom, DateTime dateto)
         {
             return resultTestRepository.GetResultBetween(datefrom, dateto);
         }
