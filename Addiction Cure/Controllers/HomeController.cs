@@ -45,7 +45,6 @@ namespace Addiction_Cure.Controllers
             homeService.Deletehome(id);
         }
 
-
         [HttpPost]
         [Route("uploadImage")]
         public Homepageac UploadIMage()
