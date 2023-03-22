@@ -7,7 +7,7 @@ namespace Addiction_Cure.core.Repository
 {
     public interface IAboutUsRepository
     {
-        List<Aboutusac> GetAllAboutUs();
+        Aboutusac GetAllAboutUs();
         void createAboutUs(Aboutusac aboutusac);
         void updateAboutUs(Aboutusac aboutusac);
         void DeleteAboutUs(int aboutusid);

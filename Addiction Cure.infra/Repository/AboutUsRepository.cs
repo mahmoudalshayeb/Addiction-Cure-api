@@ -20,11 +20,11 @@ namespace Addiction_Cure.infra.Repository
             this.dBContext = dBContext;
         }
 
-        public List<Aboutusac> GetAllAboutUs()
+        public Aboutusac GetAllAboutUs()
         {
             IEnumerable<Aboutusac> result = dBContext.Connection.Query<Aboutusac>("ABOUTUSAC_PACKAGE.GetAllABOUTUSAC", 
                 commandType: CommandType.StoredProcedure);
-            return result.ToList();
+            return result.FirstOrDefault();
         }
 
         public Aboutusac GetAboutusByid(int id)        

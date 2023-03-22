@@ -14,7 +14,7 @@ namespace Addiction_Cure.infra.Service
         {
             this.aboutUsRepository = aboutUsRepository;
         }
-        public List<Aboutusac> GetAllAboutUs()
+        public Aboutusac GetAllAboutUs()
         {
             return aboutUsRepository.GetAllAboutUs();
         }
