@@ -61,7 +61,7 @@ namespace Addiction_Cure.Controllers
         }
 
 
-        [HttpGet]
+        [HttpPut]
         [Route("Level")]
         public void UpdateLevel(int id, string level)
         {
