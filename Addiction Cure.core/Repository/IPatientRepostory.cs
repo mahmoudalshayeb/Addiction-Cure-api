@@ -17,7 +17,7 @@ namespace Addiction_Cure.core.Repository
         void updatepatient(Register patient);
         patBy getbyid(int id);
         List<patBy> getbydoctorid(int id);
-
+        void UpdateLevel(int id, string level);
 
     }
 }
