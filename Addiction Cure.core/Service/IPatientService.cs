@@ -14,7 +14,7 @@ namespace Addiction_Cure.core.Service
         void Delete(int patientid);
         void updatepatient(Register patient);
         patBy getbyid(int id);
-        void UpdateLevel(int id, string level);
+        void UpdateLevel(Register patient);
         List<patBy> getbydoctorid(int id);
     }
 }

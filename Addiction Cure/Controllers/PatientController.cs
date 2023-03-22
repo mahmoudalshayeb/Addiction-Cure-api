@@ -63,9 +63,9 @@ namespace Addiction_Cure.Controllers
 
         [HttpPut]
         [Route("Level")]
-        public void UpdateLevel(int id, string level)
+        public void UpdateLevel(Register patient)
         {
-            ipatientService.UpdateLevel(id, level);
+            ipatientService.UpdateLevel(patient);
         }
     }
 }

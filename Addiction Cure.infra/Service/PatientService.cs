@@ -50,9 +50,9 @@ namespace Addiction_Cure.infra.Service
             return ipatientRepostory.getbydoctorid(id);
         }
 
-        public void UpdateLevel(int id, string level)
+        public void UpdateLevel(Register patient)
         {
-            ipatientRepostory.UpdateLevel(id, level);
+            ipatientRepostory.UpdateLevel(patient);
         }
     }
 }
