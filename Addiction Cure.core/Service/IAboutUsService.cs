@@ -7,7 +7,7 @@ namespace Addiction_Cure.core.Service
 {
     public interface IAboutUsService
     {
-        List<Aboutusac> GetAllAboutUs();
+        Aboutusac GetAllAboutUs();
         void createAboutUs(Aboutusac aboutusac);
         void updateAboutUs(Aboutusac aboutusac);
         void DeleteAboutUs(int aboutusid);

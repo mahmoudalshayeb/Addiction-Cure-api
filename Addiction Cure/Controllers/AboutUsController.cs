@@ -20,7 +20,7 @@ namespace Addiction_Cure.Controllers
         }
         [HttpGet]
         [Route("getallAboutUs")]
-        public List<Aboutusac> GetAllAboutUs()
+        public Aboutusac GetAllAboutUs()
         {
            
             return aboutUsService.GetAllAboutUs();
