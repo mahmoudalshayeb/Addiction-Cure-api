@@ -7,7 +7,7 @@ namespace Addiction_Cure.core.Service
 {
     public interface IQuastionService
     {
-        List<Quastionsac> GetAllQuastions();
+        List<Quastionsac> GetAllQuastions(int id);
         void CreateQuastion(Quastionsac quastionsac);
         void UpdateQuastion(Quastionsac quastionsac);
         void DeleteQuastion(int id);

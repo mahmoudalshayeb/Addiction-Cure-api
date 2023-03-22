@@ -15,9 +15,9 @@ namespace Addiction_Cure.infra.Service
         {
             this.quastionRepository = quastionRepository;
         }
-        public List<Quastionsac> GetAllQuastions()
+        public List<Quastionsac> GetAllQuastions(int id)
         {
-            return quastionRepository.GetAllQuastions();
+            return quastionRepository.GetAllQuastions(id);
         }
         public void CreateQuastion(Quastionsac quastionsac)
         {

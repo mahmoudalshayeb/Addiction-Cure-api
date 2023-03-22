@@ -18,10 +18,10 @@ namespace Addiction_Cure.Controllers
         }
 
         [HttpGet]
-        [Route("GetQuastions")]
-        public List<Quastionsac> GetAllQuastions()
+        [Route("GetQuastions/{id}")]
+        public List<Quastionsac> GetAllQuastions(int id)
         {
-            return quastionService.GetAllQuastions();
+            return quastionService.GetAllQuastions(id);
         }
 
         [HttpPost]

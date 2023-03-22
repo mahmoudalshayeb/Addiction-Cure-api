@@ -18,9 +18,11 @@ namespace Addiction_Cure.infra.Repository
         {
             this.dbContext = dbContext;
         }
-        public List<Quastionsac> GetAllQuastions()
+        public List<Quastionsac> GetAllQuastions(int id)
         {
-            IEnumerable<Quastionsac> result = dbContext.Connection.Query<Quastionsac>("QUASTION_package.getAllQUASTION", commandType: CommandType.StoredProcedure);
+            var p = new DynamicParameters();
+            p.Add("Id", id, dbType: DbType.Int64, ParameterDirection.Input);
+            IEnumerable<Quastionsac> result = dbContext.Connection.Query<Quastionsac>("QUASTION_package.getAllQUASTION",p, commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
         public void CreateQuastion(Quastionsac quastionsac)
