@@ -28,6 +28,7 @@ namespace Addiction_Cure.infra.Repository
         {
             var p = new DynamicParameters();
             p.Add("quationIDac", test.Quastionid, dbType: DbType.Int64, ParameterDirection.Input);
+            p.Add("testdateac", test.Testdate, dbType: DbType.Date, ParameterDirection.Input);
             p.Add("statusac", test.Status, dbType: DbType.Int32, ParameterDirection.Input);
             p.Add("paitenidac", test.Patientid, dbType: DbType.Int32, ParameterDirection.Input);
             dbContext.Connection.Execute("Testac_pack.CreateTestac",p,commandType:CommandType.StoredProcedure);
