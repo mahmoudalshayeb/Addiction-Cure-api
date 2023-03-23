@@ -35,5 +35,11 @@ namespace Addiction_Cure.infra.Service
         {
             return quastionRepository.GetQuastionsById(id);
         }
+
+        public List<Quastionsac> GetAllQuestionss()
+        {
+            return quastionRepository.GetAllQuestionss();
+        }
+
     }
 }

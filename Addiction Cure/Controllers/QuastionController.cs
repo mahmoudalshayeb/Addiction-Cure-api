@@ -50,5 +50,13 @@ namespace Addiction_Cure.Controllers
         {
             return quastionService.GetQuastionsById(id);
         }
+
+
+        [HttpGet]
+        [Route("GetAllQuestionss")]
+        public List<Quastionsac> GetAllQuastionss()
+        {
+            return quastionService.GetAllQuestionss();
+        }
     }
 }

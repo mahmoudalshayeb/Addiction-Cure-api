@@ -54,5 +54,18 @@ namespace Addiction_Cure.infra.Repository
             IEnumerable<Quastionsac> result = dbContext.Connection.Query<Quastionsac>("QUASTION_package.GetQUASTIONBYID",p, commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
+
+
+        public  List<Quastionsac> GetAllQuestionss()
+        {
+
+            IEnumerable<Quastionsac> result = dbContext.Connection.Query<Quastionsac>("QUASTION_package.GetAllQuestionss",
+                commandType: CommandType.StoredProcedure);
+            return result.ToList();
+
+
+        }
+
+       
     }
 }
