@@ -92,8 +92,8 @@ namespace Addiction_Cure.infra.Repository
         public void UpdateLevel(int id , string level)
         {
             var p = new DynamicParameters();
-            p.Add("levelac", id, dbType: DbType.Int32, ParameterDirection.Input);
-            p.Add("id", level, dbType: DbType.String, ParameterDirection.Input);
+            p.Add("ID", id, dbType: DbType.Int32, ParameterDirection.Input);
+            p.Add("level1ac", level, dbType: DbType.String, ParameterDirection.Input);
             var x = dBContext.Connection.Query<Patientac>("patientac_package.UpdateLevel", p, commandType: CommandType.StoredProcedure);
         }
     }

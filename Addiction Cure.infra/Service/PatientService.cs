@@ -52,7 +52,7 @@ namespace Addiction_Cure.infra.Service
 
         public void UpdateLevel(int id, string level)
         {
-            ipatientRepostory.UpdateLevel(id, level);
+            ipatientRepostory.UpdateLevel( id,  level);
         }
     }
 }
