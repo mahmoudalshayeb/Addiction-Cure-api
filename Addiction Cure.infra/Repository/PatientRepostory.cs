@@ -52,13 +52,9 @@ namespace Addiction_Cure.infra.Repository
             p.Add("firstnameAc", patient.Firstname, dbType: DbType.String, ParameterDirection.Input);
             p.Add("lastnameAc", patient.Lastname, dbType: DbType.String, ParameterDirection.Input);
             p.Add("imagenameAc", patient.Imagename, dbType: DbType.String, ParameterDirection.Input);
-            p.Add("levelAc", patient.Level1, dbType: DbType.String, ParameterDirection.Input);
-            p.Add("doctodIdAc", patient.Doctodid, dbType: DbType.Int32, ParameterDirection.Input);
-            p.Add("CATEGORYIDAC", patient.Categoryid, dbType: DbType.Int32, ParameterDirection.Input);
             p.Add("USERNAMEAC", patient.Username, dbType: DbType.String, ParameterDirection.Input);
             p.Add("PASSWORDAC", patient.Password, dbType: DbType.String, ParameterDirection.Input);
             p.Add("EMAILAC", patient.Email, dbType: DbType.String, ParameterDirection.Input);
-            p.Add("roleidac", patient.Roleid, dbType: DbType.Int32, ParameterDirection.Input);
             dBContext.Connection.Execute("patientac_package.Updatepatient", p, commandType: CommandType.StoredProcedure);
         }
 
