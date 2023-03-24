@@ -44,7 +44,7 @@ namespace Addiction_Cure.infra.Repository
         public void DeleteQuastion(int id)
         {
             var p = new DynamicParameters();
-            p.Add("quastionIDAC", id, dbType: DbType.Int64, ParameterDirection.Input);
+            p.Add("Id", id, dbType: DbType.Int64, ParameterDirection.Input);
             dbContext.Connection.Execute("QUASTION_package.DeleteQUASTION", p, commandType: CommandType.StoredProcedure);
         }
 
