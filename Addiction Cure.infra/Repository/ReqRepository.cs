@@ -41,7 +41,7 @@ namespace Addiction_Cure.infra.Repository
             p.Add("statusac", req.Status, dbType: DbType.Int32, ParameterDirection.Input);
             p.Add("Patientidac", req.Patientid, dbType: DbType.Int32, ParameterDirection.Input);
             p.Add("Doctoridac", req.Doctorid, dbType: DbType.Int32, ParameterDirection.Input);
-            dbContext.Connection.Execute("patientac_package.CreatePatient", p, commandType: CommandType.StoredProcedure);
+            dbContext.Connection.Execute("req_pack.createReq", p, commandType: CommandType.StoredProcedure);
 
         }
        public void updateReq(Req req){
@@ -50,7 +50,7 @@ namespace Addiction_Cure.infra.Repository
             p.Add("statusac", req.Status, dbType: DbType.Int32, ParameterDirection.Input);
             p.Add("Patientidac", req.Patientid, dbType: DbType.Int32, ParameterDirection.Input);
             p.Add("Doctoridac", req.Doctorid, dbType: DbType.Int32, ParameterDirection.Input);
-            dbContext.Connection.Execute("patientac_package.CreatePatient", p, commandType: CommandType.StoredProcedure);
+            dbContext.Connection.Execute("req_pack.updateReq", p, commandType: CommandType.StoredProcedure);
 
         }
 

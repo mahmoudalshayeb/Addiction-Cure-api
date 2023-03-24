@@ -29,7 +29,7 @@ namespace Addiction_Cure.Controllers
             return reqService.getbypatid(id);
         }
 
-        [HttpPost]
+       [HttpPost]
        public void createReq(Req req)
         {
             reqService.createReq(req);
