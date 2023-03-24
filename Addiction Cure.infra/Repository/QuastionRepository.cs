@@ -1,5 +1,6 @@
 ﻿using Addiction_Cure.core.Common;
 using Addiction_Cure.core.Data;
+using Addiction_Cure.core.DTO;
 using Addiction_Cure.core.Repository;
 using Dapper;
 using System;
@@ -56,10 +57,10 @@ namespace Addiction_Cure.infra.Repository
         }
 
 
-        public  List<Quastionsac> GetAllQuestionss()
+        public  List<quasWithcat> GetAllQuestionss()
         {
 
-            IEnumerable<Quastionsac> result = dbContext.Connection.Query<Quastionsac>("QUASTION_package.GetAllQuestionss",
+            IEnumerable<quasWithcat> result = dbContext.Connection.Query<quasWithcat>("QUASTION_package.GetAllQuestionss",
                 commandType: CommandType.StoredProcedure);
             return result.ToList();
 

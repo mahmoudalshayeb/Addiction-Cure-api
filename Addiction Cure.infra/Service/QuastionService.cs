@@ -1,4 +1,5 @@
 ﻿using Addiction_Cure.core.Data;
+using Addiction_Cure.core.DTO;
 using Addiction_Cure.core.Repository;
 using Addiction_Cure.core.Service;
 using Addiction_Cure.infra.Repository;
@@ -36,7 +37,7 @@ namespace Addiction_Cure.infra.Service
             return quastionRepository.GetQuastionsById(id);
         }
 
-        public List<Quastionsac> GetAllQuestionss()
+        public List<quasWithcat> GetAllQuestionss()
         {
             return quastionRepository.GetAllQuestionss();
         }
