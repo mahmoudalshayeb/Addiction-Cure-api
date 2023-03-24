@@ -1,4 +1,5 @@
 ﻿using Addiction_Cure.core.Data;
+using Addiction_Cure.core.DTO;
 using Addiction_Cure.core.Service;
 using Addiction_Cure.infra.Service;
 using Microsoft.AspNetCore.Http;
@@ -54,7 +55,7 @@ namespace Addiction_Cure.Controllers
 
         [HttpGet]
         [Route("GetAllQuestionss")]
-        public List<Quastionsac> GetAllQuastionss()
+        public List<quasWithcat> GetAllQuastionss()
         {
             return quastionService.GetAllQuestionss();
         }
