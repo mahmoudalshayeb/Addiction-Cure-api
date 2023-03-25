@@ -52,5 +52,15 @@ namespace Addiction_Cure.infra.Repository
 
         }
 
+        public void accept(accept accept)
+        {
+            var p = new DynamicParameters();
+            p.Add("patid", accept.Patientid, dbType: DbType.Int32, ParameterDirection.Input);
+            p.Add("docid", accept.Doctodid, dbType: DbType.Int32, ParameterDirection.Input);
+            dbContext.Connection.Execute("patientac_package.accept", p, commandType: CommandType.StoredProcedure);
+
+
+        }
+
     }
 }

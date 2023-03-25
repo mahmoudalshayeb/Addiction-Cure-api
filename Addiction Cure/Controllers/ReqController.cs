@@ -1,4 +1,5 @@
 ﻿using Addiction_Cure.core.Data;
+using Addiction_Cure.core.DTO;
 using Addiction_Cure.core.Service;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -40,6 +41,13 @@ namespace Addiction_Cure.Controllers
        public void updateReq(Req req)
         {
             reqService.updateReq(req);
+        }
+
+        [HttpPut]
+        [Route("accept")]
+        public void accept(accept accept)
+        {
+            reqService.accept(accept);
         }
     }
 }
