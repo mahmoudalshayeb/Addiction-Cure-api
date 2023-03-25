@@ -39,9 +39,10 @@ namespace Addiction_Cure.infra.Repository
 
             var p = new DynamicParameters();
             p.Add("resultAcId", resulttsetac.Resulttestid, dbType: DbType.Int32, ParameterDirection.Input);
+            p.Add("patientidac", resulttsetac.Patientid, dbType: DbType.Int32, ParameterDirection.Input);
             p.Add("Resulttestac", resulttsetac.Resulttest, dbType: DbType.String, ParameterDirection.Input);
             p.Add("Descriptionac", resulttsetac.Description, dbType: DbType.String, ParameterDirection.Input);
-            p.Add("Perioddateac", resulttsetac.Perioddate, dbType: DbType.Date, ParameterDirection.Input);
+            p.Add("Perioddateac", resulttsetac.Perioddate, dbType: DbType.Int32, ParameterDirection.Input);
             p.Add("Numberoftestac", resulttsetac.Numberoftest, dbType: DbType.Int32, ParameterDirection.Input);
             p.Add("Datetestac", resulttsetac.Datetest, dbType: DbType.Date, ParameterDirection.Input);
             dbContext.Connection.Execute("ResultTest_pack.UpdateResultac", p, commandType: CommandType.StoredProcedure);
