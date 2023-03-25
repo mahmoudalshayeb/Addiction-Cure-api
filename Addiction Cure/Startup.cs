@@ -17,6 +17,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Stripe;
+using Microsoft.AspNetCore.Server.Kestrel.Core;
 
 namespace Addiction_Cure
 {
@@ -39,6 +40,11 @@ namespace Addiction_Cure
                 {
                     builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
                 });
+            });
+
+            services.Configure<KestrelServerOptions>(options =>
+            {
+                options.Limits.KeepAliveTimeout = TimeSpan.FromMinutes(2);
             });
 
             services.AddScoped<IDBContext, DBContext>();
