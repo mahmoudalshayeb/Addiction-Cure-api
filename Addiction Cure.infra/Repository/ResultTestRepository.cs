@@ -62,5 +62,14 @@ namespace Addiction_Cure.infra.Repository
             IEnumerable<Report> result = dbContext.Connection.Query<Report>("ResultTest_pack.testbydate", p,commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
+
+
+        public Resulttsetac Getbyid(int id)
+        {
+            var p = new DynamicParameters();
+            p.Add("id", id, dbType: DbType.Int32, ParameterDirection.Input);
+            var x = dbContext.Connection.Query<Resulttsetac>("ResultTest_pack.Getbyid", p, commandType: CommandType.StoredProcedure);
+            return x.FirstOrDefault();
+        }
     }
 }

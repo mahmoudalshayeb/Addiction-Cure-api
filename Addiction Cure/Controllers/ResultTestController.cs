@@ -51,5 +51,11 @@ namespace Addiction_Cure.Controllers
         {
             return resultTestService.GetResultBetween(datefrom, dateto);
         }
+        [HttpGet]
+        [Route("byid/{id}")]
+        public Resulttsetac Getbyid(int id)
+        {
+            return resultTestService.Getbyid(id);
+        }
     }
 }

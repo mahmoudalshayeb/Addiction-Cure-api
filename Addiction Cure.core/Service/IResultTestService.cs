@@ -12,6 +12,7 @@ namespace Addiction_Cure.core.Service
         void CreateResult(Resulttsetac resulttsetac);
         void UpdateResult(Resulttsetac resulttsetac);
         void DeleteResult(int id);
+        Resulttsetac Getbyid(int id);
         List<Report> GetResultBetween(DateTime datefrom, DateTime dateto);
 
       

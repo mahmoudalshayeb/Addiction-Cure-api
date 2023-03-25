@@ -37,6 +37,10 @@ namespace Addiction_Cure.infra.Service
         {
             return resultTestRepository.GetResultBetween(datefrom, dateto);
         }
+        public Resulttsetac Getbyid(int id)
+        {
+            return resultTestRepository.Getbyid(id);
+        }
 
     }
 }
