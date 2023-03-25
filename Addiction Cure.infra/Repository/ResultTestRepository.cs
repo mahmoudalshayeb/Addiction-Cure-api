@@ -42,7 +42,7 @@ namespace Addiction_Cure.infra.Repository
             p.Add("patientidac", resulttsetac.Patientid, dbType: DbType.Int32, ParameterDirection.Input);
             p.Add("resulttestac", resulttsetac.Resulttest, dbType: DbType.String, ParameterDirection.Input);
             p.Add("descrpionAc", resulttsetac.Description, dbType: DbType.String, ParameterDirection.Input);
-            p.Add("periodDateac", resulttsetac.Perioddate, dbType: DbType.Int32, ParameterDirection.Input);
+            p.Add("periodDateac", resulttsetac.Perioddate, dbType: DbType.String, ParameterDirection.Input);
             p.Add("numberOfTestac", resulttsetac.Numberoftest, dbType: DbType.Int32, ParameterDirection.Input);
             p.Add("DateTestAc", resulttsetac.Datetest, dbType: DbType.Date, ParameterDirection.Input);
             dbContext.Connection.Execute("ResultTest_pack.UpdateResultac", p, commandType: CommandType.StoredProcedure);
