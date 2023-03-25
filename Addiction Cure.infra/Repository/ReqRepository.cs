@@ -21,18 +21,18 @@ namespace Addiction_Cure.infra.Repository
             this.dbContext = dbContext;
         }
 
-        public Req getbydocid(int id){
+        public List<Req> getbydocid(int id){
             var p = new DynamicParameters();
             p.Add("id", id, dbType: DbType.Int32, ParameterDirection.Input);
-            var x = dbContext.Connection.Query<Req>("req_pack.getbydocId", p, commandType: CommandType.StoredProcedure);
-            return x.FirstOrDefault();
+            IEnumerable<Req> x = dbContext.Connection.Query<Req>("req_pack.getbydocId", p, commandType: CommandType.StoredProcedure);
+            return x.ToList();
         }
 
-        public Req getbypatid(int id) {
+        public List<Req> getbypatid(int id) {
             var p = new DynamicParameters();
             p.Add("id", id, dbType: DbType.Int32, ParameterDirection.Input);
-            var x = dbContext.Connection.Query<Req>("req_pack.getbypatId", p, commandType: CommandType.StoredProcedure);
-            return x.FirstOrDefault();
+            IEnumerable<Req> x = dbContext.Connection.Query<Req>("req_pack.getbypatId", p, commandType: CommandType.StoredProcedure);
+            return x.ToList();
         }
 
        public void createReq(Req req)
@@ -48,8 +48,6 @@ namespace Addiction_Cure.infra.Repository
             var p = new DynamicParameters();
             p.Add("id", req.Reqid, dbType: DbType.Int32, ParameterDirection.Input);
             p.Add("statusac", req.Status, dbType: DbType.Int32, ParameterDirection.Input);
-            p.Add("Patientidac", req.Patientid, dbType: DbType.Int32, ParameterDirection.Input);
-            p.Add("Doctoridac", req.Doctorid, dbType: DbType.Int32, ParameterDirection.Input);
             dbContext.Connection.Execute("req_pack.updateReq", p, commandType: CommandType.StoredProcedure);
 
         }

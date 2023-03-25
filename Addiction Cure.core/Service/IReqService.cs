@@ -7,8 +7,8 @@ namespace Addiction_Cure.core.Service
 {
     public interface IReqService
     {
-        Req getbydocid(int id);
-        Req getbypatid(int id);
+        List<Req> getbydocid(int id);
+        List<Req> getbypatid(int id);
 
         void createReq(Req req);
         void updateReq(Req req);

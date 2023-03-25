@@ -2,6 +2,7 @@
 using Addiction_Cure.core.Service;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 
 namespace Addiction_Cure.Controllers
 {
@@ -17,14 +18,14 @@ namespace Addiction_Cure.Controllers
 
         [HttpGet]
         [Route("doctor/{id}")]
-        public Req getbydocid(int id)
+        public List<Req> getbydocid(int id)
         {
             return reqService.getbydocid(id);
         }
 
         [HttpGet]
         [Route("patient/{id}")]
-        public Req getbypatid(int id)
+        public List<Req> getbypatid(int id)
         {
             return reqService.getbypatid(id);
         }

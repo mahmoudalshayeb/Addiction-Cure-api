@@ -16,10 +16,10 @@ namespace Addiction_Cure.infra.Service
             this.reqRepository = reqRepository;
         }
 
-        public Req getbydocid(int id) {
+        public List<Req> getbydocid(int id) {
             return reqRepository.getbydocid(id);
                  }
-       public Req getbypatid(int id){
+       public List<Req> getbypatid(int id){
         return reqRepository.getbypatid(id);
         }
 
