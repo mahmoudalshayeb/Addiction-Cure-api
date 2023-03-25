@@ -8,7 +8,7 @@ namespace Addiction_Cure.core.Repository
 {
     public interface IResultTestRepository
     {
-        List<Resulttsetac> GetAllResult();
+        List<ResultTestDto> GetAllResult();
         void CreateResult(Resulttsetac resulttsetac);
         void UpdateResult(Resulttsetac resulttsetac);
         void DeleteResult(int id);

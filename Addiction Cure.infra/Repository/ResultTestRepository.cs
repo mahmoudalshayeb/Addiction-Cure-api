@@ -19,9 +19,9 @@ namespace Addiction_Cure.infra.Repository
             this.dbContext = dbContext;
         }
 
-      public List<Resulttsetac> GetAllResult()
+      public List<ResultTestDto> GetAllResult()
         {
-            IEnumerable<Resulttsetac> result = dbContext.Connection.Query<Resulttsetac>("ResultTest_pack.GetAllResultac", commandType: CommandType.StoredProcedure);
+            IEnumerable<ResultTestDto> result = dbContext.Connection.Query<ResultTestDto>("ResultTest_pack.GetAllResultac", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
      public void CreateResult(Resulttsetac resulttsetac)

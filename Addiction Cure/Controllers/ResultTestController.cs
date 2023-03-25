@@ -22,7 +22,7 @@ namespace Addiction_Cure.Controllers
 
         [HttpGet]
         [Route("GetAllResult")]
-        public List<Resulttsetac> GetAllResult()
+        public List<ResultTestDto> GetAllResult()
         {
             return resultTestService.GetAllResult();
         }

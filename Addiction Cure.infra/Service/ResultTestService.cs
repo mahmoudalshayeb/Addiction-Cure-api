@@ -16,7 +16,7 @@ namespace Addiction_Cure.infra.Service
             this.resultTestRepository = resultTestRepository;
         }
 
-        public List<Resulttsetac> GetAllResult()
+        public List<ResultTestDto> GetAllResult()
         {
             return resultTestRepository.GetAllResult();
         }
