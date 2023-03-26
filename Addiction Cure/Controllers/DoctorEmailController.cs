@@ -16,24 +16,22 @@ namespace Addiction_Cure.Controllers
         [HttpPost]
         [Route("DoctorEmail")]
         public IActionResult DoctorEmail(DoctorEmail doctorEmail)
-        {
-            var Renderer = new ChromePdfRenderer();
-            var pdf = Renderer.RenderHtmlAsPdf($" <h1> Thank you for your purchase from our store. </h1> \n\r <h1> The Total Price for your purchase is : $  " +
-                $" </h1> \n\r <h1> <p> Number of Product is : </p> Product names :   </h1> <p>Order date From </p>" +
-                $"<p> Customer name is: {doctorEmail.DoctorName} </p>" +
-                $"<p> Welcome To Awesome Magazine Store. </p>");
-            pdf.SaveAs("DoctorEmail.pdf");
-
+        {           
             string x = "Thank you for purchasing from our website. We hope you like our service";
 
             MimeMessage message = new MimeMessage();
-            message.From.Add(new MailboxAddress("Store", "webmvc.2@gmail.com"));
+            message.From.Add(new MailboxAddress("Addiction Cure", "webmvc.2@gmail.com"));
             message.To.Add(MailboxAddress.Parse(doctorEmail.PatientEmail));
-            message.Subject = "Invoice";
+            message.Subject = "Appointment confirmed";
             var builder = new BodyBuilder();
-            builder.TextBody = x;
-            builder.HtmlBody = "<p> Thank you for purchasing from our website. We hope you like our service </p>";
-            builder.Attachments.Add(@"C:\Users\User\Desktop\ABOOD\store\store\DoctorEmail.pdf");
+            builder.TextBody = $"Dear{doctorEmail.PatientName}," +
+                $"\r\nI am writing to confirm your next follow-up appointment on {doctorEmail.DateTest}.\r\n" +
+                "\r\nDuring your appointment, you will be given a short test to determine your response to treatment.\r\n" +
+                $"{doctorEmail.BodyEmail}" +
+                "\r\n If you have any questions or concerns prior to your appointment, please feel free to contact us.\r\n" +
+                "\r\nWe look forward to seeing you soon.\r\n" +
+                "\r\nBest Regards,\r\n" +
+                $"{doctorEmail.DoctorName}";
 
             message.Body = builder.ToMessageBody();
 

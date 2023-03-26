@@ -10,5 +10,6 @@ namespace Addiction_Cure.core.DTO
         public string PatientName { get; set; }
         public string BodyEmail { get; set; }
         public string PatientEmail { get; set; }
+        public string DateTest { get; set; }
     }
 }

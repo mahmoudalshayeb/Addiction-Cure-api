@@ -19,12 +19,12 @@ namespace Addiction_Cure.infra.Repository
             this.dbContext = dbContext;
         }
 
-     public List<Testac> GetAllTest()
+        public List<Testac> GetAllTest()
         {
             IEnumerable<Testac> result = dbContext.Connection.Query<Testac>("Testac_pack.GetAllTestac", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
-      public  void CreateTest(Testac test)
+        public void CreateTest(Testac test)
         {
             var p = new DynamicParameters();
             p.Add("quationIDac", test.Quastionid, dbType: DbType.Int64, ParameterDirection.Input);
@@ -32,8 +32,7 @@ namespace Addiction_Cure.infra.Repository
             p.Add("statusac", test.Status, dbType: DbType.Int32, ParameterDirection.Input);
             p.Add("paitenidac", test.Patientid, dbType: DbType.Int32, ParameterDirection.Input);
             p.Add("testnumberac", test.TestNumber, dbType: DbType.Int64, ParameterDirection.Input);
-            dbContext.Connection.Execute("Testac_pack.CreateTestac",p,commandType:CommandType.StoredProcedure);
-
+            dbContext.Connection.Execute("Testac_pack.CreateTestac", p, commandType: CommandType.StoredProcedure);
         }
         public void UpdateTest(Testac test)
         {
@@ -48,7 +47,7 @@ namespace Addiction_Cure.infra.Repository
         public void DeleteTest(int id)
         {
             var p = new DynamicParameters();
-            p.Add("testIdac",id, dbType: DbType.Int32, ParameterDirection.Input);
+            p.Add("testIdac", id, dbType: DbType.Int32, ParameterDirection.Input);
             dbContext.Connection.Execute("Testac_pack.DeleteTestac", p, commandType: CommandType.StoredProcedure);
         }
     }
