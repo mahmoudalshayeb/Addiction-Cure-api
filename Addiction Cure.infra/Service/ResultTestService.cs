@@ -23,8 +23,9 @@ namespace Addiction_Cure.infra.Service
         {
             return resultTestRepository.GetAllResult();
         }
-        public void CreateResult(Resulttsetac result) {
-            resultTestRepository.CreateResult(result);
+        public void CreateResult(Resulttsetac resulttsetac) 
+        {
+            resultTestRepository.CreateResult(resulttsetac);
         }
 
         public void UpdateResult(Resulttsetac result)
