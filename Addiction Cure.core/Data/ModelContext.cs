@@ -566,6 +566,10 @@ namespace Addiction_Cure.core.Data
                     .HasColumnType("NUMBER(38)")
                     .HasColumnName("STATUS");
 
+                entity.Property(e => e.TestNumber)
+                    .HasColumnType("NUMBER(38)")
+                    .HasColumnName("TESTNUMBER");
+
                 entity.Property(e => e.Testdate)
                     .HasColumnType("DATE")
                     .HasColumnName("TESTDATE");

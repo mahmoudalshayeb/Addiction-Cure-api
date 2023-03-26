@@ -31,6 +31,7 @@ namespace Addiction_Cure.infra.Repository
             p.Add("testdateac", test.Testdate, dbType: DbType.Date, ParameterDirection.Input);
             p.Add("statusac", test.Status, dbType: DbType.Int32, ParameterDirection.Input);
             p.Add("paitenidac", test.Patientid, dbType: DbType.Int32, ParameterDirection.Input);
+            p.Add("testnumberac", test.TestNumber, dbType: DbType.Int64, ParameterDirection.Input);
             dbContext.Connection.Execute("Testac_pack.CreateTestac",p,commandType:CommandType.StoredProcedure);
 
         }
@@ -41,6 +42,7 @@ namespace Addiction_Cure.infra.Repository
             p.Add("quationIDac", test.Quastionid, dbType: DbType.String, ParameterDirection.Input);
             p.Add("statusac", test.Status, dbType: DbType.Int32, ParameterDirection.Input);
             p.Add("paitenidac", test.Patientid, dbType: DbType.Int32, ParameterDirection.Input);
+            p.Add("testnumberac", test.TestNumber, dbType: DbType.Int64, ParameterDirection.Input);
             dbContext.Connection.Execute("Testac_pack.UpdateTestac", p, commandType: CommandType.StoredProcedure);
         }
         public void DeleteTest(int id)
