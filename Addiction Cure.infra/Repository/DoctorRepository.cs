@@ -86,5 +86,16 @@ namespace Addiction_Cure.infra.Repository
             var x = dBContext.Connection.Query<docBy>("Doctor_package.GetById", p, commandType: CommandType.StoredProcedure);
             return x.FirstOrDefault();
         }
+
+
+
+        public docBy GetByLoginId(int id)
+        {
+            var p = new DynamicParameters();
+            p.Add("id", id, dbType: DbType.Int32, ParameterDirection.Input);
+            var x = dBContext.Connection.Query<docBy>("Doctor_package.GetByLoginId", p, commandType: CommandType.StoredProcedure);
+            return x.FirstOrDefault();
+        }
+
     }
 }

@@ -14,5 +14,8 @@ namespace Addiction_Cure.core.Service
         void Deletedoctor(int doctorid);
         List<SearchByName> GetDocByName(string thename);
         docBy getbyid(int id);
+
+        docBy GetByLoginId(int id);
+
     }
 }

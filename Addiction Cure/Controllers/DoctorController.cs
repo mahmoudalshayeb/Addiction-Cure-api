@@ -60,6 +60,15 @@ namespace Addiction_Cure.Controllers
             return idoctorService.getbyid(id);
         }
 
+        [HttpGet]
+        [Route("getbyLoginID/{id}")]
+        public docBy GetByLoginId(int id)
+        {
+            return idoctorService.GetByLoginId(id);
+        }
+
+
+
 
         [HttpPost]
         [Route("uploadImage")]

@@ -15,5 +15,7 @@ namespace Addiction_Cure.core.Repository
 
         List<SearchByName> GetDocByName(string thename);
         docBy getbyid(int id);
+
+        docBy GetByLoginId(int id);
     }
 }
