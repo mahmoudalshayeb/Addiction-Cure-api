@@ -92,5 +92,13 @@ namespace Addiction_Cure.infra.Repository
             p.Add("level1ac", level, dbType: DbType.String, ParameterDirection.Input);
             var x = dBContext.Connection.Query<Patientac>("patientac_package.UpdateLevel", p, commandType: CommandType.StoredProcedure);
         }
+
+       public patBy getbyloginid(string id)
+        {
+            var p = new DynamicParameters();
+            p.Add("ID", id, dbType: DbType.String, ParameterDirection.Input);
+            var x = dBContext.Connection.Query<patBy>("patientac_package.GetPatientbyLogid", p, commandType: CommandType.StoredProcedure);
+            return x.FirstOrDefault();
+        }
     }
 }

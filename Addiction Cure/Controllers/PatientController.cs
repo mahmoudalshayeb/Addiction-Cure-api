@@ -67,5 +67,14 @@ namespace Addiction_Cure.Controllers
         {
             ipatientService.UpdateLevel(id , level);
         }
+
+        [HttpGet]
+        [Route("loginid/{id}")]
+
+        public patBy getbyloginid(string id)
+        {
+           return ipatientService.getbyloginid(id);
+        }
+
     }
 }

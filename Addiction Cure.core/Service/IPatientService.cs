@@ -16,5 +16,6 @@ namespace Addiction_Cure.core.Service
         patBy getbyid(int id);
         void UpdateLevel(int id, string level);
         List<patBy> getbydoctorid(int id);
+        patBy getbyloginid(string id);
     }
 }
