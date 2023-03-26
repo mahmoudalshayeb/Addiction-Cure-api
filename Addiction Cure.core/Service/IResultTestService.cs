@@ -11,6 +11,8 @@ namespace Addiction_Cure.core.Service
         List<ResultTestDto> GetAllResult();
         void CreateResult(Resulttsetac resulttsetac);
         void UpdateResult(Resulttsetac resulttsetac);
+        List<ResultTestDto> GetByDocid(int id);
+        List<ResultTestDto> GetBypatid(int id);
         void DeleteResult(int id);
         Resulttsetac Getbyid(int id);
         List<Report> GetResultBetween(DateTime datefrom, DateTime dateto);

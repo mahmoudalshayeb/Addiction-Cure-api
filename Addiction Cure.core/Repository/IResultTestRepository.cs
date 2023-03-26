@@ -12,7 +12,8 @@ namespace Addiction_Cure.core.Repository
         void CreateResult(Resulttsetac resulttsetac);
         void UpdateResult(Resulttsetac resulttsetac);
         void DeleteResult(int id);
-
+        List<ResultTestDto> GetByDocid(int id);
+        List<ResultTestDto> GetBypatid(int id);
         Resulttsetac Getbyid(int id);
         List<Report> GetResultBetween(DateTime datefrom, DateTime dateto);
 
