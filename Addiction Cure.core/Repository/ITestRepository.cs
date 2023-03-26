@@ -12,5 +12,7 @@ namespace Addiction_Cure.core.Repository
         void UpdateTest(Testac test);
         void DeleteTest(int id);
 
+        Testac GetByPatId(int id);
+
     }
 }

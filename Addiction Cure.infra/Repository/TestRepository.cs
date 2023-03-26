@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Linq;
 using static System.Net.Mime.MediaTypeNames;
+using Microsoft.EntityFrameworkCore;
 
 namespace Addiction_Cure.infra.Repository
 {
@@ -50,5 +51,19 @@ namespace Addiction_Cure.infra.Repository
             p.Add("testIdac", id, dbType: DbType.Int32, ParameterDirection.Input);
             dbContext.Connection.Execute("Testac_pack.DeleteTestac", p, commandType: CommandType.StoredProcedure);
         }
+
+
+        public Testac GetByPatId(int id)
+        {
+            var p = new DynamicParameters();
+            p.Add("id", id, dbType: DbType.Int32, ParameterDirection.Input);
+
+            IEnumerable<Testac> result = dbContext.Connection.Query<Testac>("Testac_pack.GetByPatId", p,
+                                      commandType: CommandType.StoredProcedure);
+
+            return result.FirstOrDefault();
+
+        }
+
     }
 }

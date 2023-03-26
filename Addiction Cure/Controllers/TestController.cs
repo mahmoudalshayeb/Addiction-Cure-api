@@ -40,6 +40,12 @@ namespace Addiction_Cure.Controllers
         {
             testService.DeleteTest(id);
         }
-       
+        [HttpGet]
+        [Route("getByPatID/{id}")]
+        public Testac GetByPatId(int id)
+        {
+          return  testService.GetByPatId(id);
+        }
+
     }
 }

@@ -34,5 +34,10 @@ namespace Addiction_Cure.infra.Service
         {
             testRepository.DeleteTest(id);
         }
+
+        public Testac GetByPatId(int id)
+        {
+           return testRepository.GetByPatId(id);
+        }
     }
 }
