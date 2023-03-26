@@ -53,5 +53,11 @@ namespace Addiction_Cure.infra.Service
         {
             return IdoctorRepository.getbyid(id);
         }
+
+        public docBy GetByLoginId(int id)
+        {
+            return IdoctorRepository.GetByLoginId(id);
+        }
+
     }
 }
