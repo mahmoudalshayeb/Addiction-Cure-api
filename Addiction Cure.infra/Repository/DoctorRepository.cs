@@ -89,7 +89,7 @@ namespace Addiction_Cure.infra.Repository
 
 
 
-        public docBy GetByLoginId(int id)
+        public docBy GetByLoginId(string id)
         {
             var p = new DynamicParameters();
             p.Add("id", id, dbType: DbType.Int32, ParameterDirection.Input);

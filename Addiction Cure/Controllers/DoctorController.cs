@@ -62,7 +62,7 @@ namespace Addiction_Cure.Controllers
 
         [HttpGet]
         [Route("getbyLoginID/{id}")]
-        public docBy GetByLoginId(int id)
+        public docBy GetByLoginId(string id)
         {
             return idoctorService.GetByLoginId(id);
         }
