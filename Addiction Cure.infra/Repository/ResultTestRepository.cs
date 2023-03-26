@@ -27,11 +27,12 @@ namespace Addiction_Cure.infra.Repository
      public void CreateResult(Resulttsetac resulttsetac)
         {
             var p = new  DynamicParameters();
-            p.Add("Resulttestac", resulttsetac.Resulttest,dbType:DbType.String,ParameterDirection.Input);
-            p.Add("Descriptionac", resulttsetac.Description, dbType: DbType.String, ParameterDirection.Input);
-            p.Add("Perioddateac", resulttsetac.Perioddate, dbType: DbType.Date, ParameterDirection.Input);
-            p.Add("Numberoftestac", resulttsetac.Numberoftest, dbType: DbType.Int32, ParameterDirection.Input);
-            p.Add("Datetestac", resulttsetac.Datetest, dbType: DbType.Date, ParameterDirection.Input);
+            p.Add("resulttestac", resulttsetac.Resulttest,dbType:DbType.String,ParameterDirection.Input);
+            p.Add("descrpionAc", resulttsetac.Description, dbType: DbType.String, ParameterDirection.Input);
+            p.Add("periodDateac", resulttsetac.Perioddate, dbType: DbType.String, ParameterDirection.Input);
+            p.Add("numberOfTestac", resulttsetac.Numberoftest, dbType: DbType.Int32, ParameterDirection.Input);
+            p.Add("DateTestAc", resulttsetac.Datetest, dbType: DbType.Date, ParameterDirection.Input);
+            p.Add("patientidac", resulttsetac.Patientid, dbType: DbType.Int32, ParameterDirection.Input);
             dbContext.Connection.Execute("ResultTest_pack.CreateResultac",p,commandType:CommandType.StoredProcedure);
         }
      public void UpdateResult(Resulttsetac resulttsetac)
