@@ -2,8 +2,11 @@
 using Addiction_Cure.core.DTO;
 using Addiction_Cure.core.Repository;
 using Addiction_Cure.core.Service;
+using Dapper;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Linq;
 using System.Text;
 
 namespace Addiction_Cure.infra.Service
@@ -40,6 +43,15 @@ namespace Addiction_Cure.infra.Service
         public Resulttsetac Getbyid(int id)
         {
             return resultTestRepository.Getbyid(id);
+        }
+
+        public List<ResultTestDto> GetByDocid(int id)
+        {
+           return resultTestRepository.GetByDocid(id);
+        }
+        public List<ResultTestDto> GetBypatid(int id)
+        {
+            return resultTestRepository.GetBypatid(id);
         }
 
     }

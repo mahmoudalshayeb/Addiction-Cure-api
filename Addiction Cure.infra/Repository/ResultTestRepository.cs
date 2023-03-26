@@ -72,5 +72,21 @@ namespace Addiction_Cure.infra.Repository
             var x = dbContext.Connection.Query<Resulttsetac>("ResultTest_pack.Getbyid", p, commandType: CommandType.StoredProcedure);
             return x.FirstOrDefault();
         }
+
+
+       public List<ResultTestDto> GetByDocid(int id)
+        {
+            var p = new DynamicParameters();
+            p.Add("id", id, dbType: DbType.Int32, ParameterDirection.Input);
+            IEnumerable<ResultTestDto> result = dbContext.Connection.Query<ResultTestDto>("ResultTest_pack.GetbyDocid",p, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+       public List<ResultTestDto> GetBypatid(int id)
+        {
+            var p = new DynamicParameters();
+            p.Add("id", id, dbType: DbType.Int32, ParameterDirection.Input);
+            IEnumerable<ResultTestDto> result = dbContext.Connection.Query<ResultTestDto>("ResultTest_pack.GetbyPatid",p, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
     }
 }

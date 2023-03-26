@@ -57,5 +57,18 @@ namespace Addiction_Cure.Controllers
         {
             return resultTestService.Getbyid(id);
         }
+
+        [HttpGet]
+        [Route("Bydocid/{id}")]
+        public List<ResultTestDto> GetByDocid(int id)
+        {
+            return resultTestService.GetByDocid(id);
+        }
+        [HttpGet]
+        [Route("ByPatid/{id}")]
+        public List<ResultTestDto> GetBypatid(int id)
+        {
+            return resultTestService.GetBypatid(id);
+        }
     }
 }
