@@ -19,5 +19,8 @@ namespace Addiction_Cure.core.Repository
         List<patBy> getbydoctorid(int id);
         void UpdateLevel(int id, string level);
 
+        patBy getbyloginid(string id);
+
+
     }
 }
