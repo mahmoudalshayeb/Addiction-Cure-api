@@ -25,7 +25,7 @@ namespace Addiction_Cure.Controllers
             message.Subject = "Appointment confirmed";
             var builder = new BodyBuilder();
             builder.TextBody = $"Dear{doctorEmail.PatientName}," +
-                $"\r\nI am writing to confirm your next follow-up appointment on {doctorEmail.DateTest}.\r\n" +
+                $"\r\nI am writing to confirm your next follow-up appointment on  .\r\n" +
                 "\r\nDuring your appointment, you will be given a short test to determine your response to treatment.\r\n" +
                 $"{doctorEmail.BodyEmail}" +
                 "\r\n If you have any questions or concerns prior to your appointment, please feel free to contact us.\r\n" +
