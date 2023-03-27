@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MimeKit;
 using MailKit.Net.Smtp;
-using SmtpClient = MailKit.Net.Smtp.SmtpClient;
 using System;
 
 namespace Addiction_Cure.Controllers
@@ -17,7 +16,6 @@ namespace Addiction_Cure.Controllers
         [Route("DoctorEmail")]
         public IActionResult DoctorEmail(DoctorEmail doctorEmail)
         {           
-            string x = "Thank you for purchasing from our website. We hope you like our service";
 
             MimeMessage message = new MimeMessage();
             message.From.Add(new MailboxAddress("Addiction Cure", "webmvc.2@gmail.com"));
@@ -25,7 +23,7 @@ namespace Addiction_Cure.Controllers
             message.Subject = "Appointment confirmed";
             var builder = new BodyBuilder();
             builder.TextBody = $"Dear{doctorEmail.PatientName}," +
-                $"\r\nI am writing to confirm your next follow-up appointment on  .\r\n" +
+                $"\r\nI am writing to confirm your next follow-up appointment on {doctorEmail.Datetest}.\r\n" +
                 "\r\nDuring your appointment, you will be given a short test to determine your response to treatment.\r\n" +
                 $"{doctorEmail.BodyEmail}" +
                 "\r\n If you have any questions or concerns prior to your appointment, please feel free to contact us.\r\n" +
