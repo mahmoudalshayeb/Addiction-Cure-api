@@ -15,7 +15,7 @@ namespace Addiction_Cure.core.Service
 
         List<TestWithquas> GetByPatId(int id);
 
-        void updateStatus(int id, int status)
+        void updateStatus(int id, int status);
 
     }
 }

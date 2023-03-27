@@ -72,7 +72,7 @@ namespace Addiction_Cure.Controllers
         }
 
         [HttpGet]
-        [Route("afterquiz/{id}/result")]
+        [Route("afterquiz/{id}/{result}")]
         public void afterquiz(int id, string result)
         {
             resultTestService.afterquiz(id, result);
