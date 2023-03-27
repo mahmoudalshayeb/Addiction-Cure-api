@@ -1,4 +1,5 @@
 ﻿using Addiction_Cure.core.Data;
+using Addiction_Cure.core.DTO;
 using Addiction_Cure.core.Service;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -42,9 +43,16 @@ namespace Addiction_Cure.Controllers
         }
         [HttpGet]
         [Route("getByPatID/{id}")]
-        public Testac GetByPatId(int id)
+        public List<TestWithquas> GetByPatId(int id)
         {
           return  testService.GetByPatId(id);
+        }
+
+        [HttpGet]
+        [Route("updateStatus/{id}/{status}")]
+        public void updateStatus(int id, int status)
+        {
+            testService.updateStatus(id, status);   
         }
 
     }

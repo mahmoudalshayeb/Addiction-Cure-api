@@ -1,4 +1,5 @@
 ﻿using Addiction_Cure.core.Data;
+using Addiction_Cure.core.DTO;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -12,7 +13,9 @@ namespace Addiction_Cure.core.Repository
         void UpdateTest(Testac test);
         void DeleteTest(int id);
 
-        Testac GetByPatId(int id);
+        List<TestWithquas> GetByPatId(int id);
+
+        void updateStatus(int id, int status);
 
     }
 }

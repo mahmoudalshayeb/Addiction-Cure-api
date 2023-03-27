@@ -16,7 +16,9 @@ namespace Addiction_Cure.core.Service
         void DeleteResult(int id);
         Resulttsetac Getbyid(int id);
         List<Report> GetResultBetween(DateTime datefrom, DateTime dateto);
+        void afterquiz(int id, string result)
 
-      
+
+
     }
 }

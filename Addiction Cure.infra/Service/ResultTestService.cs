@@ -54,6 +54,10 @@ namespace Addiction_Cure.infra.Service
         {
             return resultTestRepository.GetBypatid(id);
         }
+        public void afterquiz(int id, string result)
+        {
+            resultTestRepository.afterquiz(id, result);
+        }
 
     }
 }

@@ -89,5 +89,14 @@ namespace Addiction_Cure.infra.Repository
             IEnumerable<ResultTestDto> result = dbContext.Connection.Query<ResultTestDto>("ResultTest_pack.GetbyPatid",p, commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
+
+
+        public void afterquiz(int id, string result)
+        {
+            var p = new DynamicParameters();
+            p.Add("id", id, dbType: DbType.Int32, ParameterDirection.Input);
+            p.Add("resulttestac", id, dbType: DbType.String, ParameterDirection.Input);
+            dbContext.Connection.Execute("ResultTest_pack.Afterquiz", p, commandType: CommandType.StoredProcedure);
+        }
     }
 }
