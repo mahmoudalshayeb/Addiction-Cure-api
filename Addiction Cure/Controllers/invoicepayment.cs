@@ -84,7 +84,7 @@ namespace Addiction_Cure.Controllers
             string x = "Thank you for purchasing from our website. We hope you like our service";
 
             MimeMessage message = new MimeMessage();
-            message.From.Add(new MailboxAddress("Store", "webmvc.2@gmail.com"));
+            message.From.Add(new MailboxAddress("Store", "aboodghs88@gmail.com"));
             message.To.Add(MailboxAddress.Parse(paymentRequest.Email));
             message.Subject = "Invoice";
             var builder = new BodyBuilder();
@@ -98,7 +98,7 @@ namespace Addiction_Cure.Controllers
             try
             {
                 client.Connect("smtp.gmail.com", 587, MailKit.Security.SecureSocketOptions.StartTls);
-                client.Authenticate("webmvc.2@gmail.com", "qvotnxyuirbeckfz");
+                client.Authenticate("aboodghs88@gmail.com", "cwxyfbxgafyctoce");
                 client.Send(message);
 
             }

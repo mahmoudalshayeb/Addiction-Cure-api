@@ -60,8 +60,8 @@ namespace Addiction_Cure.infra.Repository
         {
             var p = new DynamicParameters();
             p.Add("Email", doctorRegister.Email, dbType: DbType.String, ParameterDirection.Input);
-            p.Add("passwordac", doctorRegister.Email, dbType: DbType.String, ParameterDirection.Input);
-            p.Add("username", doctorRegister.Email, dbType: DbType.String, ParameterDirection.Input);
+            p.Add("passwordac", doctorRegister.Password, dbType: DbType.String, ParameterDirection.Input);
+            p.Add("username", doctorRegister.Username, dbType: DbType.String, ParameterDirection.Input);
             p.Add("roleid", doctorRegister.Roleid, dbType: DbType.Int32, ParameterDirection.Input);
             p.Add("firstnameAc", doctorRegister.Firstname, dbType: DbType.String, ParameterDirection.Input);
             p.Add("lastnameAc", doctorRegister.Lastname, dbType: DbType.String, ParameterDirection.Input);

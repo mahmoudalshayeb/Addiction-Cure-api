@@ -18,11 +18,11 @@ namespace Addiction_Cure.Controllers
         {           
 
             MimeMessage message = new MimeMessage();
-            message.From.Add(new MailboxAddress("Addiction Cure", "webmvc.2@gmail.com"));
+            message.From.Add(new MailboxAddress("Addiction Cure", "aboodghs88@gmail.com"));
             message.To.Add(MailboxAddress.Parse(doctorEmail.PatientEmail));
             message.Subject = "Appointment confirmed";
             var builder = new BodyBuilder();
-            builder.TextBody = $"Dear{doctorEmail.PatientName}," +
+            builder.TextBody = $"Dear {doctorEmail.PatientName}," +
                 $"\r\nI am writing to confirm your next follow-up appointment on {doctorEmail.Datetest}.\r\n" +
                 "\r\nDuring your appointment, you will be given a short test to determine your response to treatment.\r\n" +
                 $"{doctorEmail.BodyEmail}" +
@@ -37,7 +37,7 @@ namespace Addiction_Cure.Controllers
             try
             {
                 client.Connect("smtp.gmail.com", 587, MailKit.Security.SecureSocketOptions.StartTls);
-                client.Authenticate("webmvc.2@gmail.com", "qvotnxyuirbeckfz");
+                client.Authenticate("aboodghs88@gmail.com", "cwxyfbxgafyctoce");
                 client.Send(message);
 
             }
