@@ -95,7 +95,7 @@ namespace Addiction_Cure.infra.Repository
         {
             var p = new DynamicParameters();
             p.Add("id", id, dbType: DbType.Int32, ParameterDirection.Input);
-            p.Add("resulttestac", id, dbType: DbType.String, ParameterDirection.Input);
+            p.Add("resulttestac", result, dbType: DbType.String, ParameterDirection.Input);
             dbContext.Connection.Execute("ResultTest_pack.Afterquiz", p, commandType: CommandType.StoredProcedure);
         }
     }
