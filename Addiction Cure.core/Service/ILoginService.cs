@@ -9,8 +9,8 @@ namespace Addiction_Cure.core.Service
     public interface ILoginService
     {
         String Login(Loginac login);
-        void register(Register patient);
-        void DoctorRegister(DoctorRegister doctorRegister);
+        bool register(Register patient);
+        bool DoctorRegister(DoctorRegister doctorRegister);
         Dictorac DoctorId(string id);
         public Patientac patientid(string id);
     }

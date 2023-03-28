@@ -8,10 +8,10 @@ namespace Addiction_Cure.core.Repository
 {
     public interface ILoginRepository
     {
-        void register(Register patient);
+        bool register(Register patient);
         Loginac login(Loginac login);
 
-        void DoctorRegister(DoctorRegister doctorRegister);
+        bool DoctorRegister(DoctorRegister doctorRegister);
         Dictorac DoctorId(string id);
         public Patientac patientid(string id);
 

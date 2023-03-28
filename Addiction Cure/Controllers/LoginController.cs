@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.IO;
 using System;
 using SixLabors.ImageSharp;
+using Microsoft.VisualStudio.Web.CodeGeneration.Contracts.Messaging;
 
 namespace Addiction_Cure.Controllers
 {
@@ -33,9 +34,17 @@ namespace Addiction_Cure.Controllers
 
         [HttpPost]
         [Route("register")]
-        public void register(Register patient)
+        public bool register(Register patient)
         {
-             loginService.register(patient);
+            try
+            {
+                loginService.register(patient);
+                return true;
+            }
+            catch(Exception)
+            {
+                return false;
+            }
         }
 
         [HttpPost]
@@ -51,9 +60,6 @@ namespace Addiction_Cure.Controllers
             {
                 file.CopyTo(stream);
             }
-
-            // its like insert TEMPORARY record  from category all OF ITS  ATTRIBUTS  are null except the image //// NOT IN DATABASE ITS JUST TEMPORRARY
-
             Register item = new Register();
             item.Imagename = fileName;
             return item;
@@ -63,9 +69,17 @@ namespace Addiction_Cure.Controllers
         [HttpPost]
         [Route("DoctorRegister")]
 
-        public void DoctorRegister(DoctorRegister doctorRegister)
+        public bool DoctorRegister(DoctorRegister doctorRegister)
         {
-             loginService.DoctorRegister(doctorRegister);
+            try
+            {
+                loginService.DoctorRegister(doctorRegister);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
 

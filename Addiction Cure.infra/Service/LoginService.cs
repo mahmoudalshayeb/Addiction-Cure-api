@@ -46,15 +46,15 @@ namespace Addiction_Cure.infra.Service
                 var tokenString = new JwtSecurityTokenHandler().WriteToken(tokenOptions); return tokenString;
             }
         }
-        public void register(Register patient)
+        public bool register(Register patient)
         {
-            loginRepository.register(patient);
+            return loginRepository.register(patient);
         }
 
 
-        public void DoctorRegister(DoctorRegister doctorRegister)
+        public bool DoctorRegister(DoctorRegister doctorRegister)
         {
-            loginRepository.DoctorRegister(doctorRegister);
+            return loginRepository.DoctorRegister(doctorRegister);
         }
 
         public Dictorac DoctorId(string id)
