@@ -31,14 +31,14 @@ namespace Addiction_Cure.Controllers
             return reqService.getbypatid(id);
         }
 
-       [HttpPost]
-       public void createReq(Req req)
+        [HttpPost]
+        public void createReq(Req req)
         {
             reqService.createReq(req);
         }
 
         [HttpPut]
-       public void updateReq(Req req)
+        public void updateReq(Req req)
         {
             reqService.updateReq(req);
         }
@@ -51,6 +51,7 @@ namespace Addiction_Cure.Controllers
         }
 
         [HttpDelete]
+        [Route("{id}")]
         public void deleteReq(int id)
         {
             reqService.deleteReq(id);
