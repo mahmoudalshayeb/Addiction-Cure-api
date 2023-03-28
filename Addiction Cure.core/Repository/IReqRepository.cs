@@ -9,9 +9,10 @@ namespace Addiction_Cure.core.Repository
     public interface IReqRepository
     {
         List<Req> getbydocid(int id);
-        List<Req> getbypatid(int id);
+        Req getbypatid(int id);
         void accept(accept accept);
 
+        void deleteReq(int id);
         void createReq(Req req);
         void updateReq(Req req);
     }

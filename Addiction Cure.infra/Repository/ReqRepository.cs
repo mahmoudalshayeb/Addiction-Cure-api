@@ -28,11 +28,11 @@ namespace Addiction_Cure.infra.Repository
             return x.ToList();
         }
 
-        public List<Req> getbypatid(int id) {
+        public Req getbypatid(int id) {
             var p = new DynamicParameters();
             p.Add("id", id, dbType: DbType.Int32, ParameterDirection.Input);
-            IEnumerable<Req> x = dbContext.Connection.Query<Req>("req_pack.getbypatId", p, commandType: CommandType.StoredProcedure);
-            return x.ToList();
+           var x = dbContext.Connection.Query<Req>("req_pack.getbypatId", p, commandType: CommandType.StoredProcedure);
+            return x.FirstOrDefault();
         }
 
        public void createReq(Req req)
@@ -60,6 +60,13 @@ namespace Addiction_Cure.infra.Repository
             dbContext.Connection.Execute("patientac_package.accept", p, commandType: CommandType.StoredProcedure);
 
 
+        }
+
+        public void deleteReq(int id)
+        {
+            var p = new DynamicParameters();
+            p.Add("id", id, dbType: DbType.Int32, ParameterDirection.Input);
+            dbContext.Connection.Execute("patientac_package.deleteReq", p, commandType: CommandType.StoredProcedure);
         }
 
     }

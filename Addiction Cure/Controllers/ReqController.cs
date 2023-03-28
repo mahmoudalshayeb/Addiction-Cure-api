@@ -26,7 +26,7 @@ namespace Addiction_Cure.Controllers
 
         [HttpGet]
         [Route("patient/{id}")]
-        public List<Req> getbypatid(int id)
+        public Req getbypatid(int id)
         {
             return reqService.getbypatid(id);
         }
@@ -48,6 +48,12 @@ namespace Addiction_Cure.Controllers
         public void accept(accept accept)
         {
             reqService.accept(accept);
+        }
+
+        [HttpDelete]
+        public void deleteReq(int id)
+        {
+            reqService.deleteReq(id);
         }
     }
 }

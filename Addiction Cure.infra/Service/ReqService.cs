@@ -20,7 +20,8 @@ namespace Addiction_Cure.infra.Service
         public List<Req> getbydocid(int id) {
             return reqRepository.getbydocid(id);
                  }
-       public List<Req> getbypatid(int id){
+       public Req getbypatid(int id)
+        {
         return reqRepository.getbypatid(id);
         }
 
@@ -35,5 +36,10 @@ namespace Addiction_Cure.infra.Service
             reqRepository.accept(accept);
         }
 
+
+     public void deleteReq(int id)
+        {
+            reqRepository.deleteReq(id);
+        }
     }
 }
