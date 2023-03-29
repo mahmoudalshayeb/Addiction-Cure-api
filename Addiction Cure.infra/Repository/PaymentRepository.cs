@@ -27,9 +27,9 @@ namespace Addiction_Cure.infra.Repository
         public void CreatePayment(Paymentac paymentac)
         {
             var p = new DynamicParameters();
-            p.Add("Amountac", paymentac.Amount, dbType: DbType.Int32, ParameterDirection.Input);
-            p.Add("Paydateac", paymentac.Paydate, dbType: DbType.Date, ParameterDirection.Input);
-            p.Add("Patientidac", paymentac.Patientid, dbType: DbType.Int32, ParameterDirection.Input);
+            p.Add("amountAc", paymentac.Amount, dbType: DbType.Int32, ParameterDirection.Input);
+            p.Add("paydateac", paymentac.Paydate, dbType: DbType.Date, ParameterDirection.Input);
+            p.Add("paitientIdac", paymentac.Patientid, dbType: DbType.Int32, ParameterDirection.Input);
             dbContext.Connection.Execute("paymentac_pack.Createpaymentac", p, commandType: CommandType.StoredProcedure);
         }
         public void UpdatePayment(Paymentac paymentac)
