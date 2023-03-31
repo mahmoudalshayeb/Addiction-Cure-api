@@ -46,5 +46,13 @@ namespace Addiction_Cure.Controllers
         {
             return paymentService.Reports();
         }
+
+
+        [HttpGet]
+        [Route("payment/{id}")]
+        public Paymentac GetPaymentbypatid(int id)
+        {
+            return paymentService.GetPaymentbypatid(id);
+        }
     }
 }

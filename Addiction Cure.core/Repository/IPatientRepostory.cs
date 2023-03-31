@@ -16,10 +16,13 @@ namespace Addiction_Cure.core.Repository
         void Delete(int patientid);
         void updatepatient(Register patient);
         patBy getbyid(int id);
+
         List<patBy> getbydoctorid(int id);
         void UpdateLevel(int id, string level);
 
         patBy getbyloginid(string id);
+
+
 
 
     }

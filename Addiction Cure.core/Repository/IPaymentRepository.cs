@@ -10,6 +10,8 @@ namespace Addiction_Cure.core.Repository
     {
         List<Paymentac> GetAllPayment();
         void CreatePayment(Paymentac paymentac);
+
+        Paymentac GetPaymentbypatid(int id);
         void UpdatePayment(Paymentac paymentac);
         void DeletePayment(int id);
         List<Report> Reports();

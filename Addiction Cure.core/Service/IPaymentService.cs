@@ -9,6 +9,7 @@ namespace Addiction_Cure.core.Service
     public interface IPaymentService
     {
         List<Paymentac> GetAllPayment();
+        Paymentac GetPaymentbypatid(int id);
         void CreatePayment(Paymentac paymentac);
         void UpdatePayment(Paymentac paymentac);
         void DeletePayment(int id);

@@ -56,5 +56,13 @@ namespace Addiction_Cure.infra.Repository
             IEnumerable<Report> result = dbContext.Connection.Query<Report>("Report_PACKAGE.Report_pay", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
+
+        public Paymentac GetPaymentbypatid(int id)
+        {
+            var p = new DynamicParameters();
+            p.Add("id", id, dbType: DbType.Int32, ParameterDirection.Input);
+          var x=  dbContext.Connection.Query<Paymentac>("paymentac_pack.Getpaymentacbypatid", p, commandType: CommandType.StoredProcedure);
+            return x.FirstOrDefault();
+        }
     }
 }

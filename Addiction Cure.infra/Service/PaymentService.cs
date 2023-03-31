@@ -38,5 +38,10 @@ namespace Addiction_Cure.infra.Service
         {
             return paymentRepository.Reports();
         }
+
+        public Paymentac GetPaymentbypatid(int id)
+        {
+            return paymentRepository.GetPaymentbypatid(id);
+        }
     }
 }
