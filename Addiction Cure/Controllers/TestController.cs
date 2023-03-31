@@ -55,5 +55,12 @@ namespace Addiction_Cure.Controllers
             testService.updateStatus(id, status);   
         }
 
+        [HttpGet]
+        [Route("Getanswer/{id}/{testnumber}")]
+        public List<TestWithquas> Getanswer(int id, int testnumber)
+        {
+            return testService.Getanswer(id, testnumber);   
+        }
+
     }
 }

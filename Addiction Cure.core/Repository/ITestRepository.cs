@@ -13,6 +13,8 @@ namespace Addiction_Cure.core.Repository
         void UpdateTest(Testac test);
         void DeleteTest(int id);
 
+        List<TestWithquas> Getanswer(int id , int testnumber);
+
         List<TestWithquas> GetByPatId(int id);
 
         void updateStatus(int id, int status);

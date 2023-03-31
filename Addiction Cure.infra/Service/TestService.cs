@@ -45,5 +45,10 @@ namespace Addiction_Cure.infra.Service
         {
             testRepository.updateStatus(id, status);    
         }
+
+        public List<TestWithquas> Getanswer(int id, int testnumber)
+        {
+            return testRepository.Getanswer(id, testnumber);    
+        }
     }
 }

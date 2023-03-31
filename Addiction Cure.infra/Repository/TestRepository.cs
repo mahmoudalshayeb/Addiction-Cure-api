@@ -71,5 +71,13 @@ namespace Addiction_Cure.infra.Repository
             dbContext.Connection.Execute("Testac_pack.UpdateStatus", p, commandType: CommandType.StoredProcedure);
         }
 
+        public List<TestWithquas> Getanswer(int id, int testnumber)
+        {
+            var p = new DynamicParameters();
+            p.Add("id", id, dbType: DbType.Int32, ParameterDirection.Input);
+            p.Add("testnumberac", testnumber, dbType: DbType.Int32, ParameterDirection.Input);
+            IEnumerable<TestWithquas> result = dbContext.Connection.Query<TestWithquas>("Testac_pack.Getanswer", p, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
     }
 }
