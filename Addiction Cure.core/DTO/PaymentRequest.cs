@@ -14,5 +14,8 @@ namespace Addiction_Cure.core.DTO
         public int Amount { get; set; }
         public string Email { get; set; }
         public string Currency { get; set; }
+        public string Level { get; set; }
+        public string CategoryName { get; set; }
+
     }
 }

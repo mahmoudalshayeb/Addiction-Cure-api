@@ -79,22 +79,23 @@ namespace Addiction_Cure.Controllers
 
 
                 var Renderer = new ChromePdfRenderer();
-                var pdf = Renderer.RenderHtmlAsPdf($" <h1> Thank you for your purchase from our store. </h1> \n\r <h1> The Total Price for your purchase is : $  " +
-                    $" </h1> \n\r <h1> <p> Number of Product is : </p> Product names :   </h1> <p>Order date From </p>" +
-                    $"<p> Customer name is: {paymentRequest.Name} </p>" +
-                    $"<p> Welcome To Awesome Magazine Store. </p>");
+                var pdf = Renderer.RenderHtmlAsPdf($"<h1>Thank you for your trust in us, and we will be at your best expectation of us, and throughout the period of your treatment, we will follow up your condition in cooperation with the best doctors.</h1>\r\n" +
+                    $"\r\n Patient Name:{paymentRequest.Name}\r\n" +
+                    $"\r\nPateint Addiction:{paymentRequest.CategoryName}\r\n" +
+                    $"\r\nPateint Level:{paymentRequest.Level}\r\n" +
+                    $"\r\nDate:{DateTime.Now}\r\n" +
+                    $"\r\nAmount:{paymentRequest.Amount}$\r\n");
                 pdf.SaveAs("Invoice.pdf");
-
-                string x = "Thank you for purchasing from our website. We hope you like our service";
+                string x = "Thank you for your trust in us, and we will be at your best expectation of us, and throughout the period of your treatment, we will follow up your condition in cooperation with the best doctors.";
 
                 MimeMessage message = new MimeMessage();
-                message.From.Add(new MailboxAddress("Store", "aboodghs88@gmail.com"));
+                message.From.Add(new MailboxAddress("Addiction Cure", "aboodghs88@gmail.com"));
                 message.To.Add(MailboxAddress.Parse(paymentRequest.Email));
                 message.Subject = "Invoice";
                 var builder = new BodyBuilder();
                 builder.TextBody = x;
-                builder.HtmlBody = "<p> Thank you for purchasing from our website. We hope you like our service </p>";
-                builder.Attachments.Add(@"C:\Users\User\Desktop\ABOOD\store\store\Invoice.pdf");
+//                builder.HtmlBody = "<h1>Thank you for your trust in us, and we will be at your best expectation of us, and throughout the period of your treatment, we will follow up your condition in cooperation with the best doctors.</h1>";
+                builder.Attachments.Add(@"C:\Users\User\source\Repos\aboodapi\Addiction-Cure-master\Addiction Cure\Invoice.pdf");
 
                 message.Body = builder.ToMessageBody();
 
@@ -102,13 +103,11 @@ namespace Addiction_Cure.Controllers
                 try
                 {
                     client.Connect("smtp.gmail.com", 587, MailKit.Security.SecureSocketOptions.StartTls);
-                    client.Authenticate("aboodghs88@gmail.com", "cwxyfbxgafyctoce");
+                    client.Authenticate("abedabood4567@gmail.com", "xbnvgxaxsyctuzcx");
                     client.Send(message);
-
                 }
                 catch (Exception)
                 {
-
                     throw;
                 }
                 finally
