@@ -18,7 +18,7 @@ namespace Addiction_Cure.Controllers
         {           
 
             MimeMessage message = new MimeMessage();
-            message.From.Add(new MailboxAddress("Addiction Cure", "aboodghs88@gmail.com"));
+            message.From.Add(new MailboxAddress("Addiction Cure", "alshayeb256@gmail.com"));
             message.To.Add(MailboxAddress.Parse(doctorEmail.PatientEmail));
             message.Subject = "Appointment confirmed";
             var builder = new BodyBuilder();
@@ -37,7 +37,7 @@ namespace Addiction_Cure.Controllers
             try
             {
                 client.Connect("smtp.gmail.com", 587, MailKit.Security.SecureSocketOptions.StartTls);
-                client.Authenticate("aboodghs88@gmail.com", "cwxyfbxgafyctoce");
+                client.Authenticate("alshayeb256@gmail.com", "pxjewazofmlwqazz");
                 client.Send(message);
 
             }

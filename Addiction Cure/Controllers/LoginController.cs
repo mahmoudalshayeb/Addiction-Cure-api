@@ -53,7 +53,7 @@ namespace Addiction_Cure.Controllers
         {
             var file = Request.Form.Files[0]; // 0 means the first image in postman  FORM DATA
             var fileName = Guid.NewGuid().ToString() + "_" + file.FileName; // INCYPTION OF THE IMAGE
-            var fullPath = Path.Combine("C:\\Users\\Msi1\\Desktop\\Addiction-Cure-Angular\\src\\assets\\images", fileName); // GET THE IMAGE AND ADD IT TO IMAGES FILE IN OUR PROJECT
+            var fullPath = Path.Combine("C:\\Users\\zex0\\Addiction-Cure-Angular\\src\\assets\\images", fileName); // GET THE IMAGE AND ADD IT TO IMAGES FILE IN OUR PROJECT
 
 
             using (var stream = new FileStream(fullPath, FileMode.Create))
